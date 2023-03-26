@@ -11,6 +11,12 @@ class LibraryViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        configureNavigationItems()
     }
 
+
+    private func configureNavigationItems() {
+        self.navigationItem.title = "Library"
+    }
 }
