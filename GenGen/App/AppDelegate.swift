@@ -17,8 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         configureSecrets()
 
         window = UIWindow(frame: UIScreen.main.bounds)
-        let vc = ViewController()
-        window?.rootViewController = vc
+        let tabBarController = MainTabBarController.create()
+        window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
 
         return true
