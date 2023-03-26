@@ -9,13 +9,20 @@ import UIKit
 
 public enum TabBarItemType: Int, Equatable {
     case generator
+    case library
 
     var viewController: UIViewController {
-        return ViewController()
+        switch self {
+        case .generator:    return GenerateViewController()
+        case .library:      return LibraryViewController()
+        }
     }
 
     var tabBarItem: UITabBarItem {
-        return UITabBarItem(title: "Generator", image: UIImage(named: "generateButton"), selectedImage: UIImage(named: "generateButton"))
+        switch self {
+        case .generator:    return UITabBarItem(title: "Generator", image: UIImage(named: "magicWand"), selectedImage: UIImage(named: "magicWand"))
+        case .library:      return UITabBarItem(title: "Library", image: UIImage(named: "book"), selectedImage: UIImage(named: "book"))
+        }
     }
 }
 
@@ -31,7 +38,10 @@ class MainTabBarController: UITabBarController {
         let generatorVC = TabBarItemType.generator.viewController
         generatorVC.tabBarItem = TabBarItemType.generator.tabBarItem
 
-        let viewControllerList: [UIViewController] = [generatorVC]
+        let libraryVC = TabBarItemType.library.viewController
+        libraryVC.tabBarItem = TabBarItemType.library.tabBarItem
+
+        let viewControllerList: [UIViewController] = [generatorVC, libraryVC]
 
         tabBarController.viewControllers = viewControllerList.map {
             return UINavigationController(rootViewController: $0)
