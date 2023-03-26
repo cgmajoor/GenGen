@@ -56,7 +56,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     }
 
     private func setColors() {
-        tabBar.tintColor = UIColor(named: "GGDarkGray")
-        tabBar.unselectedItemTintColor = UIColor(named: "GGGray")
+        tabBar.tintColor = AppTheme.TabBar.selectedItemColor
+        tabBar.unselectedItemTintColor = AppTheme.TabBar.unselectedItemColor
     }
 }

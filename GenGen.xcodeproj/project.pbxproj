@@ -14,6 +14,7 @@
 		F2BBC90E29D09CD2005B1952 /* GenerateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BBC90D29D09CD2005B1952 /* GenerateViewController.swift */; };
 		F2BBC91129D09D81005B1952 /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BBC91029D09D81005B1952 /* LibraryViewController.swift */; };
 		F2BBC91629D0A9B1005B1952 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BBC91529D0A9B1005B1952 /* BaseViewController.swift */; };
+		F2BBC91D29D0BC45005B1952 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BBC91C29D0BC45005B1952 /* AppTheme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		F2BBC90D29D09CD2005B1952 /* GenerateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateViewController.swift; sourceTree = "<group>"; };
 		F2BBC91029D09D81005B1952 /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
 		F2BBC91529D0A9B1005B1952 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		F2BBC91C29D0BC45005B1952 /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				F2404BBD29C0AB100050469E /* AppDelegate.swift */,
+				F2BBC91C29D0BC45005B1952 /* AppTheme.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -205,6 +208,7 @@
 				F2BBC91629D0A9B1005B1952 /* BaseViewController.swift in Sources */,
 				F2BBC90E29D09CD2005B1952 /* GenerateViewController.swift in Sources */,
 				F2B4908C29CF6DF7002E5D8B /* MainTabBarController.swift in Sources */,
+				F2BBC91D29D0BC45005B1952 /* AppTheme.swift in Sources */,
 				F2BBC91129D09D81005B1952 /* LibraryViewController.swift in Sources */,
 				F2404BBE29C0AB100050469E /* AppDelegate.swift in Sources */,
 			);
