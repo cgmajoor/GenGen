@@ -9,6 +9,7 @@ import UIKit
 
 enum GGColor: String {
     case GGBackground
+    case GGTabBarBackground
     case GGTabBarItemSelected
     case GGTabBarItemUnselected
 
@@ -22,6 +23,7 @@ struct AppTheme {
     struct TabBar {
         static var selectedItemColor = GGColor.GGTabBarItemSelected.uiColor
         static var unselectedItemColor = GGColor.GGTabBarItemUnselected.uiColor
+        static var backgroundColor = GGColor.GGTabBarBackground.uiColor
 
     }
 
