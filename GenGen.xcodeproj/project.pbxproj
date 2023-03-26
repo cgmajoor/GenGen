@@ -13,6 +13,7 @@
 		F2B4908C29CF6DF7002E5D8B /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B4908B29CF6DF7002E5D8B /* MainTabBarController.swift */; };
 		F2BBC90E29D09CD2005B1952 /* GenerateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BBC90D29D09CD2005B1952 /* GenerateViewController.swift */; };
 		F2BBC91129D09D81005B1952 /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BBC91029D09D81005B1952 /* LibraryViewController.swift */; };
+		F2BBC91629D0A9B1005B1952 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BBC91529D0A9B1005B1952 /* BaseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		F2B4908B29CF6DF7002E5D8B /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		F2BBC90D29D09CD2005B1952 /* GenerateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateViewController.swift; sourceTree = "<group>"; };
 		F2BBC91029D09D81005B1952 /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
+		F2BBC91529D0A9B1005B1952 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 		F2404BBC29C0AB100050469E /* GenGen */ = {
 			isa = PBXGroup;
 			children = (
+				F2BBC91429D0A996005B1952 /* Utility */,
 				F2B4908929CF6DB3002E5D8B /* Modules */,
 				F2B4908529CF6C67002E5D8B /* App */,
 				F2404BC629C0AB130050469E /* Assets.xcassets */,
@@ -119,6 +122,14 @@
 				F2BBC91029D09D81005B1952 /* LibraryViewController.swift */,
 			);
 			path = Library;
+			sourceTree = "<group>";
+		};
+		F2BBC91429D0A996005B1952 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				F2BBC91529D0A9B1005B1952 /* BaseViewController.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,6 +202,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2BBC91629D0A9B1005B1952 /* BaseViewController.swift in Sources */,
 				F2BBC90E29D09CD2005B1952 /* GenerateViewController.swift in Sources */,
 				F2B4908C29CF6DF7002E5D8B /* MainTabBarController.swift in Sources */,
 				F2BBC91129D09D81005B1952 /* LibraryViewController.swift in Sources */,

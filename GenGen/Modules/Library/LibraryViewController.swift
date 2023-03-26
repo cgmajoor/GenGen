@@ -7,12 +7,10 @@
 
 import UIKit
 
-class LibraryViewController: UIViewController {
+class LibraryViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.view.backgroundColor = .red
     }
 
 }

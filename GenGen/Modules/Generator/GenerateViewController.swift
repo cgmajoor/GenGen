@@ -7,12 +7,10 @@
 
 import UIKit
 
-class GenerateViewController: UIViewController {
+class GenerateViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        view.backgroundColor = .green
     }
 
 }

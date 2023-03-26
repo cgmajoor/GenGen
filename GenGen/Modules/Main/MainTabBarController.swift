@@ -26,10 +26,14 @@ public enum TabBarItemType: Int, Equatable {
     }
 }
 
-class MainTabBarController: UITabBarController {
+class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.delegate = self
+
+        setColors()
     }
 
     static func create(selectedTab: TabBarItemType = .generator) -> MainTabBarController {
@@ -49,5 +53,10 @@ class MainTabBarController: UITabBarController {
         tabBarController.selectedIndex = TabBarItemType.generator.rawValue
 
         return tabBarController
+    }
+
+    private func setColors() {
+        tabBar.tintColor = UIColor(named: "GGDarkGray")
+        tabBar.unselectedItemTintColor = UIColor(named: "GGGray")
     }
 }
