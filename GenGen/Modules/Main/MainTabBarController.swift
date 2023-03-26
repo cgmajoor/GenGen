@@ -48,7 +48,9 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         let viewControllerList: [UIViewController] = [generatorVC, libraryVC]
 
         tabBarController.viewControllers = viewControllerList.map {
-            return UINavigationController(rootViewController: $0)
+            let navigationController = UINavigationController(rootViewController: $0)
+            navigationController.navigationBar.backgroundColor = AppTheme.TabBar.backgroundColor
+            return navigationController
         }
         tabBarController.selectedIndex = TabBarItemType.generator.rawValue
 
