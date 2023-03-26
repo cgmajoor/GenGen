@@ -14,10 +14,13 @@ public enum TabBarItemType: Int, Equatable {
     case library
 
     var viewController: UIViewController {
+        var viewController: UIViewController
         switch self {
-        case .generator:    return GenerateViewController()
-        case .library:      return LibraryViewController()
+        case .generator:    viewController = GenerateViewController()
+        case .library:      viewController = LibraryViewController()
         }
+        viewController.tabBarItem = self.tabBarItem
+        return viewController
     }
 
     var tabBarItem: UITabBarItem {
@@ -30,7 +33,8 @@ public enum TabBarItemType: Int, Equatable {
 
 // MARK: - MainTabbarController
 
-class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
+final class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
+    static let tabBarController = MainTabBarController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,23 +47,21 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     // MARK: - Creation
 
     static func create(selectedTab: TabBarItemType = .generator) -> MainTabBarController {
-        let tabBarController = MainTabBarController()
 
         let generatorVC = TabBarItemType.generator.viewController
-        generatorVC.tabBarItem = TabBarItemType.generator.tabBarItem
-
         let libraryVC = TabBarItemType.library.viewController
-        libraryVC.tabBarItem = TabBarItemType.library.tabBarItem
 
         let viewControllerList: [UIViewController] = [generatorVC, libraryVC]
 
-        setViewControllers(tabBarController, viewControllerList)
+        setViewControllers(viewControllerList)
+
         tabBarController.selectedIndex = TabBarItemType.generator.rawValue
 
         return tabBarController
     }
 
-    private static func setViewControllers(_ tabBarController: MainTabBarController, _ viewControllerList: [UIViewController]) {
+    /** Embed each ViewController in tabbarController in a UINavigationController */
+    private static func setViewControllers(_ viewControllerList: [UIViewController]) {
         tabBarController.viewControllers = viewControllerList.map {
             let navigationController = UINavigationController(rootViewController: $0)
             navigationController.navigationBar.backgroundColor = AppTheme.TabBar.Color.background
