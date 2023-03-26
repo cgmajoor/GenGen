@@ -7,6 +7,8 @@
 
 import UIKit
 
+// MARK: - Asset list
+
 enum GGColor: String {
     case background
     case tabBarBackground
@@ -29,23 +31,30 @@ enum GGImage: String {
     }
 }
 
+// MARK: - App's style tree
+
 struct AppTheme {
 
     struct TabBar {
-        static var selectedItemColor = GGColor.tabBarItemSelected.uiColor
-        static var unselectedItemColor = GGColor.tabBarItemUnselected.uiColor
-        static var backgroundColor = GGColor.tabBarBackground.uiColor
-
+        struct Color {
+            static var selectedItem = GGColor.tabBarItemSelected.uiColor
+            static var unselectedItem = GGColor.tabBarItemUnselected.uiColor
+            static var background = GGColor.tabBarBackground.uiColor
+        }
+        struct Image {
+            static var generator = GGImage.magicWand.uiImage
+            static var library = GGImage.book.uiImage
+        }
     }
 
     struct Main {
-        enum Color {
+        struct Color {
             static var background = GGColor.background.uiColor
         }
     }
 
     struct Navigation {
-        enum Image {
+        struct Image {
             static var logo = GGImage.logo.uiImage
             static var help = GGImage.help.uiImage
         }

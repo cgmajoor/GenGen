@@ -15,7 +15,6 @@ class LibraryViewController: BaseViewController {
         configureNavigationItems()
     }
 
-
     private func configureNavigationItems() {
         self.navigationItem.title = "Library"
     }

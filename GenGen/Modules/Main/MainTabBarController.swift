@@ -7,6 +7,8 @@
 
 import UIKit
 
+// MARK: - TabBar Items
+
 public enum TabBarItemType: Int, Equatable {
     case generator
     case library
@@ -20,11 +22,13 @@ public enum TabBarItemType: Int, Equatable {
 
     var tabBarItem: UITabBarItem {
         switch self {
-        case .generator:    return UITabBarItem(title: "Generator", image: UIImage(named: "magicWand"), selectedImage: UIImage(named: "magicWand"))
-        case .library:      return UITabBarItem(title: "Library", image: UIImage(named: "book"), selectedImage: UIImage(named: "book"))
+        case .generator:    return UITabBarItem(title: "Generator", image: AppTheme.TabBar.Image.generator, selectedImage: AppTheme.TabBar.Image.generator)
+        case .library:      return UITabBarItem(title: "Library", image: AppTheme.TabBar.Image.library, selectedImage: AppTheme.TabBar.Image.library)
         }
     }
 }
+
+// MARK: - MainTabbarController
 
 class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
 
@@ -35,6 +39,8 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
 
         setColors()
     }
+
+    // MARK: - Creation
 
     static func create(selectedTab: TabBarItemType = .generator) -> MainTabBarController {
         let tabBarController = MainTabBarController()
@@ -56,14 +62,16 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     private static func setViewControllers(_ tabBarController: MainTabBarController, _ viewControllerList: [UIViewController]) {
         tabBarController.viewControllers = viewControllerList.map {
             let navigationController = UINavigationController(rootViewController: $0)
-            navigationController.navigationBar.backgroundColor = AppTheme.TabBar.backgroundColor
+            navigationController.navigationBar.backgroundColor = AppTheme.TabBar.Color.background
             return navigationController
         }
     }
 
+    // MARK: - Style
+    
     private func setColors() {
-        tabBar.tintColor = AppTheme.TabBar.selectedItemColor
-        tabBar.unselectedItemTintColor = AppTheme.TabBar.unselectedItemColor
-        tabBar.backgroundColor = AppTheme.TabBar.backgroundColor
+        tabBar.tintColor = AppTheme.TabBar.Color.selectedItem
+        tabBar.unselectedItemTintColor = AppTheme.TabBar.Color.unselectedItem
+        tabBar.backgroundColor = AppTheme.TabBar.Color.background
     }
 }
