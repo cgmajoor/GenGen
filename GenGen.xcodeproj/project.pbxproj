@@ -10,6 +10,7 @@
 		F2404BBE29C0AB100050469E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2404BBD29C0AB100050469E /* AppDelegate.swift */; };
 		F2404BC729C0AB130050469E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2404BC629C0AB130050469E /* Assets.xcassets */; };
 		F2404BCA29C0AB130050469E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2404BC829C0AB130050469E /* LaunchScreen.storyboard */; };
+		F2A9B08129D76581004C646B /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A9B08029D76581004C646B /* AppConfig.swift */; };
 		F2B4908C29CF6DF7002E5D8B /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B4908B29CF6DF7002E5D8B /* MainTabBarController.swift */; };
 		F2BBC90E29D09CD2005B1952 /* GenerateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BBC90D29D09CD2005B1952 /* GenerateViewController.swift */; };
 		F2BBC91129D09D81005B1952 /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BBC91029D09D81005B1952 /* LibraryViewController.swift */; };
@@ -26,6 +27,7 @@
 		F24265B729C0B57800B16F5F /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		F24265B829C0B5AA00B16F5F /* ConfigDebug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ConfigDebug.xcconfig; sourceTree = "<group>"; };
 		F24265B929C0B5BF00B16F5F /* ConfigRelease.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ConfigRelease.xcconfig; sourceTree = "<group>"; };
+		F2A9B08029D76581004C646B /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		F2B4908B29CF6DF7002E5D8B /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		F2BBC90D29D09CD2005B1952 /* GenerateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateViewController.swift; sourceTree = "<group>"; };
 		F2BBC91029D09D81005B1952 /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
@@ -64,9 +66,9 @@
 		F2404BBC29C0AB100050469E /* GenGen */ = {
 			isa = PBXGroup;
 			children = (
-				F2BBC91429D0A996005B1952 /* Utility */,
-				F2B4908929CF6DB3002E5D8B /* Modules */,
 				F2B4908529CF6C67002E5D8B /* App */,
+				F2B4908929CF6DB3002E5D8B /* Modules */,
+				F2BBC91429D0A996005B1952 /* Utility */,
 				F2404BC629C0AB130050469E /* Assets.xcassets */,
 				F2404BC829C0AB130050469E /* LaunchScreen.storyboard */,
 				F2404BCB29C0AB130050469E /* Info.plist */,
@@ -88,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				F2404BBD29C0AB100050469E /* AppDelegate.swift */,
+				F2A9B08029D76581004C646B /* AppConfig.swift */,
 				F2BBC91C29D0BC45005B1952 /* AppTheme.swift */,
 			);
 			path = App;
@@ -208,6 +211,7 @@
 				F2BBC91629D0A9B1005B1952 /* BaseViewController.swift in Sources */,
 				F2BBC90E29D09CD2005B1952 /* GenerateViewController.swift in Sources */,
 				F2B4908C29CF6DF7002E5D8B /* MainTabBarController.swift in Sources */,
+				F2A9B08129D76581004C646B /* AppConfig.swift in Sources */,
 				F2BBC91D29D0BC45005B1952 /* AppTheme.swift in Sources */,
 				F2BBC91129D09D81005B1952 /* LibraryViewController.swift in Sources */,
 				F2404BBE29C0AB100050469E /* AppDelegate.swift in Sources */,
@@ -362,7 +366,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 4.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tiwworks.GenGen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -389,7 +393,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 4.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tiwworks.GenGen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
