@@ -14,5 +14,5 @@ import Foundation
  */
 struct Rule {
     var active: Bool
-    var categories: [Category]
+    var categories: [WordCategory]
 }

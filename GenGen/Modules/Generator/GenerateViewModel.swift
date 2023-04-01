@@ -30,6 +30,6 @@ class GenerateViewModel: Generating {
                             .categories.compactMap { category in
                                 category.words.randomElement()
                             }.joined(separator: " ") ?? ""
-        return ""
+        return generatedStr
     }
 }

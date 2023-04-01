@@ -60,7 +60,7 @@ final class GenerateViewModelTests: XCTestCase {
     }
 
     // MARK: - Test Conditions
-    enum TestCondition {
+    enum GeneratorTestCondition {
         case noRules
         case oneInactiveRule
         case oneActiveRuleWithEmptyCategory
@@ -69,22 +69,25 @@ final class GenerateViewModelTests: XCTestCase {
     }
 
     // MARK: - Make System Under Test
-    private func makeSut(with testCondition: TestCondition) -> GenerateViewModel {
-
+    private func makeSut(with testCondition: GeneratorTestCondition) -> GenerateViewModel {
         var sut: GenerateViewModel
         
         let emptyWords = [String]()
         let wordsWith1WordPink = ["pink"]
         let wordsWith1WordPanda = ["panda"]
 
-        let emptyCategory = Category(name: "color", words: emptyWords)
-        let colorCategoryWith1Word = Category(name: "colors", words: wordsWith1WordPink)
-        let animalCategoryWith1Word = Category(name: "animal", words: wordsWith1WordPanda)
+        let emptyCategory = WordCategory(name: "color", words: emptyWords)
+        let colorCategoryWith1Word = WordCategory(name: "colors", words: wordsWith1WordPink)
+        let animalCategoryWith1Word = WordCategory(name: "animal", words: wordsWith1WordPanda)
 
         switch testCondition {
         case .noRules:
             let noRules = [Rule]()
             sut = GenerateViewModel(rules: noRules)
+        case .oneInactiveRule:
+            let inactiveRule = Rule(active: false, categories: [colorCategoryWith1Word])
+            let rules = [inactiveRule]
+            sut = GenerateViewModel(rules: rules)
         case .oneActiveRuleWithEmptyCategory:
             let activeRuleWithEmptyCategory = Rule(active: true, categories: [emptyCategory])
             let rules = [activeRuleWithEmptyCategory]
@@ -92,10 +95,6 @@ final class GenerateViewModelTests: XCTestCase {
         case .oneActiveRuleWith1PossibleOutcome:
             let ruleWith1Category = Rule(active: true, categories: [colorCategoryWith1Word])
             let rules = [ruleWith1Category]
-            sut = GenerateViewModel(rules: rules)
-        case .oneInactiveRule:
-            let inactiveRule = Rule(active: false, categories: [colorCategoryWith1Word])
-            let rules = [inactiveRule]
             sut = GenerateViewModel(rules: rules)
         case .oneActiveRuleWith2Categories1PossibleOutcome:
             let activeRuleColorAnimal = Rule(active: true, categories: [colorCategoryWith1Word, animalCategoryWith1Word])

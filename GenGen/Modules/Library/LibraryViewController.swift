@@ -7,10 +7,10 @@
 
 import UIKit
 
-class LibraryViewController: BaseViewController, UITableViewDataSource {
+class LibraryViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate {
 
     // MARK: - Dependencies
-    var categories: [Category]
+    var categories: [WordCategory]
 
     // MARK: - UI
     lazy var headerLabel = GGLabel(textColor: AppTheme.Navigation.Color.library,
@@ -19,12 +19,13 @@ class LibraryViewController: BaseViewController, UITableViewDataSource {
 
     lazy var tableView: UITableView = {
         let tableView = UITableView()
+        tableView.estimatedRowHeight = 30.0
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
 
     // MARK: - LifeCycle
-    init(categories: [Category] = []) {
+    init(categories: [WordCategory] = []) {
         self.categories = categories
         super.init(nibName: nil, bundle: nil)
     }
@@ -37,6 +38,9 @@ class LibraryViewController: BaseViewController, UITableViewDataSource {
         super.viewDidLoad()
 
         configureNavigationItems()
+        setup()
+
+        loadWordCategories()
     }
 
     // MARK: - TableView
@@ -45,11 +49,29 @@ class LibraryViewController: BaseViewController, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Texts.wordCategoryTableViewCell, for: indexPath) as? WordCategoryTableViewCell else {
+            return UITableViewCell()
+        }
+
+        cell.configure(wordCategory: categories[indexPath.row])
+        return cell
     }
 
     // MARK: - Configurations
     private func configureNavigationItems() {
         self.navigationItem.titleView = headerLabel
+    }
+
+    private func setup() {
+        tableView.register(WordCategoryTableViewCell.self, forCellReuseIdentifier: Texts.wordCategoryTableViewCell)
+        tableView.dataSource = self
+        tableView.delegate = self
+
+        view.addSubview(tableView)
+        view.embedToSafeArea(view: tableView)
+    }
+
+    private func loadWordCategories() {
+        tableView.reloadData()
     }
 }

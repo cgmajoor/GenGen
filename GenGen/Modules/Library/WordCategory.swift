@@ -13,7 +13,7 @@ import Foundation
  -  Ex2: A size category might have items such as ["tiny", "giant"]
  -  Ex3: An animal category might have items such as ["cat", "panda", "turtle"]
  */
-struct Category {
+struct WordCategory {
     var name: String
     var words: [String]
 }

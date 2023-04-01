@@ -8,6 +8,9 @@
 import Foundation
 
 struct Texts {
+    // MARK: - Identifiers
+    static let wordCategoryTableViewCell = String(describing: WordCategoryTableViewCell.self)
+    
     // MARK: - Color Asset Names
     static let ggWhite = "ggWhite"
     static let ggLightGray = "ggLightGray"

@@ -21,7 +21,7 @@ class GGLabel: UILabel {
     init(backgroundColor: UIColor = .clear,
          textColor: UIColor = AppTheme.Main.Color.labelTitle,
          font: UIFont = AppTheme.Main.FontStyle.generationLabel,
-         fullText: String) {
+         fullText: String = "") {
         super.init(frame: .zero)
         self.backgroundColor = backgroundColor
         self.textColor = textColor
