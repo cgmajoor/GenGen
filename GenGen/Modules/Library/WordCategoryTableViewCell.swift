@@ -29,8 +29,14 @@ class WordCategoryTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
 
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        label = nil
+    }
+
     func configure(wordCategory: WordCategory) {
-        label = GGLabel(textColor: .systemPink, font: AppTheme.Main.FontStyle.label, fullText: wordCategory.name)
+        label?.removeFromSuperview()
+        label = GGLabel(textColor: AppTheme.Main.Color.labelTitle, font: AppTheme.Main.FontStyle.label, fullText: wordCategory.name)
         guard let label = self.label else {
             return
         }
@@ -40,6 +46,6 @@ class WordCategoryTableViewCell: UITableViewCell {
     // MARK: - Setup
     private func setup() {
         backgroundColor = AppTheme.Main.Color.background
-        contentView.backgroundColor = AppTheme.Main.Color.buttonBackground
+        contentView.backgroundColor = AppTheme.Main.Color.background
     }
 }

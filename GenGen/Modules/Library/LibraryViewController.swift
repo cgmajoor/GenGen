@@ -19,7 +19,6 @@ class LibraryViewController: BaseViewController, UITableViewDataSource, UITableV
 
     lazy var tableView: UITableView = {
         let tableView = UITableView()
-        tableView.estimatedRowHeight = 30.0
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
