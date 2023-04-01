@@ -15,6 +15,7 @@ enum GGColor: String {
     case ggDarkGray
     case ggGray
     case ggBlack
+    case ggPink
 
     var uiColor: UIColor {
         return UIColor(named: self.rawValue) ?? .systemBackground
@@ -57,7 +58,8 @@ struct AppTheme {
             static var buttonTitle = GGColor.ggWhite.uiColor
         }
         struct FontStyle {
-            static var buttonTitle = UIFont.preferredFont(forTextStyle: .headline)
+            static var buttonTitle = UIFont(name: "ArialRoundedMTBold", size: 20.0) ?? UIFont.preferredFont(forTextStyle: .headline)
+            static var generationLabel = UIFont(name: "Futura-Medium", size: 24.0) ?? UIFont.preferredFont(forTextStyle: .headline)
         }
         struct Padding {
             static var horizontal: CGFloat = 20.0
@@ -72,6 +74,12 @@ struct AppTheme {
         struct Image {
             static var logo = GGImage.logo.uiImage
             static var help = GGImage.help.uiImage
+        }
+        struct Color {
+            static var library = GGColor.ggPink.uiColor
+        }
+        struct FontStyle {
+            static var title = UIFont(name: "ArialRoundedMTBold", size: 26.0) ?? UIFont.preferredFont(forTextStyle: .headline)
         }
     }
 

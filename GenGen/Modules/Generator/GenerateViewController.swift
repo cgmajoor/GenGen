@@ -14,7 +14,6 @@ class GenerateViewController: BaseViewController {
 
     // MARK: - UI
     private lazy var generationLabel = GGLabel(backgroundColor: AppTheme.Main.Color.labelBackground,
-                                               textColor: AppTheme.Main.Color.labelTitle,
                                                fullText: "")
 
     private lazy var helpButton: UIBarButtonItem = {
