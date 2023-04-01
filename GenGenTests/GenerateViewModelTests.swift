@@ -12,7 +12,8 @@ import XCTest
 final class GenerateViewModelTests: XCTestCase {
 
     func test_GenerateViewModel_withNoRules_generatedStrIsEmpty() throws {
-        let sut = GenerateViewModel()
+        let noRules = [[String]]()
+        let sut = GenerateViewModel(rules: noRules)
 
         sut.generate()
 

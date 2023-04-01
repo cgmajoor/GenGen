@@ -14,10 +14,16 @@ protocol Generating {
 }
 
 class GenerateViewModel: Generating {
+    typealias Rule = [String]
+
     var generatedStr: String = ""
+    var rules: [Rule]
+
+    init(rules: [Rule] = []){
+        self.rules = rules
+    }
 
     func generate() {
-        generatedStr = "something"
         print("generated: \(generatedStr)")
     }
 }
