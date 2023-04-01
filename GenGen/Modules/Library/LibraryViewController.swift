@@ -17,10 +17,8 @@ class LibraryViewController: BaseViewController {
 
     // MARK: - Configurations
     private func configureNavigationItems() {
-        let label = UILabel()
-        label.textColor = AppTheme.Navigation.Color.library
-        label.font = AppTheme.Navigation.FontStyle.title
-        label.text = "Library"
-        self.navigationItem.titleView = label
+        self.navigationItem.titleView = GGLabel(textColor: AppTheme.Navigation.Color.library,
+                                                font:AppTheme.Navigation.FontStyle.title,
+                                                fullText: Texts.libraryNavigationTitle)
     }
 }
