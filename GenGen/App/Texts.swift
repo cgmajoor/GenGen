@@ -8,6 +8,24 @@
 import Foundation
 
 struct Texts {
+    // MARK: - Color Asset Names
+    static let ggWhite = "ggWhite"
+    static let ggLightGray = "ggLightGray"
+    static let ggDarkGray = "ggDarkGray"
+    static let ggGray = "ggGray"
+    static let ggBlack = "ggBlack"
+    static let ggPink = "ggPink"
+
+    // MARK: - Image Asset Names
+    static let logo = "logo"
+    static let help = "help"
+    static let magicWand = "magicWand"
+    static let book = "book"
+
+    // MARK: - Font Names
+    static let arialRoundedMTBold = "ArialRoundedMTBold"
+    static let futuraMedium = "Futura-Medium"
+
     // MARK: - TabBarItems
     static let generatorTabBarTitle = "Generator"
     static let libraryTabBarTitle = "Library"

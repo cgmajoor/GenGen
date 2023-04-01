@@ -26,10 +26,10 @@ class GenerateViewModel: Generating {
 
     func generate() -> String {
         generatedStr = rules.filter(\.active)
-            .randomElement()?
-            .categories.compactMap { category in
-                category.words.randomElement()
-            }.joined(separator: " ") ?? ""
+                            .randomElement()?
+                            .categories.compactMap { category in
+                                category.words.randomElement()
+                            }.joined(separator: " ") ?? ""
         return ""
     }
 }

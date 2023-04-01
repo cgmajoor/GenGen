@@ -25,7 +25,7 @@ class GenerateViewController: BaseViewController {
         return barButtonItem
     }()
     
-    private lazy var generateButton: GGButton = {
+    lazy var generateButton: GGButton = {
         let button = GGButton(backgroundColor: AppTheme.Main.Color.buttonBackground, title: Texts.generateButtonTitle)
         button.addTarget(self, action: #selector(generateTapped), for: .touchUpInside)
         return button
