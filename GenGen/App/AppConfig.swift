@@ -1,27 +1,16 @@
 //
-//  AppDelegate.swift
+//  AppConfig.swift
 //  GenGen
 //
-//  Created by Ceren Gazioglu Majoor on 14/03/2023.
+//  Created by Ceren Gazioglu Majoor on 31/03/2023.
 //
 
 import UIKit
 
-@main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+struct AppConfig {
 
-    var window: UIWindow?
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-
+    static func configure(_ application: UIApplication) {
         configureSecrets()
-
-        window = UIWindow(frame: UIScreen.main.bounds)
-        let vc = ViewController()
-        window?.rootViewController = vc
-        window?.makeKeyAndVisible()
-
-        return true
     }
 
     /**
@@ -38,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
      4. Add to Project -> Info -> Add Custom iOS Target Property: with the name of the variable you use in the Config.
      -  EX: name: API_KEY, type: String, value: $(API_KEY)
      */
-    private func configureSecrets() {
+    private static func configureSecrets() {
         guard let apiKey = Bundle.main.object(forInfoDictionaryKey: "API_KEY" as String) else {
             print("LOG: Couldn't find API_KEY")
             return
@@ -46,4 +35,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("API_KEY: \(apiKey)")
     }
 }
-
