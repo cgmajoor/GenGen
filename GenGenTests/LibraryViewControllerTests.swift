@@ -11,11 +11,19 @@ import XCTest
 final class LibraryViewControllerTests: XCTestCase {
 
     func test_viewDidLoad_showsHeaderText() throws {
-        let sut = LibraryViewController()
+        let sut = LibraryViewController(categories: [])
 
         _ = sut.view
 
         XCTAssertEqual(sut.headerLabel.text, Texts.libraryNavigationTitle)
+    }
+
+    func test_viewDidLoad_withNoCategories_showsNoCategories() throws {
+        let sut = LibraryViewController(categories: [])
+
+        _ = sut.view
+
+        XCTAssertEqual(sut.tableView.numberOfRows(inSection: 0), 0)
     }
 
 }
