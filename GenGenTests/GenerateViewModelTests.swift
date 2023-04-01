@@ -11,7 +11,7 @@ import XCTest
 
 final class GenerateViewModelTests: XCTestCase {
 
-    func test_GenerateViewModel_withNoRules_generatedStrIsEmpty() throws {
+    func test_GenerateViewModel_withNoRules_generationIsEmpty() throws {
         let noRules = [Rule]()
         let sut = GenerateViewModel(rules: noRules)
 
@@ -20,10 +20,10 @@ final class GenerateViewModelTests: XCTestCase {
         XCTAssertEqual(sut.generatedStr, "")
     }
 
-    func test_GenerateViewModel_with1Rule_generatedStrIsEmpty() throws {
-        let category1 = Category(name: "color", items: [])
-        let rule1 = Rule(categories: [category1])
-        let rules = [rule1]
+    func test_GenerateViewModel_with1ActiveRuleWithEmptyCategory_generationIsEmpty() throws {
+        let emptyCategory = Category(name: "color", words: [])
+        let activeRuleWithEmptyCategory = Rule(active: true, categories: [emptyCategory])
+        let rules = [activeRuleWithEmptyCategory]
         let sut = GenerateViewModel(rules: rules)
 
         sut.generate()
@@ -31,4 +31,15 @@ final class GenerateViewModelTests: XCTestCase {
         XCTAssertEqual(sut.generatedStr, "")
     }
 
+    func test_GenerateViewModel_with1ActiveRuleWith1Possibility_generationIsCorrect() throws {
+        let oneWord = ["pink"]
+        let categoryWith1Word = Category(name: "colors", words: oneWord)
+        let ruleWith1Category = Rule(active: true, categories: [categoryWith1Word])
+        let rules = [ruleWith1Category]
+        let sut = GenerateViewModel(rules: rules)
+
+        sut.generate()
+
+        XCTAssertEqual(sut.generatedStr, "pink")
+    }
 }

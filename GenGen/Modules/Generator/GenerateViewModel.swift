@@ -25,6 +25,10 @@ class GenerateViewModel: Generating {
     }
 
     func generate() {
-        print("generated: \(generatedStr)")
+        rules.filter(\.active)
+            .randomElement()?
+            .categories.forEach { category in
+                generatedStr += category.words.randomElement() ?? ""
+            }
     }
 }

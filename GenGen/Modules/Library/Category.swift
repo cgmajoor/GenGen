@@ -15,5 +15,5 @@ import Foundation
  */
 struct Category {
     var name: String
-    var items: [String]
+    var words: [String]
 }

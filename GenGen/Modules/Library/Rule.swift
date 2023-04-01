@@ -13,5 +13,6 @@ import Foundation
  -  Ex2: Another rule can be defined as [color, action, animal] = pink jumping panda
  */
 struct Rule {
+    var active: Bool
     var categories: [Category]
 }
