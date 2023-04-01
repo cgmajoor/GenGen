@@ -11,6 +11,7 @@ import UIKit
 
 enum GGColor: String {
     case background
+    case lightTitle
     case tabBarBackground
     case tabBarItemSelected
     case tabBarItemUnselected
@@ -50,6 +51,18 @@ struct AppTheme {
     struct Main {
         struct Color {
             static var background = GGColor.background.uiColor
+            static var buttonBackground = GGColor.tabBarItemSelected.uiColor
+            static var buttonTitle = GGColor.lightTitle.uiColor
+        }
+        struct FontStyle {
+            static var buttonTitle = UIFont.preferredFont(forTextStyle: .headline)
+        }
+        struct Padding {
+            static var horizontal: CGFloat = 20.0
+            static var vertical: CGFloat = 10.0
+        }
+        struct Size {
+            static var buttonHeight: CGFloat = 80.0
         }
     }
 
