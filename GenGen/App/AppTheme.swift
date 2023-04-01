@@ -10,11 +10,11 @@ import UIKit
 // MARK: - Asset list
 
 enum GGColor: String {
-    case background
-    case lightTitle
-    case tabBarBackground
-    case tabBarItemSelected
-    case tabBarItemUnselected
+    case ggWhite
+    case ggLightGray
+    case ggDarkGray
+    case ggGray
+    case ggBlack
 
     var uiColor: UIColor {
         return UIColor(named: self.rawValue) ?? .systemBackground
@@ -38,9 +38,9 @@ struct AppTheme {
 
     struct TabBar {
         struct Color {
-            static var selectedItem = GGColor.tabBarItemSelected.uiColor
-            static var unselectedItem = GGColor.tabBarItemUnselected.uiColor
-            static var background = GGColor.tabBarBackground.uiColor
+            static var selectedItem = GGColor.ggDarkGray.uiColor
+            static var unselectedItem = GGColor.ggGray.uiColor
+            static var background = GGColor.ggLightGray.uiColor
         }
         struct Image {
             static var generator = GGImage.magicWand.uiImage
@@ -50,9 +50,11 @@ struct AppTheme {
 
     struct Main {
         struct Color {
-            static var background = GGColor.background.uiColor
-            static var buttonBackground = GGColor.tabBarItemSelected.uiColor
-            static var buttonTitle = GGColor.lightTitle.uiColor
+            static var background = GGColor.ggWhite.uiColor
+            static var labelBackground = GGColor.ggLightGray.uiColor
+            static var labelTitle = GGColor.ggBlack.uiColor
+            static var buttonBackground = GGColor.ggDarkGray.uiColor
+            static var buttonTitle = GGColor.ggWhite.uiColor
         }
         struct FontStyle {
             static var buttonTitle = UIFont.preferredFont(forTextStyle: .headline)

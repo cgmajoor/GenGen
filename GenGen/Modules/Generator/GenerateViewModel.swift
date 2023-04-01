@@ -10,7 +10,7 @@ import Foundation
 protocol Generating {
     var generatedStr: String { get }
 
-    func generate()
+    func generate() -> String
 }
 
 class GenerateViewModel: Generating {
@@ -24,11 +24,12 @@ class GenerateViewModel: Generating {
         self.rules = rules
     }
 
-    func generate() {
+    func generate() -> String {
         generatedStr = rules.filter(\.active)
             .randomElement()?
             .categories.compactMap { category in
                 category.words.randomElement()
             }.joined(separator: " ") ?? ""
+        return generatedStr
     }
 }

@@ -11,10 +11,18 @@ import XCTest
 
 final class GenerateViewModelTests: XCTestCase {
 
+    func test_GenerateViewModel_generateReturnsGeneratedStr() throws {
+        let sut = makeSut(with: .oneActiveRuleWith1PossibleOutcome)
+
+        let generation = sut.generate()
+
+        XCTAssertEqual(sut.generatedStr, generation)
+    }
+
     func test_GenerateViewModel_withNoRules_generationIsEmpty() throws {
         let sut = makeSut(with: .noRules)
 
-        sut.generate()
+        _ = sut.generate()
 
         XCTAssertEqual(sut.generatedStr, "")
     }
@@ -22,7 +30,7 @@ final class GenerateViewModelTests: XCTestCase {
     func test_GenerateViewModel_with1InactiveRule_generationIsEmpty() throws {
         let sut = makeSut(with: .oneInactiveRule)
 
-        sut.generate()
+        _ = sut.generate()
 
         XCTAssertEqual(sut.generatedStr, "")
     }
@@ -30,7 +38,7 @@ final class GenerateViewModelTests: XCTestCase {
     func test_GenerateViewModel_with1ActiveRuleWithEmptyCategory_generationIsEmpty() throws {
         let sut = makeSut(with: .oneActiveRuleWithEmptyCategory)
 
-        sut.generate()
+        _ = sut.generate()
 
         XCTAssertEqual(sut.generatedStr, "")
     }
@@ -38,7 +46,7 @@ final class GenerateViewModelTests: XCTestCase {
     func test_GenerateViewModel_with1ActiveRuleWith1PossibleOutcome_generationIsCorrect() throws {
         let sut = makeSut(with: .oneActiveRuleWith1PossibleOutcome)
 
-        sut.generate()
+        _ = sut.generate()
 
         XCTAssertEqual(sut.generatedStr, "pink")
     }
@@ -46,7 +54,7 @@ final class GenerateViewModelTests: XCTestCase {
     func test_GenerateViewModel_with1ActiveRuleWith2CategoriesWith1PossibleOutcome_generationIsCorrect() throws {
         let sut = makeSut(with: .oneActiveRuleWith2Categories1PossibleOutcome)
 
-        sut.generate()
+        _ = sut.generate()
 
         XCTAssertEqual(sut.generatedStr, "pink panda")
     }

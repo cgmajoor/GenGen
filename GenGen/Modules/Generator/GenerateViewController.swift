@@ -13,11 +13,16 @@ class GenerateViewController: BaseViewController {
     var generateViewModel: Generating
 
     // MARK: - UI
+    private lazy var generationLabel = GGLabel(backgroundColor: AppTheme.Main.Color.labelBackground,
+                                               textColor: AppTheme.Main.Color.labelTitle,
+                                               fullText: "")
+
     private lazy var helpButton: UIBarButtonItem = {
         let barButtonItem = UIBarButtonItem(image: AppTheme.Navigation.Image.help,
                                             style: .plain,
                                             target: self,
                                             action: #selector(helpTapped))
+        barButtonItem.tintColor = AppTheme.Main.Color.buttonBackground
         return barButtonItem
     }()
     
@@ -46,13 +51,23 @@ class GenerateViewController: BaseViewController {
 
     // MARK: - Setup
     private func setup() {
+        view.addSubview(generationLabel)
         view.addSubview(generateButton)
 
+        let horizontalPadding = AppTheme.Main.Padding.horizontal
+        let verticalPadding = AppTheme.Main.Padding.horizontal
+
         NSLayoutConstraint.activate([
+            generationLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            generationLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: verticalPadding),
+            generationLabel.bottomAnchor.constraint(equalTo: generateButton.topAnchor, constant: -verticalPadding),
+            generationLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: horizontalPadding),
+            generationLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -horizontalPadding),
+
             generateButton.heightAnchor.constraint(equalToConstant: AppTheme.Main.Size.buttonHeight),
-            generateButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: AppTheme.Main.Padding.horizontal),
-            generateButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -AppTheme.Main.Padding.horizontal),
-            generateButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -AppTheme.Main.Padding.vertical)
+            generateButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: horizontalPadding),
+            generateButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -horizontalPadding),
+            generateButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -verticalPadding)
         ])
     }
 
@@ -68,6 +83,6 @@ class GenerateViewController: BaseViewController {
     }
 
     @objc private func generateTapped() {
-        generateViewModel.generate()
+        generationLabel.text = generateViewModel.generate()
     }
 }
