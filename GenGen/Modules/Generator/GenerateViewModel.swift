@@ -14,11 +14,12 @@ protocol Generating {
 }
 
 class GenerateViewModel: Generating {
-    typealias Rule = [String]
 
+    // MARK: - Properties
     var generatedStr: String = ""
     var rules: [Rule]
 
+    // MARK: - Initialization
     init(rules: [Rule] = []){
         self.rules = rules
     }
