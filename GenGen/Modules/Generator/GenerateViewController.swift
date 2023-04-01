@@ -13,6 +13,7 @@ class GenerateViewController: BaseViewController {
     var generateViewModel: Generating
 
     // MARK: - UI
+    private lazy var gengenLogo = UIImageView(image: AppTheme.Navigation.Image.logo)
     private lazy var generationLabel = GGLabel(backgroundColor: AppTheme.Main.Color.labelBackground,
                                                fullText: "")
 
@@ -72,7 +73,7 @@ class GenerateViewController: BaseViewController {
 
     // MARK: - Configurations
     private func configureNavigationItems() {
-        self.navigationItem.titleView = UIImageView(image: AppTheme.Navigation.Image.logo)
+        self.navigationItem.titleView = gengenLogo
         self.navigationItem.setRightBarButton(helpButton, animated: false)
     }
 

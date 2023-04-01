@@ -9,6 +9,9 @@ import UIKit
 
 class LibraryViewController: BaseViewController {
 
+    lazy var headerLabel = GGLabel(textColor: AppTheme.Navigation.Color.library,
+                                  font:AppTheme.Navigation.FontStyle.title,
+                                  fullText: Texts.libraryNavigationTitle)
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -17,8 +20,6 @@ class LibraryViewController: BaseViewController {
 
     // MARK: - Configurations
     private func configureNavigationItems() {
-        self.navigationItem.titleView = GGLabel(textColor: AppTheme.Navigation.Color.library,
-                                                font:AppTheme.Navigation.FontStyle.title,
-                                                fullText: Texts.libraryNavigationTitle)
+        self.navigationItem.titleView = headerLabel
     }
 }

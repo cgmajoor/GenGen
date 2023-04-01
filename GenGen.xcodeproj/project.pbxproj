@@ -14,6 +14,7 @@
 		F2404BCA29C0AB130050469E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2404BC829C0AB130050469E /* LaunchScreen.storyboard */; };
 		F264D4B729D8ABD500901B40 /* Texts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F264D4B629D8ABD500901B40 /* Texts.swift */; };
 		F264D4B929D8B7AE00901B40 /* GenerateViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F264D4B829D8B7AE00901B40 /* GenerateViewControllerTests.swift */; };
+		F264D4BB29D8BC1700901B40 /* LibraryViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F264D4BA29D8BC1700901B40 /* LibraryViewControllerTests.swift */; };
 		F2A9B08129D76581004C646B /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A9B08029D76581004C646B /* AppConfig.swift */; };
 		F2A9B09629D79378004C646B /* GenerateViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A9B09529D79378004C646B /* GenerateViewModelTests.swift */; };
 		F2A9B09D29D79F73004C646B /* GenerateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A9B09C29D79F73004C646B /* GenerateViewModel.swift */; };
@@ -49,6 +50,7 @@
 		F24265B929C0B5BF00B16F5F /* ConfigRelease.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ConfigRelease.xcconfig; sourceTree = "<group>"; };
 		F264D4B629D8ABD500901B40 /* Texts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Texts.swift; sourceTree = "<group>"; };
 		F264D4B829D8B7AE00901B40 /* GenerateViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateViewControllerTests.swift; sourceTree = "<group>"; };
+		F264D4BA29D8BC1700901B40 /* LibraryViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewControllerTests.swift; sourceTree = "<group>"; };
 		F2A9B08029D76581004C646B /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		F2A9B09329D79377004C646B /* GenGenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GenGenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2A9B09529D79378004C646B /* GenerateViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateViewModelTests.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 			children = (
 				F2A9B09529D79378004C646B /* GenerateViewModelTests.swift */,
 				F264D4B829D8B7AE00901B40 /* GenerateViewControllerTests.swift */,
+				F264D4BA29D8BC1700901B40 /* LibraryViewControllerTests.swift */,
 			);
 			path = GenGenTests;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 			files = (
 				F2A9B09629D79378004C646B /* GenerateViewModelTests.swift in Sources */,
 				F264D4B929D8B7AE00901B40 /* GenerateViewControllerTests.swift in Sources */,
+				F264D4BB29D8BC1700901B40 /* LibraryViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
