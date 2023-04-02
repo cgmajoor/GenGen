@@ -8,14 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		F223511F29D8555100111FFD /* Rule.swift in Sources */ = {isa = PBXBuildFile; fileRef = F223511E29D8555100111FFD /* Rule.swift */; };
-		F223512129D8555F00111FFD /* WordCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F223512029D8555F00111FFD /* WordCategory.swift */; };
+		F223512129D8555F00111FFD /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = F223512029D8555F00111FFD /* Book.swift */; };
 		F2404BBE29C0AB100050469E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2404BBD29C0AB100050469E /* AppDelegate.swift */; };
 		F2404BC729C0AB130050469E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2404BC629C0AB130050469E /* Assets.xcassets */; };
 		F2404BCA29C0AB130050469E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2404BC829C0AB130050469E /* LaunchScreen.storyboard */; };
 		F264D4B729D8ABD500901B40 /* Texts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F264D4B629D8ABD500901B40 /* Texts.swift */; };
 		F264D4B929D8B7AE00901B40 /* GenerateViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F264D4B829D8B7AE00901B40 /* GenerateViewControllerTests.swift */; };
 		F264D4BB29D8BC1700901B40 /* LibraryViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F264D4BA29D8BC1700901B40 /* LibraryViewControllerTests.swift */; };
-		F2A916C329D8D1970078A000 /* WordCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A916C229D8D1970078A000 /* WordCategoryTableViewCell.swift */; };
+		F29300B229D9A33700941AA2 /* LibraryViewModelMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29300B129D9A33700941AA2 /* LibraryViewModelMocks.swift */; };
+		F2A916C329D8D1970078A000 /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A916C229D8D1970078A000 /* BookTableViewCell.swift */; };
 		F2A916C729D8D9D20078A000 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A916C629D8D9D20078A000 /* UIViewExtensions.swift */; };
 		F2A9B08129D76581004C646B /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A9B08029D76581004C646B /* AppConfig.swift */; };
 		F2A9B09629D79378004C646B /* GenerateViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A9B09529D79378004C646B /* GenerateViewModelTests.swift */; };
@@ -26,6 +27,8 @@
 		F2BBC91129D09D81005B1952 /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BBC91029D09D81005B1952 /* LibraryViewController.swift */; };
 		F2BBC91629D0A9B1005B1952 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BBC91529D0A9B1005B1952 /* BaseViewController.swift */; };
 		F2BBC91D29D0BC45005B1952 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BBC91C29D0BC45005B1952 /* AppTheme.swift */; };
+		F2C34AB329D99584008E06FB /* LibraryViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C34AB229D99584008E06FB /* LibraryViewModelTests.swift */; };
+		F2C34AB529D995F4008E06FB /* LibraryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C34AB429D995F4008E06FB /* LibraryViewModel.swift */; };
 		F2F0DF1F29D88588009AE9DE /* GGLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F0DF1E29D88588009AE9DE /* GGLabel.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,7 +44,7 @@
 
 /* Begin PBXFileReference section */
 		F223511E29D8555100111FFD /* Rule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rule.swift; sourceTree = "<group>"; };
-		F223512029D8555F00111FFD /* WordCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordCategory.swift; sourceTree = "<group>"; };
+		F223512029D8555F00111FFD /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		F2404BBA29C0AB100050469E /* GenGen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GenGen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2404BBD29C0AB100050469E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F2404BC629C0AB130050469E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -53,7 +56,8 @@
 		F264D4B629D8ABD500901B40 /* Texts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Texts.swift; sourceTree = "<group>"; };
 		F264D4B829D8B7AE00901B40 /* GenerateViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateViewControllerTests.swift; sourceTree = "<group>"; };
 		F264D4BA29D8BC1700901B40 /* LibraryViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewControllerTests.swift; sourceTree = "<group>"; };
-		F2A916C229D8D1970078A000 /* WordCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordCategoryTableViewCell.swift; sourceTree = "<group>"; };
+		F29300B129D9A33700941AA2 /* LibraryViewModelMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewModelMocks.swift; sourceTree = "<group>"; };
+		F2A916C229D8D1970078A000 /* BookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
 		F2A916C629D8D9D20078A000 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		F2A9B08029D76581004C646B /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		F2A9B09329D79377004C646B /* GenGenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GenGenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,6 +69,8 @@
 		F2BBC91029D09D81005B1952 /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
 		F2BBC91529D0A9B1005B1952 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		F2BBC91C29D0BC45005B1952 /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
+		F2C34AB229D99584008E06FB /* LibraryViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewModelTests.swift; sourceTree = "<group>"; };
+		F2C34AB429D995F4008E06FB /* LibraryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewModel.swift; sourceTree = "<group>"; };
 		F2F0DF1E29D88588009AE9DE /* GGLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -129,12 +135,30 @@
 			path = Configuration;
 			sourceTree = "<group>";
 		};
+		F29300B329D9A39A00941AA2 /* GeneratorTests */ = {
+			isa = PBXGroup;
+			children = (
+				F264D4B829D8B7AE00901B40 /* GenerateViewControllerTests.swift */,
+				F2A9B09529D79378004C646B /* GenerateViewModelTests.swift */,
+			);
+			path = GeneratorTests;
+			sourceTree = "<group>";
+		};
+		F29300B429D9A3A800941AA2 /* LibraryTests */ = {
+			isa = PBXGroup;
+			children = (
+				F264D4BA29D8BC1700901B40 /* LibraryViewControllerTests.swift */,
+				F2C34AB229D99584008E06FB /* LibraryViewModelTests.swift */,
+				F29300B129D9A33700941AA2 /* LibraryViewModelMocks.swift */,
+			);
+			path = LibraryTests;
+			sourceTree = "<group>";
+		};
 		F2A9B09429D79378004C646B /* GenGenTests */ = {
 			isa = PBXGroup;
 			children = (
-				F2A9B09529D79378004C646B /* GenerateViewModelTests.swift */,
-				F264D4B829D8B7AE00901B40 /* GenerateViewControllerTests.swift */,
-				F264D4BA29D8BC1700901B40 /* LibraryViewControllerTests.swift */,
+				F29300B329D9A39A00941AA2 /* GeneratorTests */,
+				F29300B429D9A3A800941AA2 /* LibraryTests */,
 			);
 			path = GenGenTests;
 			sourceTree = "<group>";
@@ -190,9 +214,10 @@
 			isa = PBXGroup;
 			children = (
 				F2BBC91029D09D81005B1952 /* LibraryViewController.swift */,
+				F2C34AB429D995F4008E06FB /* LibraryViewModel.swift */,
 				F223511E29D8555100111FFD /* Rule.swift */,
-				F223512029D8555F00111FFD /* WordCategory.swift */,
-				F2A916C229D8D1970078A000 /* WordCategoryTableViewCell.swift */,
+				F223512029D8555F00111FFD /* Book.swift */,
+				F2A916C229D8D1970078A000 /* BookTableViewCell.swift */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -308,19 +333,20 @@
 			files = (
 				F2BBC91629D0A9B1005B1952 /* BaseViewController.swift in Sources */,
 				F2A916C729D8D9D20078A000 /* UIViewExtensions.swift in Sources */,
+				F2C34AB529D995F4008E06FB /* LibraryViewModel.swift in Sources */,
 				F223511F29D8555100111FFD /* Rule.swift in Sources */,
 				F2A9B09D29D79F73004C646B /* GenerateViewModel.swift in Sources */,
 				F2BBC90E29D09CD2005B1952 /* GenerateViewController.swift in Sources */,
 				F2B4908C29CF6DF7002E5D8B /* MainTabBarController.swift in Sources */,
 				F2A9B08129D76581004C646B /* AppConfig.swift in Sources */,
 				F2F0DF1F29D88588009AE9DE /* GGLabel.swift in Sources */,
-				F2A916C329D8D1970078A000 /* WordCategoryTableViewCell.swift in Sources */,
+				F2A916C329D8D1970078A000 /* BookTableViewCell.swift in Sources */,
 				F2A9B0A029D7A6FC004C646B /* GGButton.swift in Sources */,
 				F2BBC91D29D0BC45005B1952 /* AppTheme.swift in Sources */,
 				F2BBC91129D09D81005B1952 /* LibraryViewController.swift in Sources */,
 				F2404BBE29C0AB100050469E /* AppDelegate.swift in Sources */,
 				F264D4B729D8ABD500901B40 /* Texts.swift in Sources */,
-				F223512129D8555F00111FFD /* WordCategory.swift in Sources */,
+				F223512129D8555F00111FFD /* Book.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,6 +356,8 @@
 			files = (
 				F2A9B09629D79378004C646B /* GenerateViewModelTests.swift in Sources */,
 				F264D4B929D8B7AE00901B40 /* GenerateViewControllerTests.swift in Sources */,
+				F2C34AB329D99584008E06FB /* LibraryViewModelTests.swift in Sources */,
+				F29300B229D9A33700941AA2 /* LibraryViewModelMocks.swift in Sources */,
 				F264D4BB29D8BC1700901B40 /* LibraryViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,7 +9,9 @@ import Foundation
 
 protocol Generating {
     var generatedStr: String { get }
+    var rules: [Rule] { get }
 
+    func fetchRules() -> [Rule]
     func generate() -> String
 }
 
@@ -17,18 +19,30 @@ class GenerateViewModel: Generating {
 
     // MARK: - Properties
     var generatedStr: String = ""
-    var rules: [Rule]
+    var rules: [Rule] = []
 
     // MARK: - Initialization
-    init(rules: [Rule] = []){
+    convenience init(with rules: [Rule]) {
+        self.init()
         self.rules = rules
     }
 
+    // MARK: - Methods
+    func fetchRules() -> [Rule] {
+        //TODO: Fetch from somewhere currently testing
+        rules = [Rule(active: true,
+                      books: [Book(name: "color", words: ["pink"]),
+                              Book(name: "animal", words: ["panda"])])]
+        
+        return rules
+    }
+
     func generate() -> String {
+        rules = fetchRules()
         generatedStr = rules.filter(\.active)
                             .randomElement()?
-                            .categories.compactMap { category in
-                                category.words.randomElement()
+                            .books.compactMap { book in
+                                book.words.randomElement()
                             }.joined(separator: " ") ?? ""
         return generatedStr
     }

@@ -1,5 +1,5 @@
 //
-//  WordCategoryTableViewCell.swift
+//  BookTableViewCell.swift
 //  GenGen
 //
 //  Created by Ceren Gazioglu Majoor on 01/04/2023.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class WordCategoryTableViewCell: UITableViewCell {
+class BookTableViewCell: UITableViewCell {
 
     // MARK: - UI
     private var label: GGLabel?
@@ -34,9 +34,9 @@ class WordCategoryTableViewCell: UITableViewCell {
         label = nil
     }
 
-    func configure(wordCategory: WordCategory) {
+    func configure(book: Book) {
         label?.removeFromSuperview()
-        label = GGLabel(textColor: AppTheme.Main.Color.labelTitle, font: AppTheme.Main.FontStyle.label, fullText: wordCategory.name)
+        label = GGLabel(textColor: AppTheme.Main.Color.labelTitle, font: AppTheme.Main.FontStyle.label, fullText: book.name)
         guard let label = self.label else {
             return
         }

@@ -7,10 +7,11 @@
 
 import UIKit
 
-class LibraryViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate {
+class LibraryViewController: BaseViewController {
 
     // MARK: - Dependencies
-    var categories: [WordCategory]
+    private var viewModel: BookProvider
+    var books: [Book] = []
 
     // MARK: - UI
     lazy var headerLabel = GGLabel(textColor: AppTheme.Navigation.Color.library,
@@ -24,8 +25,8 @@ class LibraryViewController: BaseViewController, UITableViewDataSource, UITableV
     }()
 
     // MARK: - LifeCycle
-    init(categories: [WordCategory] = []) {
-        self.categories = categories
+    init(viewModel: BookProvider = LibraryViewModel()) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -39,21 +40,7 @@ class LibraryViewController: BaseViewController, UITableViewDataSource, UITableV
         configureNavigationItems()
         setup()
 
-        loadWordCategories()
-    }
-
-    // MARK: - TableView
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return categories.count
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: Texts.wordCategoryTableViewCell, for: indexPath) as? WordCategoryTableViewCell else {
-            return UITableViewCell()
-        }
-
-        cell.configure(wordCategory: categories[indexPath.row])
-        return cell
+        loadBooks()
     }
 
     // MARK: - Configurations
@@ -62,7 +49,7 @@ class LibraryViewController: BaseViewController, UITableViewDataSource, UITableV
     }
 
     private func setup() {
-        tableView.register(WordCategoryTableViewCell.self, forCellReuseIdentifier: Texts.wordCategoryTableViewCell)
+        tableView.register(BookTableViewCell.self, forCellReuseIdentifier: Texts.bookTableViewCell)
         tableView.dataSource = self
         tableView.delegate = self
 
@@ -70,7 +57,29 @@ class LibraryViewController: BaseViewController, UITableViewDataSource, UITableV
         view.embedToSafeArea(view: tableView)
     }
 
-    private func loadWordCategories() {
+    private func loadBooks() {
+        self.books = viewModel.fetchBooks()
         tableView.reloadData()
+    }
+}
+
+extension LibraryViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return books.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Texts.bookTableViewCell, for: indexPath) as? BookTableViewCell else {
+            return UITableViewCell()
+        }
+
+        cell.configure(book: books[indexPath.row])
+        return cell
+    }
+}
+
+extension LibraryViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("didSelect: \(books[indexPath.row].name)")
     }
 }
