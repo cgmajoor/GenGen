@@ -9,7 +9,6 @@ import UIKit
 
 // MARK: - App's style tree
 struct AppTheme {
-
     struct TabBar {
         struct Color {
             static var selectedItem = UIColor(named: Texts.ggDarkGray) ?? .systemBackground
@@ -50,6 +49,7 @@ struct AppTheme {
         struct Image {
             static var logo = UIImage(named: Texts.logo) ?? UIImage()
             static var help = UIImage(named: Texts.help) ?? UIImage()
+            static var add = UIImage(named: Texts.add) ?? UIImage()
         }
         struct Color {
             static var library = UIColor(named: Texts.ggPink) ?? .systemFill
@@ -58,5 +58,4 @@ struct AppTheme {
             static var title = UIFont(name: Texts.arialRoundedMTBold, size: 26.0) ?? UIFont.preferredFont(forTextStyle: .headline)
         }
     }
-
 }

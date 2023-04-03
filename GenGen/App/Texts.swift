@@ -24,6 +24,7 @@ struct Texts {
     static let help = "help"
     static let magicWand = "magicWand"
     static let book = "book"
+    static let add = "add"
 
     // MARK: - Font Names
     static let arialRoundedMTBold = "ArialRoundedMTBold"
@@ -38,4 +39,10 @@ struct Texts {
 
     // MARK: - Generator
     static let generateButtonTitle = "Generate"
+
+    // MARK: - Library
+    static let addNewBookAlertTitle = "Enter a new book name"
+
+    // MARK: - Book
+    static let addNewWordAlertTitle = "Enter a word"
 }

@@ -7,6 +7,7 @@
 
 import Foundation
 
+// MARK: - Protocol
 protocol Generating {
     var generatedStr: String { get }
     var rules: [Rule] { get }
@@ -15,6 +16,7 @@ protocol Generating {
     func generate() -> String
 }
 
+// MARK: - Generator
 class GenerateViewModel: Generating {
 
     // MARK: - Properties
@@ -30,9 +32,9 @@ class GenerateViewModel: Generating {
     // MARK: - Methods
     func fetchRules() -> [Rule] {
         //TODO: Fetch from somewhere currently testing
-//        rules = [Rule(active: true,
-//                      books: [Book(name: "color", words: ["pink"]),
-//                              Book(name: "animal", words: ["panda"])])]
+        let books = [Book(name: "color", words: ["pink", "blue"]),
+                     Book(name: "animal", words: ["panda"])]
+        rules = [Rule(active: true, books: books)]
         
         return rules
     }

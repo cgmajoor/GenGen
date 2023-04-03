@@ -240,9 +240,9 @@
 				F2BBC91029D09D81005B1952 /* LibraryViewController.swift */,
 				F2C34AB429D995F4008E06FB /* LibraryViewModel.swift */,
 				F2A916C229D8D1970078A000 /* LibraryTableViewCell.swift */,
+				F2A742B329DAD09F000334FD /* LibraryRouter.swift */,
 				F223511E29D8555100111FFD /* Rule.swift */,
 				F223512029D8555F00111FFD /* Book.swift */,
-				F2A742B329DAD09F000334FD /* LibraryRouter.swift */,
 			);
 			path = Library;
 			sourceTree = "<group>";
