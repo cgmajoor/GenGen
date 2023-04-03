@@ -11,6 +11,7 @@ class LibraryViewController: BaseViewController {
 
     // MARK: - Dependencies
     private var viewModel: BookProvider
+    private var router: LibraryRouting
     var books: [Book] = []
 
     // MARK: - UI
@@ -25,8 +26,9 @@ class LibraryViewController: BaseViewController {
     }()
 
     // MARK: - LifeCycle
-    init(viewModel: BookProvider = LibraryViewModel()) {
+    init(viewModel: BookProvider = LibraryViewModel(), router: LibraryRouting = LibraryRouter()) {
         self.viewModel = viewModel
+        self.router = router
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -49,6 +51,7 @@ class LibraryViewController: BaseViewController {
     }
 
     private func setup() {
+        view.backgroundColor = AppTheme.Main.Color.background
         tableView.register(LibraryTableViewCell.self, forCellReuseIdentifier: Texts.libraryTableViewCell)
         tableView.dataSource = self
         tableView.delegate = self
@@ -84,5 +87,6 @@ extension LibraryViewController: UITableViewDataSource {
 extension LibraryViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("didSelect: \(books[indexPath.row].name)")
+        router.didSelectBook(in: self, book: books[indexPath.row])
     }
 }

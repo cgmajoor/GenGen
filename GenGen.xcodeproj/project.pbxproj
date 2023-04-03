@@ -18,6 +18,7 @@
 		F29300B229D9A33700941AA2 /* LibraryViewModelMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29300B129D9A33700941AA2 /* LibraryViewModelMocks.swift */; };
 		F2A742AE29DAC913000334FD /* BookViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A742AD29DAC913000334FD /* BookViewControllerTests.swift */; };
 		F2A742B129DACBA6000334FD /* BookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A742B029DACBA6000334FD /* BookViewController.swift */; };
+		F2A742B429DAD09F000334FD /* LibraryRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A742B329DAD09F000334FD /* LibraryRouter.swift */; };
 		F2A916C329D8D1970078A000 /* LibraryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A916C229D8D1970078A000 /* LibraryTableViewCell.swift */; };
 		F2A916C729D8D9D20078A000 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A916C629D8D9D20078A000 /* UIViewExtensions.swift */; };
 		F2A9B08129D76581004C646B /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A9B08029D76581004C646B /* AppConfig.swift */; };
@@ -61,6 +62,7 @@
 		F29300B129D9A33700941AA2 /* LibraryViewModelMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewModelMocks.swift; sourceTree = "<group>"; };
 		F2A742AD29DAC913000334FD /* BookViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewControllerTests.swift; sourceTree = "<group>"; };
 		F2A742B029DACBA6000334FD /* BookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewController.swift; sourceTree = "<group>"; };
+		F2A742B329DAD09F000334FD /* LibraryRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryRouter.swift; sourceTree = "<group>"; };
 		F2A916C229D8D1970078A000 /* LibraryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryTableViewCell.swift; sourceTree = "<group>"; };
 		F2A916C629D8D9D20078A000 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		F2A9B08029D76581004C646B /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
@@ -240,6 +242,7 @@
 				F2A916C229D8D1970078A000 /* LibraryTableViewCell.swift */,
 				F223511E29D8555100111FFD /* Rule.swift */,
 				F223512029D8555F00111FFD /* Book.swift */,
+				F2A742B329DAD09F000334FD /* LibraryRouter.swift */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -363,6 +366,7 @@
 				F2B4908C29CF6DF7002E5D8B /* MainTabBarController.swift in Sources */,
 				F2A9B08129D76581004C646B /* AppConfig.swift in Sources */,
 				F2F0DF1F29D88588009AE9DE /* GGLabel.swift in Sources */,
+				F2A742B429DAD09F000334FD /* LibraryRouter.swift in Sources */,
 				F2A916C329D8D1970078A000 /* LibraryTableViewCell.swift in Sources */,
 				F2A9B0A029D7A6FC004C646B /* GGButton.swift in Sources */,
 				F2BBC91D29D0BC45005B1952 /* AppTheme.swift in Sources */,
