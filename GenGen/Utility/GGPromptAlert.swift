@@ -17,10 +17,12 @@ class GGPromptAlert {
         var textField = UITextField()
         alertController.addTextField { textField = $0 }
 
-        let action = UIAlertAction(title: Texts.promptAlertAddActionTitle, style: .default) { _ in
+        let addAction = UIAlertAction(title: Texts.promptAlertAddActionTitle, style: .default) { _ in
             onAdd(textField.text)
         }
-        alertController.addAction(action)
+        let cancelAction = UIAlertAction(title: Texts.promptAlertCancelActionTitle, style: .default)
+        alertController.addAction(addAction)
+        alertController.addAction(cancelAction)
 
         vc.showDetailViewController(alertController, sender: vc)
     }

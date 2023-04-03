@@ -48,4 +48,5 @@ struct Texts {
 
     // MARK: - PromptAlert
     static let promptAlertAddActionTitle = "Add"
+    static let promptAlertCancelActionTitle = "Cancel"
 }
