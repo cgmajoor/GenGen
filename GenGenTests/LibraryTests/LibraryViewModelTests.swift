@@ -16,6 +16,18 @@ final class LibraryViewModelTests: XCTestCase {
         let books = sut.fetchBooks()
 
         XCTAssertEqual(books.count, 0)
+    }
+
+    func test_addBook_Succeeds() throws {
+        let bookToAdd = Book(name: "size", words: ["giant"])
+        let sut = LibraryViewModel()
+
+        let booksBeforeAdding = sut.fetchBooks()
+        XCTAssertEqual(booksBeforeAdding.count, 0)
+        sut.addBook(book: bookToAdd)
+        let booksAfterAdding = sut.fetchBooks()
+
+        XCTAssertEqual(booksAfterAdding.count, 1)
 
     }
 }

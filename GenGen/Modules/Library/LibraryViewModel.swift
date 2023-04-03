@@ -9,6 +9,7 @@ import Foundation
 
 protocol BookProvider {
     func fetchBooks() -> [Book]
+    func addBook(bookName: String?) -> Bool
 }
 
 class LibraryViewModel: BookProvider {
@@ -19,8 +20,15 @@ class LibraryViewModel: BookProvider {
     // MARK: - Methods
     func fetchBooks() -> [Book] {
         //TODO: Fetch from somewhere currently testing
-        books = [Book(name: "color", words: ["pink", "blue"]),
-                 Book(name: "animal", words: ["panda"])]
         return books
+    }
+
+    func addBook(bookName: String?) -> Bool {
+        guard let bookName = bookName else {
+            return false
+        }
+        let book = Book(name: bookName, words: [])
+        books.append(book)
+        return true
     }
 }
