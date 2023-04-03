@@ -30,9 +30,9 @@ class GenerateViewModel: Generating {
     // MARK: - Methods
     func fetchRules() -> [Rule] {
         //TODO: Fetch from somewhere currently testing
-        rules = [Rule(active: true,
-                      books: [Book(name: "color", words: ["pink"]),
-                              Book(name: "animal", words: ["panda"])])]
+//        rules = [Rule(active: true,
+//                      books: [Book(name: "color", words: ["pink"]),
+//                              Book(name: "animal", words: ["panda"])])]
         
         return rules
     }

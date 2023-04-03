@@ -18,8 +18,8 @@ class LibraryViewModel: BookProvider {
 
     // MARK: - Methods
     func fetchBooks() -> [Book] {
-        books = [Book(name: "color", words: ["pink"]),
-                 Book(name: "animal", words: ["panda"])]
+//        books = [Book(name: "color", words: ["pink"]),
+//                 Book(name: "animal", words: ["panda"])]
         return books
     }
 }

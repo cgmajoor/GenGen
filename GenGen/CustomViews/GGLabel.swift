@@ -8,7 +8,8 @@
 import UIKit
 
 class GGLabel: UILabel {
-    
+
+    // MARK: - Initialization
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()

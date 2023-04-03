@@ -49,7 +49,7 @@ class LibraryViewController: BaseViewController {
     }
 
     private func setup() {
-        tableView.register(BookTableViewCell.self, forCellReuseIdentifier: Texts.bookTableViewCell)
+        tableView.register(LibraryTableViewCell.self, forCellReuseIdentifier: Texts.libraryTableViewCell)
         tableView.dataSource = self
         tableView.delegate = self
 
@@ -57,19 +57,21 @@ class LibraryViewController: BaseViewController {
         view.embedToSafeArea(view: tableView)
     }
 
+    // MARK: - Internal Methods
     private func loadBooks() {
         self.books = viewModel.fetchBooks()
         tableView.reloadData()
     }
 }
 
+// MARK: - UITableViewDataSource
 extension LibraryViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return books.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: Texts.bookTableViewCell, for: indexPath) as? BookTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Texts.libraryTableViewCell, for: indexPath) as? LibraryTableViewCell else {
             return UITableViewCell()
         }
 
@@ -78,6 +80,7 @@ extension LibraryViewController: UITableViewDataSource {
     }
 }
 
+// MARK: - UITableViewDelegate
 extension LibraryViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("didSelect: \(books[indexPath.row].name)")

@@ -16,7 +16,9 @@
 		F264D4B929D8B7AE00901B40 /* GenerateViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F264D4B829D8B7AE00901B40 /* GenerateViewControllerTests.swift */; };
 		F264D4BB29D8BC1700901B40 /* LibraryViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F264D4BA29D8BC1700901B40 /* LibraryViewControllerTests.swift */; };
 		F29300B229D9A33700941AA2 /* LibraryViewModelMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29300B129D9A33700941AA2 /* LibraryViewModelMocks.swift */; };
-		F2A916C329D8D1970078A000 /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A916C229D8D1970078A000 /* BookTableViewCell.swift */; };
+		F2A742AE29DAC913000334FD /* BookViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A742AD29DAC913000334FD /* BookViewControllerTests.swift */; };
+		F2A742B129DACBA6000334FD /* BookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A742B029DACBA6000334FD /* BookViewController.swift */; };
+		F2A916C329D8D1970078A000 /* LibraryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A916C229D8D1970078A000 /* LibraryTableViewCell.swift */; };
 		F2A916C729D8D9D20078A000 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A916C629D8D9D20078A000 /* UIViewExtensions.swift */; };
 		F2A9B08129D76581004C646B /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A9B08029D76581004C646B /* AppConfig.swift */; };
 		F2A9B09629D79378004C646B /* GenerateViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A9B09529D79378004C646B /* GenerateViewModelTests.swift */; };
@@ -57,7 +59,9 @@
 		F264D4B829D8B7AE00901B40 /* GenerateViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateViewControllerTests.swift; sourceTree = "<group>"; };
 		F264D4BA29D8BC1700901B40 /* LibraryViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewControllerTests.swift; sourceTree = "<group>"; };
 		F29300B129D9A33700941AA2 /* LibraryViewModelMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewModelMocks.swift; sourceTree = "<group>"; };
-		F2A916C229D8D1970078A000 /* BookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
+		F2A742AD29DAC913000334FD /* BookViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewControllerTests.swift; sourceTree = "<group>"; };
+		F2A742B029DACBA6000334FD /* BookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewController.swift; sourceTree = "<group>"; };
+		F2A916C229D8D1970078A000 /* LibraryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryTableViewCell.swift; sourceTree = "<group>"; };
 		F2A916C629D8D9D20078A000 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		F2A9B08029D76581004C646B /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		F2A9B09329D79377004C646B /* GenGenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GenGenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -154,11 +158,28 @@
 			path = LibraryTests;
 			sourceTree = "<group>";
 		};
+		F2A742AF29DACA02000334FD /* Book */ = {
+			isa = PBXGroup;
+			children = (
+				F2A742B029DACBA6000334FD /* BookViewController.swift */,
+			);
+			path = Book;
+			sourceTree = "<group>";
+		};
+		F2A742B229DACE20000334FD /* BookTests */ = {
+			isa = PBXGroup;
+			children = (
+				F2A742AD29DAC913000334FD /* BookViewControllerTests.swift */,
+			);
+			path = BookTests;
+			sourceTree = "<group>";
+		};
 		F2A9B09429D79378004C646B /* GenGenTests */ = {
 			isa = PBXGroup;
 			children = (
 				F29300B329D9A39A00941AA2 /* GeneratorTests */,
 				F29300B429D9A3A800941AA2 /* LibraryTests */,
+				F2A742B229DACE20000334FD /* BookTests */,
 			);
 			path = GenGenTests;
 			sourceTree = "<group>";
@@ -189,6 +210,7 @@
 				F2B4908A29CF6DB9002E5D8B /* Main */,
 				F2BBC90C29D09CB1005B1952 /* Generator */,
 				F2BBC90F29D09D62005B1952 /* Library */,
+				F2A742AF29DACA02000334FD /* Book */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -215,9 +237,9 @@
 			children = (
 				F2BBC91029D09D81005B1952 /* LibraryViewController.swift */,
 				F2C34AB429D995F4008E06FB /* LibraryViewModel.swift */,
+				F2A916C229D8D1970078A000 /* LibraryTableViewCell.swift */,
 				F223511E29D8555100111FFD /* Rule.swift */,
 				F223512029D8555F00111FFD /* Book.swift */,
-				F2A916C229D8D1970078A000 /* BookTableViewCell.swift */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -335,12 +357,13 @@
 				F2A916C729D8D9D20078A000 /* UIViewExtensions.swift in Sources */,
 				F2C34AB529D995F4008E06FB /* LibraryViewModel.swift in Sources */,
 				F223511F29D8555100111FFD /* Rule.swift in Sources */,
+				F2A742B129DACBA6000334FD /* BookViewController.swift in Sources */,
 				F2A9B09D29D79F73004C646B /* GenerateViewModel.swift in Sources */,
 				F2BBC90E29D09CD2005B1952 /* GenerateViewController.swift in Sources */,
 				F2B4908C29CF6DF7002E5D8B /* MainTabBarController.swift in Sources */,
 				F2A9B08129D76581004C646B /* AppConfig.swift in Sources */,
 				F2F0DF1F29D88588009AE9DE /* GGLabel.swift in Sources */,
-				F2A916C329D8D1970078A000 /* BookTableViewCell.swift in Sources */,
+				F2A916C329D8D1970078A000 /* LibraryTableViewCell.swift in Sources */,
 				F2A9B0A029D7A6FC004C646B /* GGButton.swift in Sources */,
 				F2BBC91D29D0BC45005B1952 /* AppTheme.swift in Sources */,
 				F2BBC91129D09D81005B1952 /* LibraryViewController.swift in Sources */,
@@ -359,6 +382,7 @@
 				F2C34AB329D99584008E06FB /* LibraryViewModelTests.swift in Sources */,
 				F29300B229D9A33700941AA2 /* LibraryViewModelMocks.swift in Sources */,
 				F264D4BB29D8BC1700901B40 /* LibraryViewControllerTests.swift in Sources */,
+				F2A742AE29DAC913000334FD /* BookViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

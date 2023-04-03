@@ -1,5 +1,5 @@
 //
-//  BookTableViewCell.swift
+//  LibraryTableViewCell.swift
 //  GenGen
 //
 //  Created by Ceren Gazioglu Majoor on 01/04/2023.
@@ -7,11 +7,12 @@
 
 import UIKit
 
-class BookTableViewCell: UITableViewCell {
+class LibraryTableViewCell: UITableViewCell {
 
     // MARK: - UI
     private var label: GGLabel?
 
+    // MARK: - Initialization
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setup()
