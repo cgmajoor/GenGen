@@ -45,4 +45,7 @@ struct Texts {
 
     // MARK: - Book
     static let addNewWordAlertTitle = "Enter a word"
+
+    // MARK: - PromptAlert
+    static let promptAlertAddActionTitle = "Add"
 }

@@ -15,6 +15,15 @@ class BookViewController: UIViewController {
     // MARK: - UI
     var headerLabel: GGLabel
 
+    private lazy var addButton: UIBarButtonItem = {
+        let barButtonItem = UIBarButtonItem(image: AppTheme.Navigation.Image.add,
+                                            style: .plain,
+                                            target: self,
+                                            action: #selector(addTapped))
+        barButtonItem.tintColor = AppTheme.Main.Color.buttonBackground
+        return barButtonItem
+    }()
+
     // MARK: - Lifecycle
     init(book: Book) {
         self.book = book
@@ -38,9 +47,17 @@ class BookViewController: UIViewController {
     // MARK: - Configurations
     private func configureNavigationItems() {
         self.navigationItem.titleView = headerLabel
+        navigationItem.rightBarButtonItem = addButton
     }
 
     private func setup() {
         view.backgroundColor = AppTheme.Main.Color.background
+    }
+
+    // MARK: - Actions
+    @objc private func addTapped() {
+        GGPromptAlert.createAlert(title: Texts.addNewWordAlertTitle, message: nil, in: self) { userInput in
+            print("userInput: \(userInput)")
+        }
     }
 }

@@ -79,6 +79,9 @@ class LibraryViewController: BaseViewController {
     // MARK: - Actions
     @objc private func addTapped() {
         print("add tapped")
+        GGPromptAlert.createAlert(title: Texts.addNewBookAlertTitle, message: nil, in: self) { userInput in
+            print("userInput: \(userInput)")
+        }
     }
 }
 
