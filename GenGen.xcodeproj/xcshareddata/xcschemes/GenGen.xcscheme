@@ -39,6 +39,17 @@
                ReferencedContainer = "container:GenGen.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "F2A742C429DB17BE000334FD"
+               BuildableName = "GGDataTests.xctest"
+               BlueprintName = "GGDataTests"
+               ReferencedContainer = "container:GenGen.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

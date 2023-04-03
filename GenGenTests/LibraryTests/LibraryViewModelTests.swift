@@ -24,7 +24,7 @@ final class LibraryViewModelTests: XCTestCase {
 
         let booksBeforeAdding = sut.fetchBooks()
         XCTAssertEqual(booksBeforeAdding.count, 0)
-        sut.addBook(book: bookToAdd)
+        _ = sut.addBook(bookName: bookToAdd.name)
         let booksAfterAdding = sut.fetchBooks()
 
         XCTAssertEqual(booksAfterAdding.count, 1)

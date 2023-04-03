@@ -20,6 +20,12 @@
 		F2A742B129DACBA6000334FD /* BookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A742B029DACBA6000334FD /* BookViewController.swift */; };
 		F2A742B429DAD09F000334FD /* LibraryRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A742B329DAD09F000334FD /* LibraryRouter.swift */; };
 		F2A742B629DB079B000334FD /* GGPromptAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A742B529DB079B000334FD /* GGPromptAlert.swift */; };
+		F2A742C029DB17BE000334FD /* GGData.docc in Sources */ = {isa = PBXBuildFile; fileRef = F2A742BF29DB17BE000334FD /* GGData.docc */; };
+		F2A742C629DB17BE000334FD /* GGData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2A742BC29DB17BD000334FD /* GGData.framework */; };
+		F2A742CD29DB17BF000334FD /* GGDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A742CC29DB17BE000334FD /* GGDataTests.swift */; };
+		F2A742CE29DB17BF000334FD /* GGData.h in Headers */ = {isa = PBXBuildFile; fileRef = F2A742BE29DB17BE000334FD /* GGData.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F2A742D129DB17BF000334FD /* GGData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2A742BC29DB17BD000334FD /* GGData.framework */; };
+		F2A742D229DB17BF000334FD /* GGData.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F2A742BC29DB17BD000334FD /* GGData.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F2A916C329D8D1970078A000 /* LibraryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A916C229D8D1970078A000 /* LibraryTableViewCell.swift */; };
 		F2A916C729D8D9D20078A000 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A916C629D8D9D20078A000 /* UIViewExtensions.swift */; };
 		F2A9B08129D76581004C646B /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A9B08029D76581004C646B /* AppConfig.swift */; };
@@ -37,6 +43,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		F2A742C729DB17BE000334FD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F2404BB229C0AB100050469E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F2A742BB29DB17BD000334FD;
+			remoteInfo = GGData;
+		};
+		F2A742C929DB17BE000334FD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F2404BB229C0AB100050469E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F2404BB929C0AB100050469E;
+			remoteInfo = GenGen;
+		};
+		F2A742CF29DB17BF000334FD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F2404BB229C0AB100050469E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F2A742BB29DB17BD000334FD;
+			remoteInfo = GGData;
+		};
 		F2A9B09729D79378004C646B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F2404BB229C0AB100050469E /* Project object */;
@@ -45,6 +72,20 @@
 			remoteInfo = GenGen;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F2A742D629DB17BF000334FD /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				F2A742D229DB17BF000334FD /* GGData.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		F223511E29D8555100111FFD /* Rule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rule.swift; sourceTree = "<group>"; };
@@ -65,6 +106,11 @@
 		F2A742B029DACBA6000334FD /* BookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewController.swift; sourceTree = "<group>"; };
 		F2A742B329DAD09F000334FD /* LibraryRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryRouter.swift; sourceTree = "<group>"; };
 		F2A742B529DB079B000334FD /* GGPromptAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGPromptAlert.swift; sourceTree = "<group>"; };
+		F2A742BC29DB17BD000334FD /* GGData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GGData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2A742BE29DB17BE000334FD /* GGData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGData.h; sourceTree = "<group>"; };
+		F2A742BF29DB17BE000334FD /* GGData.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = GGData.docc; sourceTree = "<group>"; };
+		F2A742C529DB17BE000334FD /* GGDataTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GGDataTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2A742CC29DB17BE000334FD /* GGDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGDataTests.swift; sourceTree = "<group>"; };
 		F2A916C229D8D1970078A000 /* LibraryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryTableViewCell.swift; sourceTree = "<group>"; };
 		F2A916C629D8D9D20078A000 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		F2A9B08029D76581004C646B /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
@@ -87,6 +133,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2A742D129DB17BF000334FD /* GGData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F2A742B929DB17BD000334FD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F2A742C229DB17BE000334FD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F2A742C629DB17BE000334FD /* GGData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +168,8 @@
 				F24265BB29C0DA0000B16F5F /* Configuration */,
 				F2404BBC29C0AB100050469E /* GenGen */,
 				F2A9B09429D79378004C646B /* GenGenTests */,
+				F2A742BD29DB17BE000334FD /* GGData */,
+				F2A742CB29DB17BE000334FD /* GGDataTests */,
 				F2404BBB29C0AB100050469E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -115,6 +179,8 @@
 			children = (
 				F2404BBA29C0AB100050469E /* GenGen.app */,
 				F2A9B09329D79377004C646B /* GenGenTests.xctest */,
+				F2A742BC29DB17BD000334FD /* GGData.framework */,
+				F2A742C529DB17BE000334FD /* GGDataTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -176,6 +242,23 @@
 				F2A742AD29DAC913000334FD /* BookViewControllerTests.swift */,
 			);
 			path = BookTests;
+			sourceTree = "<group>";
+		};
+		F2A742BD29DB17BE000334FD /* GGData */ = {
+			isa = PBXGroup;
+			children = (
+				F2A742BE29DB17BE000334FD /* GGData.h */,
+				F2A742BF29DB17BE000334FD /* GGData.docc */,
+			);
+			path = GGData;
+			sourceTree = "<group>";
+		};
+		F2A742CB29DB17BE000334FD /* GGDataTests */ = {
+			isa = PBXGroup;
+			children = (
+				F2A742CC29DB17BE000334FD /* GGDataTests.swift */,
+			);
+			path = GGDataTests;
 			sourceTree = "<group>";
 		};
 		F2A9B09429D79378004C646B /* GenGenTests */ = {
@@ -261,6 +344,17 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		F2A742B729DB17BD000334FD /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F2A742CE29DB17BF000334FD /* GGData.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
 		F2404BB929C0AB100050469E /* GenGen */ = {
 			isa = PBXNativeTarget;
@@ -269,15 +363,54 @@
 				F2404BB629C0AB100050469E /* Sources */,
 				F2404BB729C0AB100050469E /* Frameworks */,
 				F2404BB829C0AB100050469E /* Resources */,
+				F2A742D629DB17BF000334FD /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				F2A742D029DB17BF000334FD /* PBXTargetDependency */,
 			);
 			name = GenGen;
 			productName = GenGen;
 			productReference = F2404BBA29C0AB100050469E /* GenGen.app */;
 			productType = "com.apple.product-type.application";
+		};
+		F2A742BB29DB17BD000334FD /* GGData */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F2A742D329DB17BF000334FD /* Build configuration list for PBXNativeTarget "GGData" */;
+			buildPhases = (
+				F2A742B729DB17BD000334FD /* Headers */,
+				F2A742B829DB17BD000334FD /* Sources */,
+				F2A742B929DB17BD000334FD /* Frameworks */,
+				F2A742BA29DB17BD000334FD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GGData;
+			productName = GGData;
+			productReference = F2A742BC29DB17BD000334FD /* GGData.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		F2A742C429DB17BE000334FD /* GGDataTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F2A742D729DB17BF000334FD /* Build configuration list for PBXNativeTarget "GGDataTests" */;
+			buildPhases = (
+				F2A742C129DB17BE000334FD /* Sources */,
+				F2A742C229DB17BE000334FD /* Frameworks */,
+				F2A742C329DB17BE000334FD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F2A742C829DB17BE000334FD /* PBXTargetDependency */,
+				F2A742CA29DB17BE000334FD /* PBXTargetDependency */,
+			);
+			name = GGDataTests;
+			productName = GGDataTests;
+			productReference = F2A742C529DB17BE000334FD /* GGDataTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		F2A9B09229D79377004C646B /* GenGenTests */ = {
 			isa = PBXNativeTarget;
@@ -304,11 +437,18 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1420;
+				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1420;
 				TargetAttributes = {
 					F2404BB929C0AB100050469E = {
 						CreatedOnToolsVersion = 14.2;
+					};
+					F2A742BB29DB17BD000334FD = {
+						CreatedOnToolsVersion = 14.3;
+					};
+					F2A742C429DB17BE000334FD = {
+						CreatedOnToolsVersion = 14.3;
+						TestTargetID = F2404BB929C0AB100050469E;
 					};
 					F2A9B09229D79377004C646B = {
 						CreatedOnToolsVersion = 14.2;
@@ -331,6 +471,8 @@
 			targets = (
 				F2404BB929C0AB100050469E /* GenGen */,
 				F2A9B09229D79377004C646B /* GenGenTests */,
+				F2A742BB29DB17BD000334FD /* GGData */,
+				F2A742C429DB17BE000334FD /* GGDataTests */,
 			);
 		};
 /* End PBXProject section */
@@ -342,6 +484,20 @@
 			files = (
 				F2404BCA29C0AB130050469E /* LaunchScreen.storyboard in Resources */,
 				F2404BC729C0AB130050469E /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F2A742BA29DB17BD000334FD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F2A742C329DB17BE000334FD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,6 +537,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F2A742B829DB17BD000334FD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F2A742C029DB17BE000334FD /* GGData.docc in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F2A742C129DB17BE000334FD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F2A742CD29DB17BF000334FD /* GGDataTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F2A9B08F29D79377004C646B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -397,6 +569,21 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		F2A742C829DB17BE000334FD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F2A742BB29DB17BD000334FD /* GGData */;
+			targetProxy = F2A742C729DB17BE000334FD /* PBXContainerItemProxy */;
+		};
+		F2A742CA29DB17BE000334FD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F2404BB929C0AB100050469E /* GenGen */;
+			targetProxy = F2A742C929DB17BE000334FD /* PBXContainerItemProxy */;
+		};
+		F2A742D029DB17BF000334FD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F2A742BB29DB17BD000334FD /* GGData */;
+			targetProxy = F2A742CF29DB17BF000334FD /* PBXContainerItemProxy */;
+		};
 		F2A9B09829D79378004C646B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = F2404BB929C0AB100050469E /* GenGen */;
@@ -586,6 +773,112 @@
 			};
 			name = Release;
 		};
+		F2A742D429DB17BF000334FD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 6W8T8P6246;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tiwworks.GGData;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		F2A742D529DB17BF000334FD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 6W8T8P6246;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tiwworks.GGData;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		F2A742D829DB17BF000334FD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6W8T8P6246;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tiwworks.GGDataTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GenGen.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/GenGen";
+			};
+			name = Debug;
+		};
+		F2A742D929DB17BF000334FD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6W8T8P6246;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tiwworks.GGDataTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GenGen.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/GenGen";
+			};
+			name = Release;
+		};
 		F2A9B09A29D79378004C646B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -639,6 +932,24 @@
 			buildConfigurations = (
 				F2404BCF29C0AB130050469E /* Debug */,
 				F2404BD029C0AB130050469E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F2A742D329DB17BF000334FD /* Build configuration list for PBXNativeTarget "GGData" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F2A742D429DB17BF000334FD /* Debug */,
+				F2A742D529DB17BF000334FD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F2A742D729DB17BF000334FD /* Build configuration list for PBXNativeTarget "GGDataTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F2A742D829DB17BF000334FD /* Debug */,
+				F2A742D929DB17BF000334FD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
