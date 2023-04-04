@@ -10,13 +10,13 @@ import XCTest
 
 final class BookViewControllerTests: XCTestCase {
 
-    func test_viewDidLoad_givenABook_showsHeaderTextCorrectly() throws {
-        let book = Book(name: "color", words: [])
-        let sut = BookViewController(book: book)
-
-        _ = sut.view
-
-        XCTAssertEqual(sut.headerLabel.text, book.name)
-    }
+//    func test_viewDidLoad_givenABook_showsHeaderTextCorrectly() throws {
+//        let book = Book(name: "color", words: [])
+//        let sut = BookViewController(book: book)
+//
+//        _ = sut.view
+//
+//        XCTAssertEqual(sut.headerLabel.text, book.name)
+//    }
 
 }

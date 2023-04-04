@@ -10,6 +10,7 @@ import Foundation
 struct Texts {
     // MARK: - Identifiers
     static let libraryTableViewCell = String(describing: LibraryTableViewCell.self)
+    static let bookTableViewCell = String(describing: BookTableViewCell.self)
     
     // MARK: - Color Asset Names
     static let ggWhite = "ggWhite"

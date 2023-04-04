@@ -5,30 +5,41 @@
 //  Created by Ceren Gazioglu Majoor on 02/04/2023.
 //
 
-import Foundation
+import UIKit
+import CoreData
 
 protocol BookProvider {
-    func fetchBooks() -> [Book]
-    func addBook(bookName: String?) -> Bool
+    func getBooks(_ completion: @escaping (Result<[Book], Error>) -> Void)
+    func addBook(bookName: String) -> Bool
 }
 
 class LibraryViewModel: BookProvider {
+
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
     // MARK: - Properties
     private var books: [Book] = []
 
     // MARK: - Methods
-    func fetchBooks() -> [Book] {
-        //TODO: Fetch from somewhere currently testing
-        return books
+    func getBooks(_ completion: @escaping (Result<[Book], Error>) -> Void) {
+        let request: NSFetchRequest<Book> = Book.fetchRequest()
+        do {
+            books = try context.fetch(request)
+            completion(.success(books))
+        } catch {
+            completion(.failure(error))
+        }
     }
 
-    func addBook(bookName: String?) -> Bool {
-        guard let bookName = bookName else {
-            return false
+    func addBook(bookName: String) -> Bool {
+        let newBook = Book(context: context)
+        newBook.name = bookName
+        books.append(newBook)
+        do {
+            try context.save()
+        } catch {
+            print("Error adding book")
         }
-        let book = Book(name: bookName, words: [])
-        books.append(book)
         return true
     }
 }

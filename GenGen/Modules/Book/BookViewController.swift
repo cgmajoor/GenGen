@@ -6,15 +6,26 @@
 //
 
 import UIKit
+import CoreData
 
 class BookViewController: UIViewController {
 
     // MARK: - Dependencies
     var book: Book
+    var words: [Word] = []
+    private var viewModel: BookViewModelProtocol
+    
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
     // MARK: - UI
     var headerLabel: GGLabel
 
+    lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        return tableView
+    }()
+    
     private lazy var addButton: UIBarButtonItem = {
         let barButtonItem = UIBarButtonItem(image: AppTheme.Navigation.Image.add,
                                             style: .plain,
@@ -25,11 +36,12 @@ class BookViewController: UIViewController {
     }()
 
     // MARK: - Lifecycle
-    init(book: Book) {
+    init(book: Book, viewModel: BookViewModelProtocol = BookViewModel()) {
         self.book = book
+        self.viewModel = viewModel
         self.headerLabel = GGLabel(textColor: AppTheme.Navigation.Color.library,
                                    font:AppTheme.Navigation.FontStyle.title,
-                                   fullText: book.name)
+                                   fullText: book.name ?? "")
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -42,6 +54,9 @@ class BookViewController: UIViewController {
 
         configureNavigationItems()
         setup()
+
+        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
+        loadBook()
     }
 
     // MARK: - Configurations
@@ -52,12 +67,55 @@ class BookViewController: UIViewController {
 
     private func setup() {
         view.backgroundColor = AppTheme.Main.Color.background
+
+        tableView.register(BookTableViewCell.self, forCellReuseIdentifier: Texts.bookTableViewCell)
+        tableView.dataSource = self
+
+        view.addSubview(tableView)
+        view.embedToSafeArea(view: tableView)
+    }
+
+    // MARK: - Internal Methods
+    private func loadBook() {
+        viewModel.getBook(book) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success((let book, let words)):
+                self.book = book
+                self.words = words
+                self.tableView.reloadData()
+            case .failure(let failure):
+                print("Error getting books \(failure)")
+            }
+        }
     }
 
     // MARK: - Actions
     @objc private func addTapped() {
-        GGPromptAlert.createAlert(title: Texts.addNewWordAlertTitle, message: nil, in: self) { userInput in
-            print("userInput: \(userInput)")
+        GGPromptAlert.createAlert(title: Texts.addNewWordAlertTitle, message: nil, in: self) { [weak self] wordInput in
+            guard let self = self else { return }
+            guard let wordTitle = wordInput else {
+                return
+            }
+            if self.viewModel.addWord(wordTitle, to: self.book) {
+                loadBook()
+            }
         }
+    }
+}
+
+// MARK: - UITableViewDataSource
+extension BookViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return words.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Texts.bookTableViewCell, for: indexPath) as? BookTableViewCell,
+              let wordTitle = words[indexPath.row].title else {
+            return UITableViewCell()
+        }
+        cell.configure(with: wordTitle)
+        return cell
     }
 }

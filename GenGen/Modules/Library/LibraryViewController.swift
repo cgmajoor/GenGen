@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class LibraryViewController: BaseViewController {
     
@@ -13,6 +14,8 @@ class LibraryViewController: BaseViewController {
     private var viewModel: BookProvider
     private var router: LibraryRouting
     var books: [Book] = []
+    
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     // MARK: - UI
     lazy var headerLabel = GGLabel(textColor: AppTheme.Navigation.Color.library,
@@ -72,14 +75,25 @@ class LibraryViewController: BaseViewController {
     
     // MARK: - Internal Methods
     private func loadBooks() {
-        self.books = viewModel.fetchBooks()
-        tableView.reloadData()
+        viewModel.getBooks { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let success):
+                self.books = success
+                self.tableView.reloadData()
+            case .failure(let failure):
+                print("Error getting books \(failure)")
+            }
+        }
     }
     
     // MARK: - Actions
     @objc private func addTapped() {
-        GGPromptAlert.createAlert(title: Texts.addNewBookAlertTitle, message: nil, in: self) { [weak self] bookName in
+        GGPromptAlert.createAlert(title: Texts.addNewBookAlertTitle, message: nil, in: self) { [weak self] bookNameInput in
             guard let self = self else { return }
+            guard let bookName = bookNameInput else {
+                return
+            }
             if self.viewModel.addBook(bookName: bookName) {
                 loadBooks()
             }
@@ -94,11 +108,11 @@ extension LibraryViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: Texts.libraryTableViewCell, for: indexPath) as? LibraryTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Texts.libraryTableViewCell, for: indexPath) as? LibraryTableViewCell,
+              let bookName = books[indexPath.row].name else {
             return UITableViewCell()
         }
-        
-        cell.configure(book: books[indexPath.row])
+        cell.configure(bookName: bookName)
         return cell
     }
 }

@@ -1,13 +1,13 @@
 //
-//  LibraryTableViewCell.swift
+//  BookTableViewCell.swift
 //  GenGen
 //
-//  Created by Ceren Gazioglu Majoor on 01/04/2023.
+//  Created by Ceren Gazioglu Majoor on 04/04/2023.
 //
 
 import UIKit
 
-class LibraryTableViewCell: UITableViewCell {
+class BookTableViewCell: UITableViewCell {
 
     // MARK: - UI
     private var label: GGLabel?
@@ -35,9 +35,9 @@ class LibraryTableViewCell: UITableViewCell {
         label = nil
     }
 
-    func configure(bookName: String) {
+    func configure(with wordTitle: String) {
         label?.removeFromSuperview()
-        label = GGLabel(textColor: AppTheme.Main.Color.labelTitle, font: AppTheme.Main.FontStyle.label, fullText: bookName)
+        label = GGLabel(textColor: AppTheme.Main.Color.labelTitle, font: AppTheme.Main.FontStyle.label, fullText: wordTitle)
         guard let label = self.label else {
             return
         }

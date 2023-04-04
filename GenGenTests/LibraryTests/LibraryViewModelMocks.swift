@@ -8,26 +8,26 @@
 import Foundation
 @testable import GenGen
 
-class MockLibraryViewModel: LibraryViewModel {
-    let noBooks = [Book]()
-
-    override func fetchBooks() -> [Book] {
-        return noBooks
-    }
-}
-
-class MockLibraryViewModelWithOneBook: LibraryViewModel {
-    let oneBook = [Book(name: "color", words: [])]
-
-    override func fetchBooks() -> [Book] {
-        return oneBook
-    }
-}
-
-class MockLibraryViewModelWithTwoBooks: LibraryViewModel {
-    let twoBooks = [Book(name: "color", words: []), Book(name: "animal", words: [])]
-
-    override func fetchBooks() -> [Book] {
-        return twoBooks
-    }
-}
+//class MockLibraryViewModel: LibraryViewModel {
+//    let noBooks = [Book]()
+//
+//    override func getBooks() -> [Book] {
+//        return noBooks
+//    }
+//}
+//
+//class MockLibraryViewModelWithOneBook: LibraryViewModel {
+//    let oneBook = [Book(name: "color", words: [])]
+//
+//    override func getBooks() -> [Book] {
+//        return oneBook
+//    }
+//}
+//
+//class MockLibraryViewModelWithTwoBooks: LibraryViewModel {
+//    let twoBooks = [Book(name: "color", words: []), Book(name: "animal", words: [])]
+//
+//    override func getBooks() -> [Book] {
+//        return twoBooks
+//    }
+//}

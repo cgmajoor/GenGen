@@ -5,47 +5,66 @@
 //  Created by Ceren Gazioglu Majoor on 01/04/2023.
 //
 
-import Foundation
+import UIKit
+import CoreData
 
 // MARK: - Protocol
 protocol Generating {
     var generatedStr: String { get }
-    var rules: [Rule] { get }
-
-    func fetchRules() -> [Rule]
-    func generate() -> String
+    var activeRule: Rule? { get }
+    
+    func getRandomActiveRule(_ completion: @escaping (Result<Rule?, Error>) -> Void)
+    func generate(_ completion: @escaping (Result<String, Error>) -> Void)
 }
 
 // MARK: - Generator
 class GenerateViewModel: Generating {
-
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     // MARK: - Properties
     var generatedStr: String = ""
-    var rules: [Rule] = []
-
+    var activeRule: Rule?
+    
     // MARK: - Initialization
-    convenience init(with rules: [Rule]) {
+    convenience init(with activeRule: Rule?) {
         self.init()
-        self.rules = rules
+        self.activeRule = activeRule
     }
-
+    
     // MARK: - Methods
-    func fetchRules() -> [Rule] {
-        //TODO: Fetch from somewhere currently testing
-//        let books = [Book(name: "color", words: ["pink", "blue"]),
-//                     Book(name: "animal", words: ["panda"])]
-//        rules = [Rule(active: true, books: books)]
-        
-        return rules
+    func getRandomActiveRule(_ completion: @escaping (Result<Rule?, Error>) -> Void) {
+        let request: NSFetchRequest<Rule> = Rule.fetchRequest()
+        request.predicate = NSPredicate(format: "active == true")
+        request.fetchLimit = 1
+        do {
+            let rules = try context.fetch(request)
+            let randomRule = rules.randomElement()
+            completion(.success(randomRule))
+        } catch {
+            completion(.failure(error))
+        }
     }
-
-    func generate() -> String {
-        rules = fetchRules()
-        generatedStr = rules.filter(\.active)
-                            .randomElement()?
-                            .books.compactMap { book in
-                                book.words.randomElement()
-                            }.joined(separator: " ") ?? ""
-        return generatedStr
+    
+    func generate(_ completion: @escaping (Result<String, Error>) -> Void) {
+        self.getRandomActiveRule { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let success):
+                guard let activeRule = success else { return }
+                self.generatedStr = activeRule.bookOrder?
+                    .map { $0 as! Book }
+                    .compactMap{ book -> String? in
+                        guard let words = book.words,
+                              let randomWord = words.anyObject() as? Word else {
+                            return ""
+                        }
+                        return randomWord.title
+                    }.joined(separator: " ") ?? ""
+                completion(.success(self.generatedStr))
+            case .failure(let failure):
+                completion(.failure(failure))
+            }
+        }
     }
+    
 }
