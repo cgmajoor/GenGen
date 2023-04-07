@@ -19,13 +19,19 @@ protocol Generating {
 
 // MARK: - Generator
 class GenerateViewModel: Generating {
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     // MARK: - Properties
     var generatedStr: String = ""
     var activeRule: Rule?
+    let coreDataStack: CoreDataStack
+    private let context: NSManagedObjectContext
     
     // MARK: - Initialization
+    init(coreDataStack: CoreDataStack = CoreDataStack()) {
+        self.coreDataStack = coreDataStack
+        self.context = coreDataStack.persistentContainer.viewContext
+    }
+
     convenience init(with activeRule: Rule?) {
         self.init()
         self.activeRule = activeRule

@@ -10,12 +10,10 @@ import CoreData
 
 class LibraryViewController: BaseViewController {
     
-    // MARK: - Dependencies
+    // MARK: - Properties
+    var books: [Book] = []
     private var viewModel: BookProvider
     private var router: LibraryRouting
-    var books: [Book] = []
-    
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     // MARK: - UI
     lazy var headerLabel = GGLabel(textColor: AppTheme.Navigation.Color.library,
@@ -75,14 +73,14 @@ class LibraryViewController: BaseViewController {
     
     // MARK: - Internal Methods
     private func loadBooks() {
-        viewModel.getBooks { [weak self] result in
+        viewModel.fetchBooks { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let success):
                 self.books = success
                 self.tableView.reloadData()
             case .failure(let failure):
-                print("Error getting books \(failure)")
+                print("Error getting books: \(failure)")
             }
         }
     }
@@ -94,8 +92,14 @@ class LibraryViewController: BaseViewController {
             guard let bookName = bookNameInput else {
                 return
             }
-            if self.viewModel.addBook(bookName: bookName) {
-                loadBooks()
+            viewModel.addBook(bookName: bookName) { [weak self] result in
+                guard let self = self else { return }
+                switch result {
+                case .success(_):
+                    self.loadBooks()
+                case .failure(let failure):
+                    print("Error adding book: \(failure)")
+                }
             }
         }
     }

@@ -9,7 +9,7 @@ import UIKit
 
 class GenerateViewController: BaseViewController {
 
-    // MARK: - Dependencies
+    // MARK: - Properties
     var generateViewModel: Generating
 
     // MARK: - UI

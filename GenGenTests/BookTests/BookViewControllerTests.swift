@@ -10,13 +10,18 @@ import XCTest
 
 final class BookViewControllerTests: XCTestCase {
 
-//    func test_viewDidLoad_givenABook_showsHeaderTextCorrectly() throws {
-//        let book = Book(name: "color", words: [])
-//        let sut = BookViewController(book: book)
-//
-//        _ = sut.view
-//
-//        XCTAssertEqual(sut.headerLabel.text, book.name)
-//    }
+    func test_viewDidLoad_givenABook_showsHeaderTextCorrectly() throws {
+        let testCoreDataStack = TestCoreDataStack()
+        let colorBook = Book(context: testCoreDataStack.persistentContainer.viewContext)
+        let bookName = "color"
+        colorBook.name = bookName
+        let mockBookViewModel = BookViewModel(coreDataStack: testCoreDataStack)
+
+        let sut = BookViewController(book: colorBook, viewModel: mockBookViewModel)
+
+        _ = sut.view
+
+        XCTAssertEqual(sut.headerLabel.text, bookName)
+    }
 
 }

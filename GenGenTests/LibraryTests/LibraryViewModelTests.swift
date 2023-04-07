@@ -6,28 +6,57 @@
 //
 
 import XCTest
+import CoreData
 @testable import GenGen
 
 final class LibraryViewModelTests: XCTestCase {
 
-//    func test_getBooks_WithNoBooks_returnsNoBooks() throws {
-//        let sut = LibraryViewModel()
-//
-//        let books = sut.getBooks()
-//
-//        XCTAssertEqual(books.count, 0)
-//    }
-//
-//    func test_addBook_Succeeds() throws {
-//        let bookToAdd = Book(name: "size", words: ["giant"])
-//        let sut = LibraryViewModel()
-//
-//        let booksBeforeAdding = sut.getBooks()
-//        XCTAssertEqual(booksBeforeAdding.count, 0)
-//        _ = sut.addBook(bookName: bookToAdd.name)
-//        let booksAfterAdding = sut.getBooks()
-//
-//        XCTAssertEqual(booksAfterAdding.count, 1)
-//
-//    }
+    func test_fetchBooks_WithNoBooks_returnsNoBooks() throws {
+        let testCoreDataStack = TestCoreDataStack()
+        let sut = LibraryViewModel(coreDataStack: testCoreDataStack)
+
+        let expectation = expectation(description: "Given no books fetchBooks should return no books")
+
+        sut.fetchBooks { result in
+            switch result {
+            case .success(let books):
+                XCTAssertEqual(books.count, 0)
+                expectation.fulfill()
+            case .failure(let failure):
+                XCTFail("Failed: \(failure)")
+            }
+        }
+        waitForExpectations(timeout: 2.0)
+    }
+
+    func test_addBook_Succeeds() throws {
+        let bookName = "size"
+        let testCoreDataStack = TestCoreDataStack()
+        let sut = LibraryViewModel(coreDataStack: testCoreDataStack)
+
+        let booksBeforeAdding = expectation(description: "Before adding a book, fetchBooks return no books")
+
+        sut.fetchBooks { result in
+            switch result {
+            case .success(let books):
+                XCTAssertEqual(books.count, 0)
+                booksBeforeAdding.fulfill()
+            case .failure(let failure):
+                XCTFail("Failed: \(failure)")
+            }
+        }
+        waitForExpectations(timeout: 2.0)
+
+        let booksAfterAdding = expectation(description: "After adding a book, fetchBooks return 1 book")
+        sut.addBook(bookName: bookName) { result in
+            switch result {
+            case .success(let books):
+                XCTAssertEqual(books.count, 1)
+                booksAfterAdding.fulfill()
+            case .failure(let failure):
+                XCTFail("Failed: \(failure)")
+            }
+        }
+        waitForExpectations(timeout: 2.0)
+    }
 }

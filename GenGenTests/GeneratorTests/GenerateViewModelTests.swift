@@ -1,16 +1,16 @@
+////
+////  GenerateViewModelTests.swift
+////  GenGenTests
+////
+////  Created by Ceren Gazioglu Majoor on 01/04/2023.
+////
 //
-//  GenerateViewModelTests.swift
-//  GenGenTests
+//import Foundation
+//import XCTest
+//@testable import GenGen
 //
-//  Created by Ceren Gazioglu Majoor on 01/04/2023.
+//final class GenerateViewModelTests: XCTestCase {
 //
-
-import Foundation
-import XCTest
-@testable import GenGen
-
-final class GenerateViewModelTests: XCTestCase {
-
 //    func test_GenerateViewModel_generateReturnsGeneratedStr() throws {
 //        let sut = makeSut(with: .oneActiveRuleWith1PossibleOutcome)
 //        let expectation = expectation(description: "Generate returns generated string")
@@ -23,7 +23,7 @@ final class GenerateViewModelTests: XCTestCase {
 //            case .failure(let failure):
 //                XCTFail("Expectation failed: \(expectation). \(failure)")
 //            }
-//            expectation.fulfill()
+////            expectation.fulfill()
 //        }
 //        waitForExpectations(timeout: 2.0)
 //    }
@@ -125,7 +125,7 @@ final class GenerateViewModelTests: XCTestCase {
 //    // MARK: - Make System Under Test
 //    private func makeSut(with testCondition: GeneratorTestCondition) -> GenerateViewModel {
 //        var sut: GenerateViewModel
-//        
+//
 //        let emptyWords = [String]()
 //        let wordsWith1WordPink = ["pink"]
 //        let wordsWith1WordPanda = ["panda"]
@@ -155,6 +155,6 @@ final class GenerateViewModelTests: XCTestCase {
 //        }
 //        return sut
 //    }
-
-    
-}
+//
+//    
+//}

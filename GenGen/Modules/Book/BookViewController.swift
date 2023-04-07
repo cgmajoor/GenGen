@@ -10,13 +10,11 @@ import CoreData
 
 class BookViewController: UIViewController {
 
-    // MARK: - Dependencies
+    // MARK: - Properties
     var book: Book
     var words: [Word] = []
     private var viewModel: BookViewModelProtocol
     
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-
     // MARK: - UI
     var headerLabel: GGLabel
 
@@ -55,7 +53,6 @@ class BookViewController: UIViewController {
         configureNavigationItems()
         setup()
 
-        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
         loadBook()
     }
 
@@ -77,7 +74,7 @@ class BookViewController: UIViewController {
 
     // MARK: - Internal Methods
     private func loadBook() {
-        viewModel.getBook(book) { [weak self] result in
+        viewModel.fetchBook(book) { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success((let book, let words)):
@@ -97,8 +94,13 @@ class BookViewController: UIViewController {
             guard let wordTitle = wordInput else {
                 return
             }
-            if self.viewModel.addWord(wordTitle, to: self.book) {
-                loadBook()
+            self.viewModel.addWord(wordTitle, to: book) { result in
+                switch result {
+                case .success(_):
+                    self.loadBook()
+                case .failure(let failure):
+                    print("Failed to add word to book: \(failure)")
+                }
             }
         }
     }

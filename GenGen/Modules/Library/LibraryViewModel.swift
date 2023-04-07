@@ -9,19 +9,25 @@ import UIKit
 import CoreData
 
 protocol BookProvider {
-    func getBooks(_ completion: @escaping (Result<[Book], Error>) -> Void)
-    func addBook(bookName: String) -> Bool
+    func fetchBooks(_ completion: @escaping (Result<[Book], Error>) -> Void)
+    func addBook(bookName: String, _ completion: @escaping (Result<[Book], Error>) -> Void)
 }
 
 class LibraryViewModel: BookProvider {
 
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    // MARK: - Dependencies
+    let coreDataStack: CoreDataStack
+    private let context: NSManagedObjectContext
+    private var books: [Book]
 
-    // MARK: - Properties
-    private var books: [Book] = []
+    init(coreDataStack: CoreDataStack = CoreDataStack(), books: [Book] = []) {
+        self.coreDataStack = coreDataStack
+        self.context = coreDataStack.persistentContainer.viewContext
+        self.books = books
+    }
 
     // MARK: - Methods
-    func getBooks(_ completion: @escaping (Result<[Book], Error>) -> Void) {
+    func fetchBooks(_ completion: @escaping (Result<[Book], Error>) -> Void) {
         let request: NSFetchRequest<Book> = Book.fetchRequest()
         do {
             books = try context.fetch(request)
@@ -31,15 +37,15 @@ class LibraryViewModel: BookProvider {
         }
     }
 
-    func addBook(bookName: String) -> Bool {
+    func addBook(bookName: String, _ completion: @escaping (Result<[Book], Error>) -> Void) {
         let newBook = Book(context: context)
         newBook.name = bookName
         books.append(newBook)
         do {
             try context.save()
+            completion(.success(books))
         } catch {
-            print("Error adding book")
+            completion(.failure(error))
         }
-        return true
     }
 }
