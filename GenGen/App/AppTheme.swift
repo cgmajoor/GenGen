@@ -26,6 +26,8 @@ struct AppTheme {
         struct Color {
             static var background = UIColor(named: Texts.ggWhite) ?? .systemBackground
 
+            static var tableViewBackground = UIColor(named: Texts.ggLightGray) ?? .systemBackground
+
             static var labelBackground = UIColor(named: Texts.ggLightGray) ?? .systemBackground
             static var labelTitle = UIColor(named: Texts.ggBlack) ?? .systemFill
 

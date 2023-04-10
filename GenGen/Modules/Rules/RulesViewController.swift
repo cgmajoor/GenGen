@@ -50,7 +50,9 @@ class RulesViewController: BaseViewController {
 
         configureNavigationItems()
         setup()
+    }
 
+    override func viewWillAppear(_ animated: Bool) {
         loadRules()
     }
 
@@ -62,9 +64,8 @@ class RulesViewController: BaseViewController {
 
     private func setup() {
         view.backgroundColor = AppTheme.Main.Color.background
-        tableView.register(LibraryTableViewCell.self, forCellReuseIdentifier: Texts.rulesTableViewCell)
+        tableView.register(RulesTableViewCell.self, forCellReuseIdentifier: Texts.rulesTableViewCell)
         tableView.dataSource = self
-        tableView.delegate = self
 
         view.addSubview(tableView)
         view.embedToSafeArea(view: tableView)
@@ -88,32 +89,22 @@ class RulesViewController: BaseViewController {
 
     // MARK: - Actions
     @objc private func addTapped() {
-        print("Add tapped")
         router.didSelectAdd(in: self)
     }
 }
-
-
 
 // MARK: - UITableViewDataSource
 extension RulesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return rules.count
+        return self.rules.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: Texts.rulesTableViewCell, for: indexPath) as? RulesTableViewCell,
-              let ruleName = rules[indexPath.row].name else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Texts.rulesTableViewCell, for: indexPath) as? RulesTableViewCell else {
             return UITableViewCell()
         }
+        guard let ruleName = self.rules[indexPath.row].name else { return UITableViewCell() }
         cell.configure(ruleName: ruleName)
         return cell
-    }
-}
-
-// MARK: - UITableViewDelegate
-extension RulesViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        router.didSelectAdd(in: self)
     }
 }

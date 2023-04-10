@@ -14,7 +14,7 @@ protocol RuleProvider {
 
 class RulesViewModel: RuleProvider {
 
-    // MARK: - Dependencies
+    // MARK: - Properties
     let ruleService: RuleServiceProtocol
     private var rules: [Rule]
 
@@ -25,7 +25,7 @@ class RulesViewModel: RuleProvider {
 
     // MARK: - Methods
     func fetchRules(_ completion: @escaping (Result<[Rule], Error>) -> Void) {
-        ruleService.getRules { [weak self] result in
+        ruleService.getRules(activeOnly: false) { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let rules):

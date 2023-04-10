@@ -10,7 +10,8 @@ import Foundation
 import CoreData
 
 protocol RuleServiceProtocol {
-    func getRules(_ completion: @escaping (Result<[Rule], Error>) -> Void)
+    func addRule(_ ruleName: String, books: [Book], isActive: Bool, _ completion: @escaping (Result<Rule, Error>) -> Void)
+    func getRules(activeOnly: Bool, _ completion: @escaping (Result<[Rule], Error>) -> Void)
 }
 
 public class RuleService: RuleServiceProtocol {
@@ -26,8 +27,27 @@ public class RuleService: RuleServiceProtocol {
 }
 
 extension RuleService {
-    public func getRules(_ completion: @escaping (Result<[Rule], Error>) -> Void) {
+    public func addRule(_ ruleName: String, books: [Book], isActive: Bool, _ completion: @escaping (Result<Rule, Error>) -> Void) {
+        let rule = Rule(context: context)
+        rule.name = ruleName
+        rule.active = isActive
+        books.forEach {
+            rule.addToBookOrder($0)
+        }
+
+        do {
+            try coreDataStack.saveContext()
+            completion(.success(rule))
+        } catch {
+            completion(.failure(error))
+        }
+    }
+
+    public func getRules(activeOnly: Bool = false, _ completion: @escaping (Result<[Rule], Error>) -> Void) {
         let request: NSFetchRequest<Rule> = Rule.fetchRequest()
+        if activeOnly {
+            request.predicate = NSPredicate(format: "active == true")
+        }
         do {
             let rules = try context.fetch(request)
             completion(.success(rules))

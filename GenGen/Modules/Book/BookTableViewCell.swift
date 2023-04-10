@@ -46,7 +46,7 @@ class BookTableViewCell: UITableViewCell {
 
     // MARK: - Setup
     private func setup() {
-        backgroundColor = AppTheme.Main.Color.background
-        contentView.backgroundColor = AppTheme.Main.Color.background
+        backgroundColor = .clear
+        contentView.backgroundColor = .clear
     }
 }

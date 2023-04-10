@@ -8,12 +8,12 @@
 import UIKit
 import CoreData
 
-protocol BookProvider {
+protocol LibraryViewModelProtocol {
     func fetchBooks(_ completion: @escaping (Result<[Book], Error>) -> Void)
     func addBook(bookName: String, _ completion: @escaping (Result<[Book], Error>) -> Void)
 }
 
-class LibraryViewModel: BookProvider {
+class LibraryViewModel: LibraryViewModelProtocol {
     
     // MARK: - Dependencies
     let bookService: BookServiceProtocol

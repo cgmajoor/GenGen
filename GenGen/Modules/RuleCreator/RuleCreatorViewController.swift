@@ -10,8 +10,9 @@ import UIKit
 class RuleCreatorViewController: UIViewController {
 
     // MARK: - Properties
-    var books: [Book] = []
-    var selectedBooks: [Book] = []
+    private var books: [Book] = []
+    private var selectedBooks: [Book] = []
+    private var selectedBook: Book?
     private var viewModel: RuleCreatorViewModelProtocol
 
     // MARK: - UI
@@ -31,7 +32,7 @@ class RuleCreatorViewController: UIViewController {
 
     lazy var tableView: UITableView = {
         let tableView = UITableView()
-        tableView.backgroundColor = .red
+        tableView.backgroundColor = AppTheme.Main.Color.tableViewBackground
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
@@ -44,7 +45,6 @@ class RuleCreatorViewController: UIViewController {
 
     lazy var uiPicker: UIPickerView = {
         let uiPicker = UIPickerView()
-        uiPicker.backgroundColor = .blue
         uiPicker.translatesAutoresizingMaskIntoConstraints = false
         return uiPicker
     }()
@@ -126,11 +126,33 @@ class RuleCreatorViewController: UIViewController {
 
     // MARK: - Actions
     @objc private func doneTapped() {
-        print("done tapped")
+        let ruleName = buildRuleName()
+        viewModel.addRule(ruleName, books: selectedBooks, isActive: true) { result in
+            switch result {
+            case .success(let success):
+                print("Success \(success)")
+                self.navigationController?.popViewController(animated: true)
+            case .failure(let error):
+                print("Error adding rule: \(error)")
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
     }
 
     @objc private func addTapped() {
-        print("add tapped")
+        guard let selectedBook = self.selectedBook else {
+            if let firstBook = self.books.first {
+                self.selectedBooks.append(firstBook)
+                tableView.reloadData()
+            }
+            return
+        }
+        self.selectedBooks.append(selectedBook)
+        tableView.reloadData()
+    }
+
+    private func buildRuleName() -> String {
+        return selectedBooks.compactMap { $0.name }.joined(separator: " ")
     }
 }
 
@@ -151,6 +173,7 @@ extension RuleCreatorViewController: UITableViewDataSource {
     }
 }
 
+// MARK: - UIPickerViewDataSource
 extension RuleCreatorViewController: UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -161,8 +184,13 @@ extension RuleCreatorViewController: UIPickerViewDataSource {
     }
 }
 
+// MARK: - UIPickerViewDelegate
 extension RuleCreatorViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return books[row].name
+    }
+
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        self.selectedBook = books[row]
     }
 }

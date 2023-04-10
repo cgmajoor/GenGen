@@ -10,7 +10,7 @@ import UIKit
 class GenerateViewController: BaseViewController {
 
     // MARK: - Properties
-    var generateViewModel: Generating
+    var viewModel: Generating
 
     // MARK: - UI
     private lazy var gengenLogo = UIImageView(image: AppTheme.Navigation.Image.logo)
@@ -33,8 +33,8 @@ class GenerateViewController: BaseViewController {
     }()
 
     // MARK: - Lifecycle
-    init(generateViewModel: Generating = GenerateViewModel()) {
-        self.generateViewModel = generateViewModel
+    init(viewModel: Generating = GenerateViewModel()) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -47,6 +47,10 @@ class GenerateViewController: BaseViewController {
 
         configureNavigationItems()
         setup()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        loadActiveRules()
     }
 
     // MARK: - Setup
@@ -77,13 +81,27 @@ class GenerateViewController: BaseViewController {
         self.navigationItem.setRightBarButton(helpButton, animated: false)
     }
 
+    // MARK: - Internal Methods
+    private func loadActiveRules() {
+        self.generateButton.isHidden = true
+        viewModel.getActiveRules { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(_):
+                self.generateButton.isHidden = false
+            case .failure(let failure):
+                print("Error loading active rules: \(failure)")
+            }
+        }
+    }
+
     // MARK: - Actions
     @objc private func helpTapped() {
         print("help tapped")
     }
 
     @objc private func generateTapped() {
-        generateViewModel.generate { [weak self] result in
+        viewModel.generate { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let success):

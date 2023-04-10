@@ -37,7 +37,7 @@ class RulesTableViewCell: UITableViewCell {
 
     func configure(ruleName: String) {
         label?.removeFromSuperview()
-        label = GGLabel(textColor: AppTheme.Main.Color.labelTitle, font: AppTheme.Main.FontStyle.label, fullText: ruleName)
+        label = GGLabel(textColor: .black, font: AppTheme.Main.FontStyle.label, fullText: ruleName)
         guard let label = self.label else {
             return
         }
@@ -46,7 +46,7 @@ class RulesTableViewCell: UITableViewCell {
 
     // MARK: - Setup
     private func setup() {
-        backgroundColor = AppTheme.Main.Color.background
-        contentView.backgroundColor = AppTheme.Main.Color.background
+        backgroundColor = .clear
+        contentView.backgroundColor = .clear
     }
 }
