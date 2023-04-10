@@ -9,12 +9,12 @@ import UIKit
 
 class GenerateViewController: BaseViewController {
 
-    // MARK: - Dependencies
+    // MARK: - Properties
     var generateViewModel: Generating
 
     // MARK: - UI
+    private lazy var gengenLogo = UIImageView(image: AppTheme.Navigation.Image.logo)
     private lazy var generationLabel = GGLabel(backgroundColor: AppTheme.Main.Color.labelBackground,
-                                               textColor: AppTheme.Main.Color.labelTitle,
                                                fullText: "")
 
     private lazy var helpButton: UIBarButtonItem = {
@@ -26,8 +26,8 @@ class GenerateViewController: BaseViewController {
         return barButtonItem
     }()
     
-    private lazy var generateButton: GGButton = {
-        let button = GGButton(backgroundColor: AppTheme.Main.Color.buttonBackground, title: "Generate")
+    lazy var generateButton: GGButton = {
+        let button = GGButton(backgroundColor: AppTheme.Main.Color.buttonBackground, title: Texts.generateButtonTitle)
         button.addTarget(self, action: #selector(generateTapped), for: .touchUpInside)
         return button
     }()
@@ -73,7 +73,7 @@ class GenerateViewController: BaseViewController {
 
     // MARK: - Configurations
     private func configureNavigationItems() {
-        self.navigationItem.titleView = UIImageView(image: AppTheme.Navigation.Image.logo)
+        self.navigationItem.titleView = gengenLogo
         self.navigationItem.setRightBarButton(helpButton, animated: false)
     }
 
@@ -83,6 +83,14 @@ class GenerateViewController: BaseViewController {
     }
 
     @objc private func generateTapped() {
-        generationLabel.text = generateViewModel.generate()
+        generateViewModel.generate { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let success):
+                self.generationLabel.text = success
+            case .failure(let failure):
+                print("Error generating: \(failure)")
+            }
+        }
     }
 }

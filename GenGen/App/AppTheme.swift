@@ -7,57 +7,34 @@
 
 import UIKit
 
-// MARK: - Asset list
-
-enum GGColor: String {
-    case ggWhite
-    case ggLightGray
-    case ggDarkGray
-    case ggGray
-    case ggBlack
-
-    var uiColor: UIColor {
-        return UIColor(named: self.rawValue) ?? .systemBackground
-    }
-}
-
-enum GGImage: String {
-    case logo
-    case help
-    case magicWand
-    case book
-
-    var uiImage: UIImage {
-        return UIImage(named: self.rawValue) ?? UIImage()
-    }
-}
-
 // MARK: - App's style tree
-
 struct AppTheme {
-
     struct TabBar {
         struct Color {
-            static var selectedItem = GGColor.ggDarkGray.uiColor
-            static var unselectedItem = GGColor.ggGray.uiColor
-            static var background = GGColor.ggLightGray.uiColor
+            static var selectedItem = UIColor(named: Texts.ggDarkGray) ?? .systemBackground
+            static var unselectedItem = UIColor(named: Texts.ggGray) ?? .systemBackground
+            static var background = UIColor(named: Texts.ggLightGray) ?? .systemBackground
         }
         struct Image {
-            static var generator = GGImage.magicWand.uiImage
-            static var library = GGImage.book.uiImage
+            static var generator = UIImage(named: Texts.magicWand) ?? UIImage()
+            static var library = UIImage(named: Texts.book) ?? UIImage()
         }
     }
 
     struct Main {
         struct Color {
-            static var background = GGColor.ggWhite.uiColor
-            static var labelBackground = GGColor.ggLightGray.uiColor
-            static var labelTitle = GGColor.ggBlack.uiColor
-            static var buttonBackground = GGColor.ggDarkGray.uiColor
-            static var buttonTitle = GGColor.ggWhite.uiColor
+            static var background = UIColor(named: Texts.ggWhite) ?? .systemBackground
+
+            static var labelBackground = UIColor(named: Texts.ggLightGray) ?? .systemBackground
+            static var labelTitle = UIColor(named: Texts.ggBlack) ?? .systemFill
+
+            static var buttonBackground = UIColor(named: Texts.ggDarkGray) ?? .systemBackground
+            static var buttonTitle = UIColor(named: Texts.ggWhite) ?? .systemFill
         }
         struct FontStyle {
-            static var buttonTitle = UIFont.preferredFont(forTextStyle: .headline)
+            static var buttonTitle = UIFont(name: Texts.arialRoundedMTBold, size: 20.0) ?? UIFont.preferredFont(forTextStyle: .headline)
+            static var generationLabel = UIFont(name: Texts.futuraMedium, size: 24.0) ?? UIFont.preferredFont(forTextStyle: .headline)
+            static var label = UIFont(name: Texts.futuraMedium, size: 20.0) ?? UIFont.preferredFont(forTextStyle: .headline)
         }
         struct Padding {
             static var horizontal: CGFloat = 20.0
@@ -70,9 +47,16 @@ struct AppTheme {
 
     struct Navigation {
         struct Image {
-            static var logo = GGImage.logo.uiImage
-            static var help = GGImage.help.uiImage
+            static var logo = UIImage(named: Texts.logo) ?? UIImage()
+            static var help = UIImage(named: Texts.help) ?? UIImage()
+            static var add = UIImage(named: Texts.add) ?? UIImage()
+        }
+        struct Color {
+            static var library = UIColor(named: Texts.ggPink) ?? .systemFill
+            static var rules = UIColor(named: Texts.ggYellow) ?? .systemFill
+        }
+        struct FontStyle {
+            static var title = UIFont(name: Texts.arialRoundedMTBold, size: 26.0) ?? UIFont.preferredFont(forTextStyle: .headline)
         }
     }
-
 }

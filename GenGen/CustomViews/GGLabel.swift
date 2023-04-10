@@ -9,27 +9,31 @@ import UIKit
 
 class GGLabel: UILabel {
 
+    // MARK: - Initialization
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
-    init(backgroundColor: UIColor, textColor: UIColor, fullText: String) {
+    
+    init(backgroundColor: UIColor = .clear,
+         textColor: UIColor = AppTheme.Main.Color.labelTitle,
+         font: UIFont = AppTheme.Main.FontStyle.generationLabel,
+         fullText: String = "") {
         super.init(frame: .zero)
         self.backgroundColor = backgroundColor
         self.textColor = textColor
+        self.font = font
         self.text = fullText
         configure()
     }
-
+    
     private func configure() {
         numberOfLines = 0
         textAlignment = .center
-        font = AppTheme.Main.FontStyle.buttonTitle
         layer.cornerRadius = 10
         clipsToBounds = true
         translatesAutoresizingMaskIntoConstraints = false

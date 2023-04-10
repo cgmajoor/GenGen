@@ -24,8 +24,8 @@
    </BuildAction>
    <TestAction
       buildConfiguration = "Debug"
-      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
-      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      selectedDebuggerIdentifier = ""
+      selectedLauncherIdentifier = "Xcode.IDEFoundation.Launcher.PosixSpawn"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
@@ -36,6 +36,17 @@
                BlueprintIdentifier = "F2A9B09229D79377004C646B"
                BuildableName = "GenGenTests.xctest"
                BlueprintName = "GenGenTests"
+               ReferencedContainer = "container:GenGen.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "F2A742C429DB17BE000334FD"
+               BuildableName = "GGDataTests.xctest"
+               BlueprintName = "GGDataTests"
                ReferencedContainer = "container:GenGen.xcodeproj">
             </BuildableReference>
          </TestableReference>
