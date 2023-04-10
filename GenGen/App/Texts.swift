@@ -19,6 +19,7 @@ struct Texts {
     static let ggGray = "ggGray"
     static let ggBlack = "ggBlack"
     static let ggPink = "ggPink"
+    static let ggYellow = "ggYellow"
 
     // MARK: - Image Asset Names
     static let logo = "logo"

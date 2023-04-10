@@ -56,27 +56,41 @@ final class LibraryViewControllerTests: XCTestCase {
         switch testCondition {
         case .noBooks:
             let testCoreDataStack = TestCoreDataStack()
-            let mockViewModel = LibraryViewModel(coreDataStack: testCoreDataStack)
-            sut = LibraryViewController(viewModel: mockViewModel)
+            let testBookService = BookService(coreDataStack: testCoreDataStack)
+
+            let testLibraryViewModel = LibraryViewModel(bookService: testBookService)
+
+            sut = LibraryViewController(viewModel: testLibraryViewModel)
         case .oneBook:
             let testCoreDataStack = TestCoreDataStack()
+            let testBookService = BookService(coreDataStack: testCoreDataStack)
+
             let book1 = Book(context: testCoreDataStack.persistentContainer.viewContext)
             book1.name = "color"
             book1.words = []
+            
             let oneBook = [book1]
-            let mockViewModel = LibraryViewModel(coreDataStack: testCoreDataStack, books: oneBook)
-            sut = LibraryViewController(viewModel: mockViewModel)
+
+            let testLibraryViewModel = LibraryViewModel(bookService: testBookService, books: oneBook)
+
+            sut = LibraryViewController(viewModel: testLibraryViewModel)
         case .twoBooks:
             let testCoreDataStack = TestCoreDataStack()
+            let testBookService = BookService(coreDataStack: testCoreDataStack)
+
             let book1 = Book(context: testCoreDataStack.persistentContainer.viewContext)
             book1.name = "color"
             book1.words = []
+
             let book2 = Book(context: testCoreDataStack.persistentContainer.viewContext)
             book2.name = "animal"
             book2.words = []
+
             let twoBooks = [book1, book2]
-            let mockViewModel = LibraryViewModel(coreDataStack: testCoreDataStack, books: twoBooks)
-            sut = LibraryViewController(viewModel: mockViewModel)
+
+            let testLibraryViewModel = LibraryViewModel(bookService: testBookService, books: twoBooks)
+
+            sut = LibraryViewController(viewModel: testLibraryViewModel)
         }
         return sut
     }

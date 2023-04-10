@@ -13,7 +13,8 @@ final class LibraryViewModelTests: XCTestCase {
 
     func test_fetchBooks_WithNoBooks_returnsNoBooks() throws {
         let testCoreDataStack = TestCoreDataStack()
-        let sut = LibraryViewModel(coreDataStack: testCoreDataStack)
+        let testBookService = BookService(coreDataStack: testCoreDataStack)
+        let sut = LibraryViewModel(bookService: testBookService)
 
         let expectation = expectation(description: "Given no books fetchBooks should return no books")
 
@@ -32,7 +33,8 @@ final class LibraryViewModelTests: XCTestCase {
     func test_addBook_Succeeds() throws {
         let bookName = "size"
         let testCoreDataStack = TestCoreDataStack()
-        let sut = LibraryViewModel(coreDataStack: testCoreDataStack)
+        let testBookService = BookService(coreDataStack: testCoreDataStack)
+        let sut = LibraryViewModel(bookService: testBookService)
 
         let booksBeforeAdding = expectation(description: "Before adding a book, fetchBooks return no books")
 

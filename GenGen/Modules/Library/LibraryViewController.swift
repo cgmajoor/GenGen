@@ -73,12 +73,14 @@ class LibraryViewController: BaseViewController {
     
     // MARK: - Internal Methods
     private func loadBooks() {
+        self.addButton.isHidden = true
         viewModel.fetchBooks { [weak self] result in
             guard let self = self else { return }
             switch result {
-            case .success(let success):
-                self.books = success
+            case .success(let books):
+                self.books = books
                 self.tableView.reloadData()
+                self.addButton.isHidden = false
             case .failure(let failure):
                 print("Error getting books: \(failure)")
             }
@@ -95,8 +97,9 @@ class LibraryViewController: BaseViewController {
             viewModel.addBook(bookName: bookName) { [weak self] result in
                 guard let self = self else { return }
                 switch result {
-                case .success(_):
-                    self.loadBooks()
+                case .success(let books):
+                    self.books = books
+                    self.tableView.reloadData()
                 case .failure(let failure):
                     print("Error adding book: \(failure)")
                 }

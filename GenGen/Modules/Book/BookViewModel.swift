@@ -9,71 +9,54 @@ import UIKit
 import CoreData
 
 protocol BookViewModelProtocol {
-    func fetchBook(_ book: Book, _ completion: @escaping (Result<(Book, [Word]), Error>) -> Void)
+    func fetchWords(for book: Book, _ completion: @escaping (Result<[Word], Error>) -> Void)
     func addWord(_ wordTitle: String, to book: Book, _ completion: @escaping (Result<(Book, [Word]), Error>) -> Void)
 }
 
 class BookViewModel: BookViewModelProtocol {
 
     // MARK: - Properties
-    let coreDataStack: CoreDataStack
-    private let context: NSManagedObjectContext
+    let wordService: WordServiceProtocol
     private var book: Book?
     private var words: [Word]
 
-    init(coreDataStack: CoreDataStack = CoreDataStack(), book: Book? = nil, words: [Word] = []) {
-        self.coreDataStack = coreDataStack
-        self.context = coreDataStack.persistentContainer.viewContext
+    init(wordService: WordServiceProtocol = AppDependencies.shared.wordService, book: Book? = nil, words: [Word] = []) {
+        self.wordService = wordService
         self.book = book
         self.words = words
     }
-
+    
     // MARK: - Methods
-    func fetchBook(_ book: Book, _ completion: @escaping (Result<(Book, [Word]), Error>) -> Void) {
-        let request: NSFetchRequest<Book> = Book.fetchRequest()
-        do {
-            let books = try context.fetch(request)
-            guard let fetchedBook = books.first(where: { $0.name == book.name }) else {
-                return
+    func fetchWords(for book: Book, _ completion: @escaping (Result<[Word], Error>) -> Void) {
+        wordService.getWords(for: book) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let words):
+                self.words = words
+                completion(.success(words))
+            case .failure(let error):
+                completion(.failure(error))
             }
-            self.book = fetchedBook
-            fetchWords(for: fetchedBook) { fetchWordsResult in
-                switch fetchWordsResult {
-                case .success(let fetchedWords):
-                    completion(.success((fetchedBook, fetchedWords)))
-                case .failure(_):
-                    return
-                }
-            }
-        } catch {
-            completion(.failure(error))
-        }
-    }
-
-    private func fetchWords(for book: Book, _ completion: @escaping (Result<[Word], Error>) -> Void) {
-        let request: NSFetchRequest<Word> = Word.fetchRequest()
-            request.predicate = NSPredicate(format: "parentBook == %@", book)
-
-        do {
-            self.words = try context.fetch(request)
-            completion(.success(self.words))
-        } catch {
-            completion(.failure(error))
         }
     }
 
     func addWord(_ wordTitle: String, to book: Book, _ completion: @escaping (Result<(Book, [Word]), Error>) -> Void) {
-        let newWord = Word(context: context)
-        newWord.title = wordTitle
-        newWord.parentBook?.name = book.name
-        self.words.append(newWord)
-        book.addToWords(newWord)
-        
-        do {
-            try context.save()
-            completion(.success((book, words)))
-        } catch {
-            completion(.failure(error))
+        if !doesWordExist(with: wordTitle) {
+            wordService.addWord(wordTitle, to: book) { [weak self] result in
+                guard let self = self else { return }
+                switch result {
+                case .success((let book, let word)):
+                    self.words.append(word)
+                    self.book = book
+                    completion(.success((book, self.words)))
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+            }
         }
+    }
+
+    private func doesWordExist(with wordTitle: String) -> Bool {
+        return words.contains(where: { $0.title == wordTitle })
     }
 }

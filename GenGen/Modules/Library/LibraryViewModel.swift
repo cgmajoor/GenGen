@@ -14,38 +14,46 @@ protocol BookProvider {
 }
 
 class LibraryViewModel: BookProvider {
-
+    
     // MARK: - Dependencies
-    let coreDataStack: CoreDataStack
-    private let context: NSManagedObjectContext
+    let bookService: BookServiceProtocol
     private var books: [Book]
-
-    init(coreDataStack: CoreDataStack = CoreDataStack(), books: [Book] = []) {
-        self.coreDataStack = coreDataStack
-        self.context = coreDataStack.persistentContainer.viewContext
+    
+    init(bookService: BookServiceProtocol = AppDependencies.shared.bookService, books: [Book] = []) {
+        self.bookService = bookService
         self.books = books
     }
-
+    
     // MARK: - Methods
     func fetchBooks(_ completion: @escaping (Result<[Book], Error>) -> Void) {
-        let request: NSFetchRequest<Book> = Book.fetchRequest()
-        do {
-            books = try context.fetch(request)
-            completion(.success(books))
-        } catch {
-            completion(.failure(error))
+        bookService.getBooks { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let books):
+                self.books = books
+                completion(.success(books))
+            case .failure(let error):
+                completion(.failure(error))
+            }
         }
     }
-
+    
     func addBook(bookName: String, _ completion: @escaping (Result<[Book], Error>) -> Void) {
-        let newBook = Book(context: context)
-        newBook.name = bookName
-        books.append(newBook)
-        do {
-            try context.save()
-            completion(.success(books))
-        } catch {
-            completion(.failure(error))
+        if !doesBookExist(with: bookName) {
+            bookService.addBook(bookName) { [weak self] result in
+                guard let self = self else { return }
+                switch result {
+                case .success(let book):
+                    self.books.append(book)
+                    completion(.success(self.books))
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+            }
         }
+    }
+    
+    private func doesBookExist(with bookName: String) -> Bool {
+        return books.contains(where: { $0.name == bookName })
     }
 }

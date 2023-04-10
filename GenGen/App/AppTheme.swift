@@ -53,6 +53,7 @@ struct AppTheme {
         }
         struct Color {
             static var library = UIColor(named: Texts.ggPink) ?? .systemFill
+            static var rules = UIColor(named: Texts.ggYellow) ?? .systemFill
         }
         struct FontStyle {
             static var title = UIFont(name: Texts.arialRoundedMTBold, size: 26.0) ?? UIFont.preferredFont(forTextStyle: .headline)

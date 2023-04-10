@@ -27,6 +27,9 @@
 		F2A9B09D29D79F73004C646B /* GenerateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A9B09C29D79F73004C646B /* GenerateViewModel.swift */; };
 		F2A9B0A029D7A6FC004C646B /* GGButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A9B09F29D7A6FC004C646B /* GGButton.swift */; };
 		F2B4908C29CF6DF7002E5D8B /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B4908B29CF6DF7002E5D8B /* MainTabBarController.swift */; };
+		F2B607C429E4153D0080B715 /* BookService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B607C329E4153D0080B715 /* BookService.swift */; };
+		F2B607C829E4397A0080B715 /* WordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B607C729E4397A0080B715 /* WordService.swift */; };
+		F2B607CA29E440BB0080B715 /* AppDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B607C929E440BB0080B715 /* AppDependencies.swift */; };
 		F2BBC90E29D09CD2005B1952 /* GenerateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BBC90D29D09CD2005B1952 /* GenerateViewController.swift */; };
 		F2BBC91129D09D81005B1952 /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BBC91029D09D81005B1952 /* LibraryViewController.swift */; };
 		F2BBC91629D0A9B1005B1952 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BBC91529D0A9B1005B1952 /* BaseViewController.swift */; };
@@ -89,6 +92,9 @@
 		F2A9B09C29D79F73004C646B /* GenerateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateViewModel.swift; sourceTree = "<group>"; };
 		F2A9B09F29D7A6FC004C646B /* GGButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGButton.swift; sourceTree = "<group>"; };
 		F2B4908B29CF6DF7002E5D8B /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		F2B607C329E4153D0080B715 /* BookService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookService.swift; sourceTree = "<group>"; };
+		F2B607C729E4397A0080B715 /* WordService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordService.swift; sourceTree = "<group>"; };
+		F2B607C929E440BB0080B715 /* AppDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencies.swift; sourceTree = "<group>"; };
 		F2BBC90D29D09CD2005B1952 /* GenerateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateViewController.swift; sourceTree = "<group>"; };
 		F2BBC91029D09D81005B1952 /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
 		F2BBC91529D0A9B1005B1952 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -228,6 +234,7 @@
 				F2A9B08029D76581004C646B /* AppConfig.swift */,
 				F2BBC91C29D0BC45005B1952 /* AppTheme.swift */,
 				F264D4B629D8ABD500901B40 /* Texts.swift */,
+				F2B607C929E440BB0080B715 /* AppDependencies.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -285,6 +292,8 @@
 			isa = PBXGroup;
 			children = (
 				F2C184CF29E0B553009D13C1 /* CoreDataStack.swift */,
+				F2B607C329E4153D0080B715 /* BookService.swift */,
+				F2B607C729E4397A0080B715 /* WordService.swift */,
 			);
 			path = GGData;
 			sourceTree = "<group>";
@@ -398,6 +407,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2B607CA29E440BB0080B715 /* AppDependencies.swift in Sources */,
 				F2C184D029E0B553009D13C1 /* CoreDataStack.swift in Sources */,
 				F2BBC91629D0A9B1005B1952 /* BaseViewController.swift in Sources */,
 				F2A7E96229DC655300126688 /* DataModel.xcdatamodeld in Sources */,
@@ -408,6 +418,7 @@
 				F2A742B629DB079B000334FD /* GGPromptAlert.swift in Sources */,
 				F2BBC90E29D09CD2005B1952 /* GenerateViewController.swift in Sources */,
 				F2425FEE29DC79860039D026 /* BookTableViewCell.swift in Sources */,
+				F2B607C429E4153D0080B715 /* BookService.swift in Sources */,
 				F2B4908C29CF6DF7002E5D8B /* MainTabBarController.swift in Sources */,
 				F2A9B08129D76581004C646B /* AppConfig.swift in Sources */,
 				F2F0DF1F29D88588009AE9DE /* GGLabel.swift in Sources */,
@@ -416,6 +427,7 @@
 				F2A9B0A029D7A6FC004C646B /* GGButton.swift in Sources */,
 				F2425FEC29DC77B70039D026 /* BookViewModel.swift in Sources */,
 				F2BBC91D29D0BC45005B1952 /* AppTheme.swift in Sources */,
+				F2B607C829E4397A0080B715 /* WordService.swift in Sources */,
 				F2BBC91129D09D81005B1952 /* LibraryViewController.swift in Sources */,
 				F2404BBE29C0AB100050469E /* AppDelegate.swift in Sources */,
 				F264D4B729D8ABD500901B40 /* Texts.swift in Sources */,

@@ -14,9 +14,13 @@ public enum TabBarItemType: Int, Equatable {
     
     var viewController: UIViewController {
         var viewController: UIViewController
+
         switch self {
-        case .generator:    viewController = GenerateViewController()
-        case .library:      viewController = LibraryViewController()
+        case .generator:
+            viewController = GenerateViewController()
+        case .library:
+            let libraryViewModel = LibraryViewModel()
+            viewController = LibraryViewController()
         }
         viewController.tabBarItem = self.tabBarItem
         return viewController

@@ -12,12 +12,13 @@ final class BookViewControllerTests: XCTestCase {
 
     func test_viewDidLoad_givenABook_showsHeaderTextCorrectly() throws {
         let testCoreDataStack = TestCoreDataStack()
+        let testWordService = WordService(coreDataStack: testCoreDataStack)
         let colorBook = Book(context: testCoreDataStack.persistentContainer.viewContext)
         let bookName = "color"
         colorBook.name = bookName
-        let mockBookViewModel = BookViewModel(coreDataStack: testCoreDataStack)
+        let testBookViewModel = BookViewModel(wordService: testWordService, book: colorBook)
 
-        let sut = BookViewController(book: colorBook, viewModel: mockBookViewModel)
+        let sut = BookViewController(book: colorBook, viewModel: testBookViewModel)
 
         _ = sut.view
 

@@ -74,11 +74,10 @@ class BookViewController: UIViewController {
 
     // MARK: - Internal Methods
     private func loadBook() {
-        viewModel.fetchBook(book) { [weak self] result in
+        viewModel.fetchWords(for: book) { [weak self] result in
             guard let self = self else { return }
             switch result {
-            case .success((let book, let words)):
-                self.book = book
+            case .success(let words):
                 self.words = words
                 self.tableView.reloadData()
             case .failure(let failure):

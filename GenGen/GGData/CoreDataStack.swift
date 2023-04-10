@@ -31,15 +31,12 @@ open class CoreDataStack {
     public init() {}
 
     // MARK: - Core Data Saving support
-    func saveContext () {
+    @discardableResult
+    func saveContext() throws -> Error? {
         let context = persistentContainer.viewContext
         if context.hasChanges {
-            do {
-                try context.save()
-            } catch {
-                let nserror = error as NSError
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-            }
+            try context.save()
         }
+        return nil
     }
 }
