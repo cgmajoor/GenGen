@@ -22,6 +22,12 @@ class RuleCreatorViewController: UIViewController {
         return barButtonItem
     }()
 
+    lazy var addButton: GGButton = {
+        let button = GGButton(backgroundColor: AppTheme.Main.Color.pickUpBackground, image: AppTheme.Main.Image.pickUp)
+        button.addTarget(self, action: #selector(addTapped), for: .touchUpInside)
+        return button
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -35,13 +41,28 @@ class RuleCreatorViewController: UIViewController {
         navigationItem.rightBarButtonItem = doneButton
     }
 
+    // MARK: - Setup
     private func setup() {
         view.backgroundColor = AppTheme.Main.Color.background
+        view.addSubview(addButton)
 
+        let horizontalPadding = AppTheme.Main.Padding.horizontal
+        let verticalPadding = AppTheme.Main.Padding.horizontal
+
+        NSLayoutConstraint.activate([
+            addButton.heightAnchor.constraint(equalToConstant: AppTheme.Main.Size.buttonHeight),
+            addButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: horizontalPadding),
+            addButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -horizontalPadding),
+            addButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -verticalPadding)
+        ])
     }
 
     // MARK: - Actions
     @objc private func doneTapped() {
         print("done tapped")
+    }
+
+    @objc private func addTapped() {
+        print("add tapped")
     }
 }

@@ -31,6 +31,7 @@ struct Texts {
     static let add = "add"
     static let rules = "rules"
     static let checkMark = "checkMark"
+    static let pickUp = "pickUp"
 
     // MARK: - Font Names
     static let arialRoundedMTBold = "ArialRoundedMTBold"

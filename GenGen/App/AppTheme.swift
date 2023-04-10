@@ -31,6 +31,9 @@ struct AppTheme {
 
             static var buttonBackground = UIColor(named: Texts.ggDarkGray) ?? .systemBackground
             static var buttonTitle = UIColor(named: Texts.ggWhite) ?? .systemFill
+
+            static var pickUpBackground = UIColor(named: Texts.ggYellow) ?? .systemBackground
+            static var pickUpForeground = UIColor(named: Texts.ggDarkGray) ?? .systemFill
         }
         struct FontStyle {
             static var buttonTitle = UIFont(name: Texts.arialRoundedMTBold, size: 20.0) ?? UIFont.preferredFont(forTextStyle: .headline)
@@ -43,6 +46,9 @@ struct AppTheme {
         }
         struct Size {
             static var buttonHeight: CGFloat = 80.0
+        }
+        struct Image {
+            static var pickUp = UIImage(named: Texts.pickUp) ?? UIImage()
         }
     }
 

@@ -24,10 +24,18 @@ class GGButton: UIButton {
         configure()
     }
 
+    init(backgroundColor: UIColor, image: UIImage) {
+        super.init(frame: .zero)
+        self.backgroundColor = backgroundColor
+        self.setImage(image, for: .normal)
+        configure()
+    }
+
     private func configure() {
         layer.cornerRadius = 10
         titleLabel?.textColor = AppTheme.Main.Color.buttonTitle
         titleLabel?.font = AppTheme.Main.FontStyle.buttonTitle
+        imageView?.tintColor = AppTheme.Main.Color.buttonTitle
         translatesAutoresizingMaskIntoConstraints = false
     }
 
