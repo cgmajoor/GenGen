@@ -38,6 +38,7 @@
 		F2B607E329E4607E0080B715 /* RulesViewcontrollerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B607E229E4607E0080B715 /* RulesViewcontrollerTests.swift */; };
 		F2B607E529E460930080B715 /* RulesViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B607E429E460930080B715 /* RulesViewModelTests.swift */; };
 		F2B607E829E462E70080B715 /* RuleCreatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B607E729E462E70080B715 /* RuleCreatorViewController.swift */; };
+		F2B607EA29E46E880080B715 /* RuleCreatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B607E929E46E880080B715 /* RuleCreatorViewModel.swift */; };
 		F2BBC90E29D09CD2005B1952 /* GenerateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BBC90D29D09CD2005B1952 /* GenerateViewController.swift */; };
 		F2BBC91129D09D81005B1952 /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BBC91029D09D81005B1952 /* LibraryViewController.swift */; };
 		F2BBC91629D0A9B1005B1952 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BBC91529D0A9B1005B1952 /* BaseViewController.swift */; };
@@ -111,6 +112,7 @@
 		F2B607E229E4607E0080B715 /* RulesViewcontrollerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesViewcontrollerTests.swift; sourceTree = "<group>"; };
 		F2B607E429E460930080B715 /* RulesViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesViewModelTests.swift; sourceTree = "<group>"; };
 		F2B607E729E462E70080B715 /* RuleCreatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuleCreatorViewController.swift; sourceTree = "<group>"; };
+		F2B607E929E46E880080B715 /* RuleCreatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuleCreatorViewModel.swift; sourceTree = "<group>"; };
 		F2BBC90D29D09CD2005B1952 /* GenerateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateViewController.swift; sourceTree = "<group>"; };
 		F2BBC91029D09D81005B1952 /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
 		F2BBC91529D0A9B1005B1952 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -301,6 +303,7 @@
 			isa = PBXGroup;
 			children = (
 				F2B607E729E462E70080B715 /* RuleCreatorViewController.swift */,
+				F2B607E929E46E880080B715 /* RuleCreatorViewModel.swift */,
 			);
 			path = RuleCreator;
 			sourceTree = "<group>";
@@ -481,6 +484,7 @@
 				F2B607DE29E45A700080B715 /* RulesTableViewCell.swift in Sources */,
 				F2425FEC29DC77B70039D026 /* BookViewModel.swift in Sources */,
 				F2BBC91D29D0BC45005B1952 /* AppTheme.swift in Sources */,
+				F2B607EA29E46E880080B715 /* RuleCreatorViewModel.swift in Sources */,
 				F2B607C829E4397A0080B715 /* WordService.swift in Sources */,
 				F2BBC91129D09D81005B1952 /* LibraryViewController.swift in Sources */,
 				F2404BBE29C0AB100050469E /* AppDelegate.swift in Sources */,

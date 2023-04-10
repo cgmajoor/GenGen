@@ -10,7 +10,9 @@ import UIKit
 class RuleCreatorViewController: UIViewController {
 
     // MARK: - Properties
+    var books: [Book] = []
     var selectedBooks: [Book] = []
+    private var viewModel: RuleCreatorViewModelProtocol
 
     // MARK: - UI
     lazy var headerLabel = GGLabel(textColor: AppTheme.Navigation.Color.rules,
@@ -47,11 +49,23 @@ class RuleCreatorViewController: UIViewController {
         return uiPicker
     }()
 
+    // MARK: - LifeCycle
+    init(viewModel: RuleCreatorViewModelProtocol = RuleCreatorViewModel(bookService: AppDependencies.shared.bookService)) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         configureNavigationItems()
         setup()
+
+        loadBooks()
     }
     
     // MARK: - Configurations
@@ -65,6 +79,9 @@ class RuleCreatorViewController: UIViewController {
         view.backgroundColor = AppTheme.Main.Color.background
         tableView.register(LibraryTableViewCell.self, forCellReuseIdentifier: Texts.libraryTableViewCell)
         tableView.dataSource = self
+
+        uiPicker.dataSource = self
+        uiPicker.delegate = self
 
         view.addSubview(tableView)
         view.addSubview(addButton)
@@ -91,6 +108,22 @@ class RuleCreatorViewController: UIViewController {
         ])
     }
 
+    // MARK: - Internal Methods
+    private func loadBooks() {
+        self.addButton.isHidden = true
+        viewModel.fetchBooks { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let books):
+                self.books = books
+                self.uiPicker.reloadAllComponents()
+                self.addButton.isHidden = false
+            case .failure(let failure):
+                print("Error getting books: \(failure)")
+            }
+        }
+    }
+
     // MARK: - Actions
     @objc private func doneTapped() {
         print("done tapped")
@@ -115,5 +148,21 @@ extension RuleCreatorViewController: UITableViewDataSource {
         }
         cell.configure(bookName: bookName)
         return cell
+    }
+}
+
+extension RuleCreatorViewController: UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return books.count
+    }
+}
+
+extension RuleCreatorViewController: UIPickerViewDelegate {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return books[row].name
     }
 }
