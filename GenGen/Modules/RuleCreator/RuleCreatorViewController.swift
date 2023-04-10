@@ -40,6 +40,13 @@ class RuleCreatorViewController: UIViewController {
         return button
     }()
 
+    lazy var uiPicker: UIPickerView = {
+        let uiPicker = UIPickerView()
+        uiPicker.backgroundColor = .blue
+        uiPicker.translatesAutoresizingMaskIntoConstraints = false
+        return uiPicker
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -61,6 +68,7 @@ class RuleCreatorViewController: UIViewController {
 
         view.addSubview(tableView)
         view.addSubview(addButton)
+        view.addSubview(uiPicker)
 
         let horizontalPadding = AppTheme.Main.Padding.horizontal
         let verticalPadding = AppTheme.Main.Padding.horizontal
@@ -75,6 +83,11 @@ class RuleCreatorViewController: UIViewController {
             addButton.heightAnchor.constraint(equalToConstant: AppTheme.Main.Size.buttonHeight),
             addButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: horizontalPadding),
             addButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -horizontalPadding),
+
+            uiPicker.topAnchor.constraint(equalTo: addButton.bottomAnchor, constant: verticalPadding),
+            uiPicker.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: horizontalPadding),
+            uiPicker.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -horizontalPadding),
+            uiPicker.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -verticalPadding),
         ])
     }
 
