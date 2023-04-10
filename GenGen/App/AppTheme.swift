@@ -18,6 +18,7 @@ struct AppTheme {
         struct Image {
             static var generator = UIImage(named: Texts.magicWand) ?? UIImage()
             static var library = UIImage(named: Texts.book) ?? UIImage()
+            static var rules = UIImage(named: Texts.rules) ?? UIImage()
         }
     }
 
@@ -50,6 +51,7 @@ struct AppTheme {
             static var logo = UIImage(named: Texts.logo) ?? UIImage()
             static var help = UIImage(named: Texts.help) ?? UIImage()
             static var add = UIImage(named: Texts.add) ?? UIImage()
+            static var checkMark = UIImage(named: Texts.checkMark) ?? UIImage()
         }
         struct Color {
             static var library = UIColor(named: Texts.ggPink) ?? .systemFill

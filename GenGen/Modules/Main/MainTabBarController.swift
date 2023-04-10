@@ -11,7 +11,8 @@ import UIKit
 public enum TabBarItemType: Int, Equatable {
     case generator
     case library
-    
+    case rules
+
     var viewController: UIViewController {
         var viewController: UIViewController
 
@@ -19,13 +20,14 @@ public enum TabBarItemType: Int, Equatable {
         case .generator:
             viewController = GenerateViewController()
         case .library:
-            let libraryViewModel = LibraryViewModel()
             viewController = LibraryViewController()
+        case .rules:
+            viewController = RulesViewController()
         }
         viewController.tabBarItem = self.tabBarItem
         return viewController
     }
-    
+
     var tabBarItem: UITabBarItem {
         switch self {
         case .generator:    return UITabBarItem(title: Texts.generatorTabBarTitle,
@@ -34,6 +36,9 @@ public enum TabBarItemType: Int, Equatable {
         case .library:      return UITabBarItem(title: Texts.libraryTabBarTitle,
                                                 image: AppTheme.TabBar.Image.library,
                                                 selectedImage: AppTheme.TabBar.Image.library)
+        case .rules:      return UITabBarItem(title: Texts.rulesTabBarTitle,
+                                              image: AppTheme.TabBar.Image.rules,
+                                              selectedImage: AppTheme.TabBar.Image.rules)
         }
     }
 }
@@ -41,30 +46,31 @@ public enum TabBarItemType: Int, Equatable {
 // MARK: - MainTabbarController
 final class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     static let tabBarController = MainTabBarController()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         self.delegate = self
-        
+
         setColors()
     }
-    
+
     // MARK: - Creation
     static func create(selectedTab: TabBarItemType = .generator) -> MainTabBarController {
-        
+
         let generatorVC = TabBarItemType.generator.viewController
         let libraryVC = TabBarItemType.library.viewController
-        
-        let viewControllerList: [UIViewController] = [generatorVC, libraryVC]
-        
+        let rulesVC = TabBarItemType.rules.viewController
+
+        let viewControllerList: [UIViewController] = [generatorVC, libraryVC, rulesVC]
+
         setViewControllers(viewControllerList)
-        
+
         tabBarController.selectedIndex = TabBarItemType.generator.rawValue
-        
+
         return tabBarController
     }
-    
+
     /** Embed each ViewController in tabbarController in a UINavigationController */
     private static func setViewControllers(_ viewControllerList: [UIViewController]) {
         tabBarController.viewControllers = viewControllerList.map {
@@ -73,7 +79,7 @@ final class MainTabBarController: UITabBarController, UITabBarControllerDelegate
             return navigationController
         }
     }
-    
+
     // MARK: - Style
     private func setColors() {
         tabBar.tintColor = AppTheme.TabBar.Color.selectedItem

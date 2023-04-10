@@ -11,7 +11,8 @@ struct Texts {
     // MARK: - Identifiers
     static let libraryTableViewCell = String(describing: LibraryTableViewCell.self)
     static let bookTableViewCell = String(describing: BookTableViewCell.self)
-    
+    static let rulesTableViewCell = String(describing: RulesTableViewCell.self)
+
     // MARK: - Color Asset Names
     static let ggWhite = "ggWhite"
     static let ggLightGray = "ggLightGray"
@@ -20,6 +21,7 @@ struct Texts {
     static let ggBlack = "ggBlack"
     static let ggPink = "ggPink"
     static let ggYellow = "ggYellow"
+    static let ggGreen = "ggGreen"
 
     // MARK: - Image Asset Names
     static let logo = "logo"
@@ -27,6 +29,8 @@ struct Texts {
     static let magicWand = "magicWand"
     static let book = "book"
     static let add = "add"
+    static let rules = "rules"
+    static let checkMark = "checkMark"
 
     // MARK: - Font Names
     static let arialRoundedMTBold = "ArialRoundedMTBold"
@@ -35,9 +39,12 @@ struct Texts {
     // MARK: - TabBarItems
     static let generatorTabBarTitle = "Generator"
     static let libraryTabBarTitle = "Library"
+    static let rulesTabBarTitle = "Rules"
 
     // MARK: - Navigation
     static let libraryNavigationTitle = "Library"
+    static let rulesNavigationTitle = "Rules"
+    static let ruleCreatorNavigationTitle = "New Rule"
 
     // MARK: - Generator
     static let generateButtonTitle = "Generate"
