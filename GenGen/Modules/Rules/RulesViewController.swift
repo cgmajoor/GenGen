@@ -104,7 +104,23 @@ extension RulesViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         guard let ruleName = self.rules[indexPath.row].name else { return UITableViewCell() }
-        cell.configure(ruleName: ruleName)
+        cell.configure(ruleName: ruleName, active: self.rules[indexPath.row].active)
+        cell.delegate = self
         return cell
+    }
+}
+
+extension RulesViewController: ActiveSwitchDelegate {
+    func didChangeValue(for cell: UITableViewCell, value: Bool) {
+        guard let indexPath = tableView.indexPath(for: cell) else { return }
+        self.rules[indexPath.row].active = value
+        viewModel.updateRule(self.rules[indexPath.row]) { updateResult in
+            switch updateResult {
+            case .success(let rule):
+                print("Rule \(String(describing: rule.name)) is active: \(rule.active)")
+            case .failure(let failure):
+                print("Error: \(failure)")
+            }
+        }
     }
 }

@@ -33,9 +33,6 @@ struct AppTheme {
 
             static var buttonBackground = UIColor(named: Texts.ggDarkGray) ?? .systemBackground
             static var buttonTitle = UIColor(named: Texts.ggWhite) ?? .systemFill
-
-            static var pickUpBackground = UIColor(named: Texts.ggYellow) ?? .systemBackground
-            static var pickUpForeground = UIColor(named: Texts.ggDarkGray) ?? .systemFill
         }
         struct FontStyle {
             static var buttonTitle = UIFont(name: Texts.arialRoundedMTBold, size: 20.0) ?? UIFont.preferredFont(forTextStyle: .headline)
@@ -51,6 +48,14 @@ struct AppTheme {
         }
         struct Image {
             static var pickUp = UIImage(named: Texts.pickUp) ?? UIImage()
+        }
+    }
+
+    struct RuleCreator {
+        struct Color {
+            static var actionBackground = UIColor(named: Texts.ggYellow) ?? .systemBackground
+            static var actionForeground = UIColor(named: Texts.ggDarkGray) ?? .systemFill
+            static var ruleBackground = UIColor(named: Texts.ggLightYellow) ?? .systemBackground
         }
     }
 

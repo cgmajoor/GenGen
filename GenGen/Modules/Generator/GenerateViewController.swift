@@ -59,7 +59,7 @@ class GenerateViewController: BaseViewController {
         view.addSubview(generateButton)
 
         let horizontalPadding = AppTheme.Main.Padding.horizontal
-        let verticalPadding = AppTheme.Main.Padding.horizontal
+        let verticalPadding = AppTheme.Main.Padding.vertical
 
         NSLayoutConstraint.activate([
             generationLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),

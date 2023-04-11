@@ -12,6 +12,7 @@ struct Texts {
     static let libraryTableViewCell = String(describing: LibraryTableViewCell.self)
     static let bookTableViewCell = String(describing: BookTableViewCell.self)
     static let rulesTableViewCell = String(describing: RulesTableViewCell.self)
+    static let ruleCreatorTableViewCell = String(describing: RuleCreatorTableViewCell.self)
 
     // MARK: - Color Asset Names
     static let ggWhite = "ggWhite"
@@ -21,6 +22,7 @@ struct Texts {
     static let ggBlack = "ggBlack"
     static let ggPink = "ggPink"
     static let ggYellow = "ggYellow"
+    static let ggLightYellow = "ggLightYellow"
     static let ggGreen = "ggGreen"
 
     // MARK: - Image Asset Names

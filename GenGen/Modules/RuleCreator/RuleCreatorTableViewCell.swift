@@ -1,16 +1,19 @@
 //
-//  LibraryTableViewCell.swift
+//  RuleCreatorTableViewCell.swift
 //  GenGen
 //
-//  Created by Ceren Gazioglu Majoor on 01/04/2023.
+//  Created by Ceren Gazioglu Majoor on 11/04/2023.
 //
 
 import UIKit
 
-class LibraryTableViewCell: UITableViewCell {
+class RuleCreatorTableViewCell: UITableViewCell {
 
     // MARK: - UI
-    private var label = GGLabel(textColor: AppTheme.Main.Color.labelTitle, font: AppTheme.Main.FontStyle.label, fullText: "")
+    private var label = GGLabel(backgroundColor: AppTheme.RuleCreator.Color.actionBackground,
+                                textColor: AppTheme.RuleCreator.Color.actionForeground,
+                                font: AppTheme.Main.FontStyle.label,
+                                fullText: "")
 
     // MARK: - Initialization
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -37,10 +40,16 @@ class LibraryTableViewCell: UITableViewCell {
 
     func configure(bookName: String) {
         label.removeFromSuperview()
-
         label.setText(fullText: bookName)
-        
-        contentView.embed(view: label)
+
+        contentView.addSubview(label)
+
+        NSLayoutConstraint.activate([
+            label.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            label.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            label.widthAnchor.constraint(greaterThanOrEqualToConstant: UIScreen.main.bounds.width/2.0),
+            label.heightAnchor.constraint(greaterThanOrEqualToConstant: label.font.lineHeight + 10.0)
+        ])
     }
 
     // MARK: - Setup

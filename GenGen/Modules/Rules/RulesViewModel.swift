@@ -10,6 +10,7 @@ import CoreData
 
 protocol RuleProvider {
     func fetchRules(_ completion: @escaping (Result<[Rule], Error>) -> Void)
+    func updateRule(_ rule: Rule, _ completion: @escaping (Result<Rule, Error>) -> Void)
 }
 
 class RulesViewModel: RuleProvider {
@@ -37,4 +38,11 @@ class RulesViewModel: RuleProvider {
         }
     }
 
+    func updateRule(_ rule: Rule, _ completion: @escaping (Result<Rule, Error>) -> Void) {
+        guard let isUpdated = self.ruleService.update(rule) else {
+            completion(.failure(NSError()))
+            return
+        }
+        completion(.success(isUpdated))
+    }
 }

@@ -34,11 +34,12 @@ class RuleCreatorViewController: UIViewController {
         let tableView = UITableView()
         tableView.backgroundColor = AppTheme.Main.Color.tableViewBackground
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.separatorStyle = .none
         return tableView
     }()
 
     lazy var addButton: GGButton = {
-        let button = GGButton(backgroundColor: AppTheme.Main.Color.pickUpBackground, image: AppTheme.Main.Image.pickUp)
+        let button = GGButton(backgroundColor: AppTheme.RuleCreator.Color.actionBackground, image: AppTheme.Main.Image.pickUp)
         button.addTarget(self, action: #selector(addTapped), for: .touchUpInside)
         return button
     }()
@@ -77,7 +78,7 @@ class RuleCreatorViewController: UIViewController {
     // MARK: - Setup
     private func setup() {
         view.backgroundColor = AppTheme.Main.Color.background
-        tableView.register(LibraryTableViewCell.self, forCellReuseIdentifier: Texts.libraryTableViewCell)
+        tableView.register(RuleCreatorTableViewCell.self, forCellReuseIdentifier: Texts.ruleCreatorTableViewCell)
         tableView.dataSource = self
 
         uiPicker.dataSource = self
@@ -88,7 +89,7 @@ class RuleCreatorViewController: UIViewController {
         view.addSubview(uiPicker)
 
         let horizontalPadding = AppTheme.Main.Padding.horizontal
-        let verticalPadding = AppTheme.Main.Padding.horizontal
+        let verticalPadding = AppTheme.Main.Padding.vertical
 
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: verticalPadding),
@@ -164,7 +165,7 @@ extension RuleCreatorViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: Texts.libraryTableViewCell, for: indexPath) as? LibraryTableViewCell,
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Texts.ruleCreatorTableViewCell, for: indexPath) as? RuleCreatorTableViewCell,
               let bookName = selectedBooks[indexPath.row].name else {
             return UITableViewCell()
         }

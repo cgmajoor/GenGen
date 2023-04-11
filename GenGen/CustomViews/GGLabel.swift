@@ -22,20 +22,25 @@ class GGLabel: UILabel {
     init(backgroundColor: UIColor = .clear,
          textColor: UIColor = AppTheme.Main.Color.labelTitle,
          font: UIFont = AppTheme.Main.FontStyle.generationLabel,
+         textAlignment: NSTextAlignment = .center,
          fullText: String = "") {
         super.init(frame: .zero)
         self.backgroundColor = backgroundColor
         self.textColor = textColor
         self.font = font
+        self.textAlignment = textAlignment
         self.text = fullText
         configure()
     }
     
     private func configure() {
         numberOfLines = 0
-        textAlignment = .center
         layer.cornerRadius = 10
         clipsToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
+    }
+
+    func setText(fullText: String) {
+        self.text = fullText
     }
 }

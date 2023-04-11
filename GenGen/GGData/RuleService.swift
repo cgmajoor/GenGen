@@ -12,6 +12,7 @@ import CoreData
 protocol RuleServiceProtocol {
     func addRule(_ ruleName: String, books: [Book], isActive: Bool, _ completion: @escaping (Result<Rule, Error>) -> Void)
     func getRules(activeOnly: Bool, _ completion: @escaping (Result<[Rule], Error>) -> Void)
+    func update(_ rule: Rule) -> Rule?
 }
 
 public class RuleService: RuleServiceProtocol {
@@ -53,6 +54,15 @@ extension RuleService {
             completion(.success(rules))
         } catch {
             completion(.failure(error))
+        }
+    }
+
+    public func update(_ rule: Rule) -> Rule? {
+        do {
+            try coreDataStack.saveContext()
+            return rule
+        } catch {
+            return nil
         }
     }
 }
