@@ -12,6 +12,7 @@
 		F2404BCA29C0AB130050469E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2404BC829C0AB130050469E /* LaunchScreen.storyboard */; };
 		F2425FEC29DC77B70039D026 /* BookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2425FEB29DC77B70039D026 /* BookViewModel.swift */; };
 		F2425FEE29DC79860039D026 /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2425FED29DC79860039D026 /* BookTableViewCell.swift */; };
+		F254812E29E598910016AD56 /* RuleServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F254812D29E598910016AD56 /* RuleServiceTests.swift */; };
 		F264D4B729D8ABD500901B40 /* Texts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F264D4B629D8ABD500901B40 /* Texts.swift */; };
 		F264D4B929D8B7AE00901B40 /* GenerateViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F264D4B829D8B7AE00901B40 /* GenerateViewControllerTests.swift */; };
 		F264D4BB29D8BC1700901B40 /* LibraryViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F264D4BA29D8BC1700901B40 /* LibraryViewControllerTests.swift */; };
@@ -88,6 +89,7 @@
 		F24265B729C0B57800B16F5F /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		F24265B829C0B5AA00B16F5F /* ConfigDebug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ConfigDebug.xcconfig; sourceTree = "<group>"; };
 		F24265B929C0B5BF00B16F5F /* ConfigRelease.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ConfigRelease.xcconfig; sourceTree = "<group>"; };
+		F254812D29E598910016AD56 /* RuleServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuleServiceTests.swift; sourceTree = "<group>"; };
 		F264D4B629D8ABD500901B40 /* Texts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Texts.swift; sourceTree = "<group>"; };
 		F264D4B829D8B7AE00901B40 /* GenerateViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateViewControllerTests.swift; sourceTree = "<group>"; };
 		F264D4BA29D8BC1700901B40 /* LibraryViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewControllerTests.swift; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 			children = (
 				F2A3015E29E58F8200F6E858 /* BookServiceTests.swift */,
 				F2A3016029E593CB00F6E858 /* WordServiceTests.swift */,
+				F254812D29E598910016AD56 /* RuleServiceTests.swift */,
 			);
 			path = GGDataTests;
 			sourceTree = "<group>";
@@ -519,6 +522,7 @@
 				F2C184D429E0B759009D13C1 /* TestCoreDataStack.swift in Sources */,
 				F264D4B929D8B7AE00901B40 /* GenerateViewControllerTests.swift in Sources */,
 				F2C34AB329D99584008E06FB /* LibraryViewModelTests.swift in Sources */,
+				F254812E29E598910016AD56 /* RuleServiceTests.swift in Sources */,
 				F264D4BB29D8BC1700901B40 /* LibraryViewControllerTests.swift in Sources */,
 				F2A742AE29DAC913000334FD /* BookViewControllerTests.swift in Sources */,
 				F2B607E329E4607E0080B715 /* RulesViewcontrollerTests.swift in Sources */,

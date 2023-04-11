@@ -66,19 +66,16 @@ class RulesTableViewCell: UITableViewCell {
         contentView.addSubview(label)
         contentView.addSubview(activeSwitch)
 
-        let horizontalPadding = AppTheme.Main.Padding.horizontal
-        let verticalPadding = AppTheme.Main.Padding.vertical
-
         NSLayoutConstraint.activate([
             label.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             label.heightAnchor.constraint(greaterThanOrEqualToConstant: 20.0),
-            label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: horizontalPadding),
-            label.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -horizontalPadding),
+            label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: AppTheme.Padding.horizontal),
+            label.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -AppTheme.Padding.horizontal),
 
             activeSwitch.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            activeSwitch.trailingAnchor.constraint(equalTo: label.trailingAnchor, constant: -horizontalPadding),
-            activeSwitch.topAnchor.constraint(equalTo: contentView.topAnchor, constant: verticalPadding),
-            activeSwitch.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -verticalPadding)
+            activeSwitch.trailingAnchor.constraint(equalTo: label.trailingAnchor, constant: -AppTheme.Padding.horizontal),
+            activeSwitch.topAnchor.constraint(equalTo: contentView.topAnchor, constant: AppTheme.Padding.vertical),
+            activeSwitch.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -AppTheme.Padding.vertical)
         ])
     }
 

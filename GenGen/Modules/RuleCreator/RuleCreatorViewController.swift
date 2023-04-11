@@ -88,24 +88,21 @@ class RuleCreatorViewController: UIViewController {
         view.addSubview(addButton)
         view.addSubview(uiPicker)
 
-        let horizontalPadding = AppTheme.Main.Padding.horizontal
-        let verticalPadding = AppTheme.Main.Padding.vertical
-
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: verticalPadding),
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: AppTheme.Padding.vertical),
             tableView.heightAnchor.constraint(equalToConstant: (UIScreen.main.bounds.height / 3.0)),
-            tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: horizontalPadding),
-            tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -horizontalPadding),
+            tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: AppTheme.Padding.horizontal),
+            tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -AppTheme.Padding.horizontal),
 
-            addButton.topAnchor.constraint(equalTo: tableView.bottomAnchor, constant: verticalPadding),
+            addButton.topAnchor.constraint(equalTo: tableView.bottomAnchor, constant: AppTheme.Padding.vertical),
             addButton.heightAnchor.constraint(equalToConstant: AppTheme.Main.Size.buttonHeight),
-            addButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: horizontalPadding),
-            addButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -horizontalPadding),
+            addButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: AppTheme.Padding.horizontal),
+            addButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -AppTheme.Padding.horizontal),
 
-            uiPicker.topAnchor.constraint(equalTo: addButton.bottomAnchor, constant: verticalPadding),
-            uiPicker.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: horizontalPadding),
-            uiPicker.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -horizontalPadding),
-            uiPicker.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -verticalPadding),
+            uiPicker.topAnchor.constraint(equalTo: addButton.bottomAnchor, constant: AppTheme.Padding.vertical),
+            uiPicker.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: AppTheme.Padding.horizontal),
+            uiPicker.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -AppTheme.Padding.horizontal),
+            uiPicker.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -AppTheme.Padding.vertical),
         ])
     }
 

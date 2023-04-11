@@ -9,6 +9,11 @@ import UIKit
 
 // MARK: - App's style tree
 struct AppTheme {
+    struct Padding {
+        static var horizontal: CGFloat = 20.0
+        static var vertical: CGFloat = 10.0
+    }
+    
     struct TabBar {
         struct Color {
             static var selectedItem = UIColor(named: Texts.ggDarkGray) ?? .systemBackground
@@ -38,10 +43,6 @@ struct AppTheme {
             static var buttonTitle = UIFont(name: Texts.arialRoundedMTBold, size: 20.0) ?? UIFont.preferredFont(forTextStyle: .headline)
             static var generationLabel = UIFont(name: Texts.futuraMedium, size: 24.0) ?? UIFont.preferredFont(forTextStyle: .headline)
             static var label = UIFont(name: Texts.futuraMedium, size: 20.0) ?? UIFont.preferredFont(forTextStyle: .headline)
-        }
-        struct Padding {
-            static var horizontal: CGFloat = 20.0
-            static var vertical: CGFloat = 10.0
         }
         struct Size {
             static var buttonHeight: CGFloat = 80.0

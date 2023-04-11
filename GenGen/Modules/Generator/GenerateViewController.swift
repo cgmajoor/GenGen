@@ -58,20 +58,17 @@ class GenerateViewController: BaseViewController {
         view.addSubview(generationLabel)
         view.addSubview(generateButton)
 
-        let horizontalPadding = AppTheme.Main.Padding.horizontal
-        let verticalPadding = AppTheme.Main.Padding.vertical
-
         NSLayoutConstraint.activate([
             generationLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            generationLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: verticalPadding),
-            generationLabel.bottomAnchor.constraint(equalTo: generateButton.topAnchor, constant: -verticalPadding),
-            generationLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: horizontalPadding),
-            generationLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -horizontalPadding),
+            generationLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: AppTheme.Padding.vertical),
+            generationLabel.bottomAnchor.constraint(equalTo: generateButton.topAnchor, constant: -AppTheme.Padding.vertical),
+            generationLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: AppTheme.Padding.horizontal),
+            generationLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -AppTheme.Padding.horizontal),
 
             generateButton.heightAnchor.constraint(equalToConstant: AppTheme.Main.Size.buttonHeight),
-            generateButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: horizontalPadding),
-            generateButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -horizontalPadding),
-            generateButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -verticalPadding)
+            generateButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: AppTheme.Padding.horizontal),
+            generateButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -AppTheme.Padding.horizontal),
+            generateButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -AppTheme.Padding.vertical)
         ])
     }
 

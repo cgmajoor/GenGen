@@ -47,7 +47,8 @@ class RuleCreatorTableViewCell: UITableViewCell {
         NSLayoutConstraint.activate([
             label.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             label.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            label.widthAnchor.constraint(greaterThanOrEqualToConstant: UIScreen.main.bounds.width/2.0),
+            label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: AppTheme.Padding.horizontal),
+            label.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -AppTheme.Padding.horizontal),
             label.heightAnchor.constraint(greaterThanOrEqualToConstant: label.font.lineHeight + 10.0)
         ])
     }
