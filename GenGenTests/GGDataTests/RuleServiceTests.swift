@@ -135,6 +135,7 @@ final class RuleServiceTests: XCTestCase {
         rule2.name = ruleName2
         rule2.active = isActive2
         books2.forEach { rule.addToBookOrder($0) }
+
         try testCoreDataStack.saveContext()
 
         let expectation = expectation(description: "Expected to get 1 active rule")
@@ -148,6 +149,46 @@ final class RuleServiceTests: XCTestCase {
             }
         }
         waitForExpectations(timeout: 2.0)
+    }
+
+    func test_update_succeeds() throws {
+        let testCoreDataStack = TestCoreDataStack()
+        let testRuleService = RuleService(coreDataStack: testCoreDataStack)
+
+        let colorBook = Book(context: testCoreDataStack.persistentContainer.viewContext)
+        let colorBookName = "color"
+        colorBook.name = colorBookName
+
+        let word = Word(context: testCoreDataStack.persistentContainer.viewContext)
+        word.title = "pink"
+        word.parentBook = colorBook
+
+        let animalBook = Book(context: testCoreDataStack.persistentContainer.viewContext)
+        let animalBookName = "animal"
+        animalBook.name = animalBookName
+
+        let word2 = Word(context: testCoreDataStack.persistentContainer.viewContext)
+        word2.title = "panda"
+        word2.parentBook = animalBook
+
+        let ruleName = "\(colorBookName) \(animalBookName)"
+        let books = [colorBook, animalBook]
+        let isActive = true
+        let rule1 = Rule(context: testCoreDataStack.persistentContainer.viewContext)
+        rule1.name = ruleName
+        rule1.active = isActive
+        books.forEach { rule1.addToBookOrder($0) }
+        try testCoreDataStack.saveContext()
+
+        rule1.active = !isActive
+
+        guard let updatedRule = testRuleService.update(rule1) else {
+            XCTFail("Expected update to succeed")
+            return
+        }
+        XCTAssertEqual(updatedRule.name, ruleName)
+        XCTAssertEqual(updatedRule.active, !isActive)
+
     }
 
 }
