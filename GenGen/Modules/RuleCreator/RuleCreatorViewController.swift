@@ -73,6 +73,7 @@ class RuleCreatorViewController: UIViewController {
     private func configureNavigationItems() {
         self.navigationItem.titleView = headerLabel
         navigationItem.rightBarButtonItem = doneButton
+        navigationController?.navigationBar.tintColor = AppTheme.Main.Color.buttonBackground
     }
 
     // MARK: - Setup

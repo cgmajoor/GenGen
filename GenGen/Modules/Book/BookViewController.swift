@@ -60,6 +60,7 @@ class BookViewController: UIViewController {
     private func configureNavigationItems() {
         self.navigationItem.titleView = headerLabel
         navigationItem.rightBarButtonItem = addButton
+        navigationController?.navigationBar.tintColor = AppTheme.Main.Color.buttonBackground
     }
 
     private func setup() {
