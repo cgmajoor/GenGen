@@ -12,7 +12,7 @@ class LibraryViewController: BaseViewController {
     
     // MARK: - Properties
     var books: [Book] = []
-    private var viewModel: BookProvider
+    private var viewModel: LibraryViewModelProtocol
     private var router: LibraryRouting
     
     // MARK: - UI
@@ -36,7 +36,7 @@ class LibraryViewController: BaseViewController {
     }()
     
     // MARK: - LifeCycle
-    init(viewModel: BookProvider = LibraryViewModel(), router: LibraryRouting = LibraryRouter()) {
+    init(viewModel: LibraryViewModelProtocol = LibraryViewModel(), router: LibraryRouting = LibraryRouter()) {
         self.viewModel = viewModel
         self.router = router
         super.init(nibName: nil, bundle: nil)

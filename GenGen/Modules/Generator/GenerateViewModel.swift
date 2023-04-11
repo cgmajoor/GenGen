@@ -11,9 +11,8 @@ import CoreData
 // MARK: - Protocol
 protocol Generating {
     var generatedStr: String { get }
-    var activeRule: Rule? { get }
-    
-    func getRandomActiveRule(_ completion: @escaping (Result<Rule?, Error>) -> Void)
+    func getActiveRules(_ completion: @escaping (Result<[Rule], Error>) -> Void)
+    func getBooksWithWords(_ completion: @escaping (Result<[String: [String]], Error>) -> Void)
     func generate(_ completion: @escaping (Result<String, Error>) -> Void)
 }
 
@@ -22,55 +21,81 @@ class GenerateViewModel: Generating {
     
     // MARK: - Properties
     var generatedStr: String = ""
-    var activeRule: Rule?
-    let coreDataStack: CoreDataStack
-    private let context: NSManagedObjectContext
+    var activeRules: [Rule] = []
+    var activeBooksWithWords: [String: [String]] = [:]
+
+    let ruleService: RuleServiceProtocol
+    let bookService: BookServiceProtocol
+    let wordService: WordServiceProtocol
     
     // MARK: - Initialization
-    init(coreDataStack: CoreDataStack = CoreDataStack()) {
-        self.coreDataStack = coreDataStack
-        self.context = coreDataStack.persistentContainer.viewContext
-    }
-
-    convenience init(with activeRule: Rule?) {
-        self.init()
-        self.activeRule = activeRule
+    init(ruleService: RuleServiceProtocol = AppDependencies.shared.ruleService,
+         bookService: BookServiceProtocol = AppDependencies.shared.bookService,
+         wordService: WordServiceProtocol = AppDependencies.shared.wordService) {
+        self.ruleService = ruleService
+        self.bookService = bookService
+        self.wordService = wordService
     }
     
     // MARK: - Methods
-    func getRandomActiveRule(_ completion: @escaping (Result<Rule?, Error>) -> Void) {
-        let request: NSFetchRequest<Rule> = Rule.fetchRequest()
-        request.predicate = NSPredicate(format: "active == true")
-        request.fetchLimit = 1
-        do {
-            let rules = try context.fetch(request)
-            let randomRule = rules.randomElement()
-            completion(.success(randomRule))
-        } catch {
-            completion(.failure(error))
+    func getActiveRules(_ completion: @escaping (Result<[Rule], Error>) -> Void) {
+        ruleService.getRules(activeOnly: true) { [weak self] rulesResult in
+            guard let self = self else { return }
+            switch rulesResult {
+            case .success(let activeRules):
+                self.activeRules = activeRules
+                self.getBooksWithWords { booksWithWordsResult in
+                    switch booksWithWordsResult {
+                    case .success(let booksWithWords):
+                        print("BOOKS WITH WORDS: \(booksWithWords)")
+                        completion(.success(activeRules))
+                    case .failure(let failure):
+                        completion(.failure(failure))
+                    }
+                }
+            case .failure(let error):
+                completion(.failure(error))
+            }
         }
     }
-    
-    func generate(_ completion: @escaping (Result<String, Error>) -> Void) {
-        self.getRandomActiveRule { [weak self] result in
+
+    func getBooksWithWords(_ completion: @escaping (Result<[String: [String]], Error>) -> Void) {
+        bookService.getBooks { [weak self] booksResult in
             guard let self = self else { return }
-            switch result {
-            case .success(let success):
-                guard let activeRule = success else { return }
-                self.generatedStr = activeRule.bookOrder?
-                    .map { $0 as! Book }
-                    .compactMap{ book -> String? in
-                        guard let words = book.words,
-                              let randomWord = words.anyObject() as? Word else {
-                            return ""
+            switch booksResult {
+            case .success(let books):
+                books.forEach { book in
+                    self.wordService.getWords(for: book) { [weak self] wordsResult in
+                        guard let self = self else { return }
+                        switch wordsResult {
+                        case .success(let words):
+                            guard let bookName = book.name else { return }
+                            self.activeBooksWithWords[bookName] = words.compactMap { $0.title }
+                            completion(.success(activeBooksWithWords))
+                        case .failure(let error):
+                            completion(.failure(error))
                         }
-                        return randomWord.title
-                    }.joined(separator: " ") ?? ""
-                completion(.success(self.generatedStr))
+                    }
+                }
             case .failure(let failure):
                 completion(.failure(failure))
             }
         }
+    }
+
+    func generate(_ completion: @escaping (Result<String, Error>) -> Void) {
+        guard let randomRuleName = self.activeRules.randomElement()?.name else {
+            completion(.success(""))
+            return
+        }
+        print("Random selected rule: \(randomRuleName)")
+
+        let bookNames = randomRuleName.components(separatedBy: " ")
+        print("Book names in rule: \(bookNames)")
+
+        self.generatedStr = bookNames.compactMap { activeBooksWithWords[$0]?.randomElement() }
+            .joined(separator: " ")
+        completion(.success(self.generatedStr))
     }
     
 }

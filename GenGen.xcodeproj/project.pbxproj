@@ -12,9 +12,13 @@
 		F2404BCA29C0AB130050469E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2404BC829C0AB130050469E /* LaunchScreen.storyboard */; };
 		F2425FEC29DC77B70039D026 /* BookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2425FEB29DC77B70039D026 /* BookViewModel.swift */; };
 		F2425FEE29DC79860039D026 /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2425FED29DC79860039D026 /* BookTableViewCell.swift */; };
+		F254812E29E598910016AD56 /* RuleServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F254812D29E598910016AD56 /* RuleServiceTests.swift */; };
 		F264D4B729D8ABD500901B40 /* Texts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F264D4B629D8ABD500901B40 /* Texts.swift */; };
 		F264D4B929D8B7AE00901B40 /* GenerateViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F264D4B829D8B7AE00901B40 /* GenerateViewControllerTests.swift */; };
 		F264D4BB29D8BC1700901B40 /* LibraryViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F264D4BA29D8BC1700901B40 /* LibraryViewControllerTests.swift */; };
+		F2A3015C29E55A4200F6E858 /* RuleCreatorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A3015B29E55A4200F6E858 /* RuleCreatorTableViewCell.swift */; };
+		F2A3015F29E58F8200F6E858 /* BookServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A3015E29E58F8200F6E858 /* BookServiceTests.swift */; };
+		F2A3016129E593CB00F6E858 /* WordServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A3016029E593CB00F6E858 /* WordServiceTests.swift */; };
 		F2A742AE29DAC913000334FD /* BookViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A742AD29DAC913000334FD /* BookViewControllerTests.swift */; };
 		F2A742B129DACBA6000334FD /* BookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A742B029DACBA6000334FD /* BookViewController.swift */; };
 		F2A742B429DAD09F000334FD /* LibraryRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A742B329DAD09F000334FD /* LibraryRouter.swift */; };
@@ -30,6 +34,15 @@
 		F2B607C429E4153D0080B715 /* BookService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B607C329E4153D0080B715 /* BookService.swift */; };
 		F2B607C829E4397A0080B715 /* WordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B607C729E4397A0080B715 /* WordService.swift */; };
 		F2B607CA29E440BB0080B715 /* AppDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B607C929E440BB0080B715 /* AppDependencies.swift */; };
+		F2B607DB29E45A700080B715 /* RulesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B607D729E45A700080B715 /* RulesViewModel.swift */; };
+		F2B607DC29E45A700080B715 /* RulesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B607D829E45A700080B715 /* RulesRouter.swift */; };
+		F2B607DD29E45A700080B715 /* RulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B607D929E45A700080B715 /* RulesViewController.swift */; };
+		F2B607DE29E45A700080B715 /* RulesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B607DA29E45A700080B715 /* RulesTableViewCell.swift */; };
+		F2B607E029E45A7C0080B715 /* RuleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B607DF29E45A7C0080B715 /* RuleService.swift */; };
+		F2B607E329E4607E0080B715 /* RulesViewcontrollerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B607E229E4607E0080B715 /* RulesViewcontrollerTests.swift */; };
+		F2B607E529E460930080B715 /* RulesViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B607E429E460930080B715 /* RulesViewModelTests.swift */; };
+		F2B607E829E462E70080B715 /* RuleCreatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B607E729E462E70080B715 /* RuleCreatorViewController.swift */; };
+		F2B607EA29E46E880080B715 /* RuleCreatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B607E929E46E880080B715 /* RuleCreatorViewModel.swift */; };
 		F2BBC90E29D09CD2005B1952 /* GenerateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BBC90D29D09CD2005B1952 /* GenerateViewController.swift */; };
 		F2BBC91129D09D81005B1952 /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BBC91029D09D81005B1952 /* LibraryViewController.swift */; };
 		F2BBC91629D0A9B1005B1952 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BBC91529D0A9B1005B1952 /* BaseViewController.swift */; };
@@ -76,9 +89,13 @@
 		F24265B729C0B57800B16F5F /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		F24265B829C0B5AA00B16F5F /* ConfigDebug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ConfigDebug.xcconfig; sourceTree = "<group>"; };
 		F24265B929C0B5BF00B16F5F /* ConfigRelease.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ConfigRelease.xcconfig; sourceTree = "<group>"; };
+		F254812D29E598910016AD56 /* RuleServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuleServiceTests.swift; sourceTree = "<group>"; };
 		F264D4B629D8ABD500901B40 /* Texts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Texts.swift; sourceTree = "<group>"; };
 		F264D4B829D8B7AE00901B40 /* GenerateViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateViewControllerTests.swift; sourceTree = "<group>"; };
 		F264D4BA29D8BC1700901B40 /* LibraryViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewControllerTests.swift; sourceTree = "<group>"; };
+		F2A3015B29E55A4200F6E858 /* RuleCreatorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuleCreatorTableViewCell.swift; sourceTree = "<group>"; };
+		F2A3015E29E58F8200F6E858 /* BookServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookServiceTests.swift; sourceTree = "<group>"; };
+		F2A3016029E593CB00F6E858 /* WordServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordServiceTests.swift; sourceTree = "<group>"; };
 		F2A742AD29DAC913000334FD /* BookViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewControllerTests.swift; sourceTree = "<group>"; };
 		F2A742B029DACBA6000334FD /* BookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewController.swift; sourceTree = "<group>"; };
 		F2A742B329DAD09F000334FD /* LibraryRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryRouter.swift; sourceTree = "<group>"; };
@@ -95,6 +112,15 @@
 		F2B607C329E4153D0080B715 /* BookService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookService.swift; sourceTree = "<group>"; };
 		F2B607C729E4397A0080B715 /* WordService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordService.swift; sourceTree = "<group>"; };
 		F2B607C929E440BB0080B715 /* AppDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencies.swift; sourceTree = "<group>"; };
+		F2B607D729E45A700080B715 /* RulesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RulesViewModel.swift; sourceTree = "<group>"; };
+		F2B607D829E45A700080B715 /* RulesRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RulesRouter.swift; sourceTree = "<group>"; };
+		F2B607D929E45A700080B715 /* RulesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RulesViewController.swift; sourceTree = "<group>"; };
+		F2B607DA29E45A700080B715 /* RulesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RulesTableViewCell.swift; sourceTree = "<group>"; };
+		F2B607DF29E45A7C0080B715 /* RuleService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuleService.swift; sourceTree = "<group>"; };
+		F2B607E229E4607E0080B715 /* RulesViewcontrollerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesViewcontrollerTests.swift; sourceTree = "<group>"; };
+		F2B607E429E460930080B715 /* RulesViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesViewModelTests.swift; sourceTree = "<group>"; };
+		F2B607E729E462E70080B715 /* RuleCreatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuleCreatorViewController.swift; sourceTree = "<group>"; };
+		F2B607E929E46E880080B715 /* RuleCreatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuleCreatorViewModel.swift; sourceTree = "<group>"; };
 		F2BBC90D29D09CD2005B1952 /* GenerateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateViewController.swift; sourceTree = "<group>"; };
 		F2BBC91029D09D81005B1952 /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
 		F2BBC91529D0A9B1005B1952 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -188,6 +214,16 @@
 			path = LibraryTests;
 			sourceTree = "<group>";
 		};
+		F2A3015D29E58F6A00F6E858 /* GGDataTests */ = {
+			isa = PBXGroup;
+			children = (
+				F2A3015E29E58F8200F6E858 /* BookServiceTests.swift */,
+				F2A3016029E593CB00F6E858 /* WordServiceTests.swift */,
+				F254812D29E598910016AD56 /* RuleServiceTests.swift */,
+			);
+			path = GGDataTests;
+			sourceTree = "<group>";
+		};
 		F2A742AF29DACA02000334FD /* Book */ = {
 			isa = PBXGroup;
 			children = (
@@ -210,10 +246,12 @@
 		F2A9B09429D79378004C646B /* GenGenTests */ = {
 			isa = PBXGroup;
 			children = (
+				F2A3015D29E58F6A00F6E858 /* GGDataTests */,
 				F2C184D229E0B73E009D13C1 /* Utility */,
 				F29300B329D9A39A00941AA2 /* GeneratorTests */,
 				F29300B429D9A3A800941AA2 /* LibraryTests */,
 				F2A742B229DACE20000334FD /* BookTests */,
+				F2B607E129E460580080B715 /* RulesTests */,
 			);
 			path = GenGenTests;
 			sourceTree = "<group>";
@@ -246,6 +284,8 @@
 				F2BBC90C29D09CB1005B1952 /* Generator */,
 				F2BBC90F29D09D62005B1952 /* Library */,
 				F2A742AF29DACA02000334FD /* Book */,
+				F2B607D629E45A5F0080B715 /* Rules */,
+				F2B607E629E4627A0080B715 /* RuleCreator */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -256,6 +296,36 @@
 				F2B4908B29CF6DF7002E5D8B /* MainTabBarController.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		F2B607D629E45A5F0080B715 /* Rules */ = {
+			isa = PBXGroup;
+			children = (
+				F2B607D929E45A700080B715 /* RulesViewController.swift */,
+				F2B607D729E45A700080B715 /* RulesViewModel.swift */,
+				F2B607DA29E45A700080B715 /* RulesTableViewCell.swift */,
+				F2B607D829E45A700080B715 /* RulesRouter.swift */,
+			);
+			path = Rules;
+			sourceTree = "<group>";
+		};
+		F2B607E129E460580080B715 /* RulesTests */ = {
+			isa = PBXGroup;
+			children = (
+				F2B607E229E4607E0080B715 /* RulesViewcontrollerTests.swift */,
+				F2B607E429E460930080B715 /* RulesViewModelTests.swift */,
+			);
+			path = RulesTests;
+			sourceTree = "<group>";
+		};
+		F2B607E629E4627A0080B715 /* RuleCreator */ = {
+			isa = PBXGroup;
+			children = (
+				F2B607E729E462E70080B715 /* RuleCreatorViewController.swift */,
+				F2B607E929E46E880080B715 /* RuleCreatorViewModel.swift */,
+				F2A3015B29E55A4200F6E858 /* RuleCreatorTableViewCell.swift */,
+			);
+			path = RuleCreator;
 			sourceTree = "<group>";
 		};
 		F2BBC90C29D09CB1005B1952 /* Generator */ = {
@@ -294,6 +364,7 @@
 				F2C184CF29E0B553009D13C1 /* CoreDataStack.swift */,
 				F2B607C329E4153D0080B715 /* BookService.swift */,
 				F2B607C729E4397A0080B715 /* WordService.swift */,
+				F2B607DF29E45A7C0080B715 /* RuleService.swift */,
 			);
 			path = GGData;
 			sourceTree = "<group>";
@@ -411,13 +482,18 @@
 				F2C184D029E0B553009D13C1 /* CoreDataStack.swift in Sources */,
 				F2BBC91629D0A9B1005B1952 /* BaseViewController.swift in Sources */,
 				F2A7E96229DC655300126688 /* DataModel.xcdatamodeld in Sources */,
+				F2A3015C29E55A4200F6E858 /* RuleCreatorTableViewCell.swift in Sources */,
+				F2B607DD29E45A700080B715 /* RulesViewController.swift in Sources */,
+				F2B607DC29E45A700080B715 /* RulesRouter.swift in Sources */,
 				F2A916C729D8D9D20078A000 /* UIViewExtensions.swift in Sources */,
 				F2C34AB529D995F4008E06FB /* LibraryViewModel.swift in Sources */,
+				F2B607DB29E45A700080B715 /* RulesViewModel.swift in Sources */,
 				F2A742B129DACBA6000334FD /* BookViewController.swift in Sources */,
 				F2A9B09D29D79F73004C646B /* GenerateViewModel.swift in Sources */,
 				F2A742B629DB079B000334FD /* GGPromptAlert.swift in Sources */,
 				F2BBC90E29D09CD2005B1952 /* GenerateViewController.swift in Sources */,
 				F2425FEE29DC79860039D026 /* BookTableViewCell.swift in Sources */,
+				F2B607E829E462E70080B715 /* RuleCreatorViewController.swift in Sources */,
 				F2B607C429E4153D0080B715 /* BookService.swift in Sources */,
 				F2B4908C29CF6DF7002E5D8B /* MainTabBarController.swift in Sources */,
 				F2A9B08129D76581004C646B /* AppConfig.swift in Sources */,
@@ -425,8 +501,11 @@
 				F2A742B429DAD09F000334FD /* LibraryRouter.swift in Sources */,
 				F2A916C329D8D1970078A000 /* LibraryTableViewCell.swift in Sources */,
 				F2A9B0A029D7A6FC004C646B /* GGButton.swift in Sources */,
+				F2B607E029E45A7C0080B715 /* RuleService.swift in Sources */,
+				F2B607DE29E45A700080B715 /* RulesTableViewCell.swift in Sources */,
 				F2425FEC29DC77B70039D026 /* BookViewModel.swift in Sources */,
 				F2BBC91D29D0BC45005B1952 /* AppTheme.swift in Sources */,
+				F2B607EA29E46E880080B715 /* RuleCreatorViewModel.swift in Sources */,
 				F2B607C829E4397A0080B715 /* WordService.swift in Sources */,
 				F2BBC91129D09D81005B1952 /* LibraryViewController.swift in Sources */,
 				F2404BBE29C0AB100050469E /* AppDelegate.swift in Sources */,
@@ -438,12 +517,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2A3015F29E58F8200F6E858 /* BookServiceTests.swift in Sources */,
 				F2A9B09629D79378004C646B /* GenerateViewModelTests.swift in Sources */,
 				F2C184D429E0B759009D13C1 /* TestCoreDataStack.swift in Sources */,
 				F264D4B929D8B7AE00901B40 /* GenerateViewControllerTests.swift in Sources */,
 				F2C34AB329D99584008E06FB /* LibraryViewModelTests.swift in Sources */,
+				F254812E29E598910016AD56 /* RuleServiceTests.swift in Sources */,
 				F264D4BB29D8BC1700901B40 /* LibraryViewControllerTests.swift in Sources */,
 				F2A742AE29DAC913000334FD /* BookViewControllerTests.swift in Sources */,
+				F2B607E329E4607E0080B715 /* RulesViewcontrollerTests.swift in Sources */,
+				F2A3016129E593CB00F6E858 /* WordServiceTests.swift in Sources */,
+				F2B607E529E460930080B715 /* RulesViewModelTests.swift in Sources */,
 				F2C184D629E0DCF5009D13C1 /* BookViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

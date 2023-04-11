@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         AppConfig.configure(application)
 
-        print("LOG: \(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))")
+        //print("LOG: \(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))")
 
         window = UIWindow(frame: UIScreen.main.bounds)
         let tabBarController = MainTabBarController.create()

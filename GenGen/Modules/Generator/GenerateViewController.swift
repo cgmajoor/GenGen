@@ -10,7 +10,7 @@ import UIKit
 class GenerateViewController: BaseViewController {
 
     // MARK: - Properties
-    var generateViewModel: Generating
+    var viewModel: Generating
 
     // MARK: - UI
     private lazy var gengenLogo = UIImageView(image: AppTheme.Navigation.Image.logo)
@@ -33,8 +33,8 @@ class GenerateViewController: BaseViewController {
     }()
 
     // MARK: - Lifecycle
-    init(generateViewModel: Generating = GenerateViewModel()) {
-        self.generateViewModel = generateViewModel
+    init(viewModel: Generating = GenerateViewModel()) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -49,25 +49,26 @@ class GenerateViewController: BaseViewController {
         setup()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        loadActiveRules()
+    }
+
     // MARK: - Setup
     private func setup() {
         view.addSubview(generationLabel)
         view.addSubview(generateButton)
 
-        let horizontalPadding = AppTheme.Main.Padding.horizontal
-        let verticalPadding = AppTheme.Main.Padding.horizontal
-
         NSLayoutConstraint.activate([
             generationLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            generationLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: verticalPadding),
-            generationLabel.bottomAnchor.constraint(equalTo: generateButton.topAnchor, constant: -verticalPadding),
-            generationLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: horizontalPadding),
-            generationLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -horizontalPadding),
+            generationLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: AppTheme.Padding.vertical),
+            generationLabel.bottomAnchor.constraint(equalTo: generateButton.topAnchor, constant: -AppTheme.Padding.vertical),
+            generationLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: AppTheme.Padding.horizontal),
+            generationLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -AppTheme.Padding.horizontal),
 
             generateButton.heightAnchor.constraint(equalToConstant: AppTheme.Main.Size.buttonHeight),
-            generateButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: horizontalPadding),
-            generateButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -horizontalPadding),
-            generateButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -verticalPadding)
+            generateButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: AppTheme.Padding.horizontal),
+            generateButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -AppTheme.Padding.horizontal),
+            generateButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -AppTheme.Padding.vertical)
         ])
     }
 
@@ -77,13 +78,27 @@ class GenerateViewController: BaseViewController {
         self.navigationItem.setRightBarButton(helpButton, animated: false)
     }
 
+    // MARK: - Internal Methods
+    private func loadActiveRules() {
+        self.generateButton.isHidden = true
+        viewModel.getActiveRules { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(_):
+                self.generateButton.isHidden = false
+            case .failure(let failure):
+                print("Error loading active rules: \(failure)")
+            }
+        }
+    }
+
     // MARK: - Actions
     @objc private func helpTapped() {
         print("help tapped")
     }
 
     @objc private func generateTapped() {
-        generateViewModel.generate { [weak self] result in
+        viewModel.generate { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let success):

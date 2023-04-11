@@ -9,6 +9,11 @@ import UIKit
 
 // MARK: - App's style tree
 struct AppTheme {
+    struct Padding {
+        static var horizontal: CGFloat = 20.0
+        static var vertical: CGFloat = 10.0
+    }
+    
     struct TabBar {
         struct Color {
             static var selectedItem = UIColor(named: Texts.ggDarkGray) ?? .systemBackground
@@ -18,12 +23,15 @@ struct AppTheme {
         struct Image {
             static var generator = UIImage(named: Texts.magicWand) ?? UIImage()
             static var library = UIImage(named: Texts.book) ?? UIImage()
+            static var rules = UIImage(named: Texts.rules) ?? UIImage()
         }
     }
 
     struct Main {
         struct Color {
             static var background = UIColor(named: Texts.ggWhite) ?? .systemBackground
+
+            static var tableViewBackground = UIColor(named: Texts.ggLightGray) ?? .systemBackground
 
             static var labelBackground = UIColor(named: Texts.ggLightGray) ?? .systemBackground
             static var labelTitle = UIColor(named: Texts.ggBlack) ?? .systemFill
@@ -36,12 +44,19 @@ struct AppTheme {
             static var generationLabel = UIFont(name: Texts.futuraMedium, size: 24.0) ?? UIFont.preferredFont(forTextStyle: .headline)
             static var label = UIFont(name: Texts.futuraMedium, size: 20.0) ?? UIFont.preferredFont(forTextStyle: .headline)
         }
-        struct Padding {
-            static var horizontal: CGFloat = 20.0
-            static var vertical: CGFloat = 10.0
-        }
         struct Size {
             static var buttonHeight: CGFloat = 80.0
+        }
+        struct Image {
+            static var pickUp = UIImage(named: Texts.pickUp) ?? UIImage()
+        }
+    }
+
+    struct RuleCreator {
+        struct Color {
+            static var actionBackground = UIColor(named: Texts.ggYellow) ?? .systemBackground
+            static var actionForeground = UIColor(named: Texts.ggDarkGray) ?? .systemFill
+            static var ruleBackground = UIColor(named: Texts.ggLightYellow) ?? .systemBackground
         }
     }
 
@@ -50,6 +65,7 @@ struct AppTheme {
             static var logo = UIImage(named: Texts.logo) ?? UIImage()
             static var help = UIImage(named: Texts.help) ?? UIImage()
             static var add = UIImage(named: Texts.add) ?? UIImage()
+            static var checkMark = UIImage(named: Texts.checkMark) ?? UIImage()
         }
         struct Color {
             static var library = UIColor(named: Texts.ggPink) ?? .systemFill

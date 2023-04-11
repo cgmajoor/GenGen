@@ -13,4 +13,5 @@ public final class AppDependencies {
     lazy var coreDataStack = CoreDataStack()
     lazy var bookService = BookService(coreDataStack: coreDataStack)
     lazy var wordService = WordService(coreDataStack: coreDataStack)
+    lazy var ruleService = RuleService(coreDataStack: coreDataStack)
 }

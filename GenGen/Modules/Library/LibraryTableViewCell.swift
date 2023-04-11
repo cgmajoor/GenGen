@@ -10,7 +10,7 @@ import UIKit
 class LibraryTableViewCell: UITableViewCell {
 
     // MARK: - UI
-    private var label: GGLabel?
+    private var label = GGLabel(textColor: AppTheme.Main.Color.labelTitle, font: AppTheme.Main.FontStyle.label, fullText: "")
 
     // MARK: - Initialization
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -32,21 +32,20 @@ class LibraryTableViewCell: UITableViewCell {
 
     override func prepareForReuse() {
         super.prepareForReuse()
-        label = nil
+        label.setText(fullText: "")
     }
 
     func configure(bookName: String) {
-        label?.removeFromSuperview()
-        label = GGLabel(textColor: AppTheme.Main.Color.labelTitle, font: AppTheme.Main.FontStyle.label, fullText: bookName)
-        guard let label = self.label else {
-            return
-        }
+        label.removeFromSuperview()
+
+        label.setText(fullText: bookName)
+        
         contentView.embed(view: label)
     }
 
     // MARK: - Setup
     private func setup() {
-        backgroundColor = AppTheme.Main.Color.background
-        contentView.backgroundColor = AppTheme.Main.Color.background
+        backgroundColor = .clear
+        contentView.backgroundColor = .clear
     }
 }

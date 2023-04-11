@@ -11,7 +11,7 @@ import CoreData
 
 final class BookViewModelTests: XCTestCase {
 
-    func test_fetchBook_withBookWithNoWords_returnsNoWords() throws {
+    func test_fetchWords_withBookWithNoWords_returnsNoWords() throws {
         let testCoreDataStack = TestCoreDataStack()
         let testWordService = WordService(coreDataStack: testCoreDataStack)
         
@@ -20,7 +20,7 @@ final class BookViewModelTests: XCTestCase {
         colorBook.name = bookName
         let sut = BookViewModel(wordService: testWordService, book: colorBook)
 
-        let expectation = expectation(description: "fetchWords should return no words")
+        let expectation = expectation(description: "fetchWords with a book with no words should return no words")
 
         sut.fetchWords(for: colorBook) { result in
             switch result {
@@ -34,7 +34,7 @@ final class BookViewModelTests: XCTestCase {
         waitForExpectations(timeout: 2.0)
     }
 
-    func test_fetchBook_withBookWith1Word_returns1Word() throws {
+    func test_fetchWords_withBookWith1Word_returns1Word() throws {
         let testCoreDataStack = TestCoreDataStack()
         let testWordService = WordService(coreDataStack: testCoreDataStack)
 
@@ -48,7 +48,7 @@ final class BookViewModelTests: XCTestCase {
 
         let sut = BookViewModel(wordService: testWordService, book: colorBook)
 
-        let expectation = expectation(description: "fetchWords should return no words")
+        let expectation = expectation(description: "fetchWords with a book with 1 word should return 1 word")
 
         sut.fetchWords(for: colorBook) { result in
             switch result {
@@ -62,7 +62,7 @@ final class BookViewModelTests: XCTestCase {
         waitForExpectations(timeout: 2.0)
     }
 
-    func test_fetchBook_returnsCorrectWords() throws {
+    func test_fetchWords_returnsCorrectWords() throws {
         let testCoreDataStack = TestCoreDataStack()
         let testWordService = WordService(coreDataStack: testCoreDataStack)
 
@@ -84,7 +84,7 @@ final class BookViewModelTests: XCTestCase {
 
         let sut = BookViewModel(wordService: testWordService, book: colorBook)
 
-        let expectation = expectation(description: "fetchWords should return no words")
+        let expectation = expectation(description: "fetchWords should return correct words")
 
         sut.fetchWords(for: colorBook) { result in
             switch result {
