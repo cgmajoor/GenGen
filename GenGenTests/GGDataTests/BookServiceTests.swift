@@ -51,7 +51,7 @@ final class BookServiceTests: XCTestCase {
 
         let bookName = "color"
 
-        let expectation = expectation(description: "Expected no books")
+        let expectation = expectation(description: "Expected to get one book")
 
         testBookService.addBook(bookName) { result in
             testBookService.getBooks { result in
