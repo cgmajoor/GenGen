@@ -7,7 +7,9 @@
 
 import UIKit
 
-class OnboardingViewController: UIViewController {
+class OnboardingViewController: BaseViewController {
+    // MARK: - Properties
+    var viewModel: OnboardingViewModel
 
     // MARK: - UI
     private lazy var closeButton: UIButton = {
@@ -20,7 +22,33 @@ class OnboardingViewController: UIViewController {
         return button
     }()
 
+    private lazy var collectionViewLayout: UICollectionViewFlowLayout = {
+        let collectionViewLayout = UICollectionViewFlowLayout()
+        collectionViewLayout.scrollDirection = .horizontal
+        collectionViewLayout.sectionInset = .zero
+        collectionViewLayout.minimumLineSpacing = 0
+        collectionViewLayout.estimatedItemSize = .zero
+        return collectionViewLayout
+    }()
+
+    private lazy var collectionView: UICollectionView = {
+        let collectionView  = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
+        collectionView.isPagingEnabled = true
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.backgroundColor = .clear
+        return collectionView
+    }()
+
     // MARK: - Lifecycle
+    init(viewModel: OnboardingViewModel = OnboardingViewModel()) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
@@ -28,7 +56,12 @@ class OnboardingViewController: UIViewController {
 
     // MARK: - Setup
     private func setup() {
-        view.backgroundColor = AppTheme.Main.Color.background
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.register(OnboardingCollectionViewCell.self, forCellWithReuseIdentifier: Texts.onboardingCollectionViewCell)
+
+        view.embedToSafeArea(view: collectionView)
+
         view.addSubview(closeButton)
 
         NSLayoutConstraint.activate([
@@ -42,5 +75,25 @@ class OnboardingViewController: UIViewController {
     // MARK: - Actions
     @objc private func closeButtonTapped() {
         dismiss(animated: true)
+    }
+
+}
+
+extension OnboardingViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.viewModel.contentImages.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Texts.onboardingCollectionViewCell, for: indexPath) as? OnboardingCollectionViewCell else { return UICollectionViewCell() }
+        cell.configure(image: self.viewModel.contentImages[indexPath.row])
+        return cell
+    }
+
+}
+
+extension OnboardingViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width)
     }
 }

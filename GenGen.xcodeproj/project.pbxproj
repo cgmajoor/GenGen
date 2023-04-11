@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		F225AA0A29E5E6FB00F7221E /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F225AA0929E5E6FB00F7221E /* OnboardingViewController.swift */; };
 		F225AA0C29E5EBA500F7221E /* GeneratorRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F225AA0B29E5EBA500F7221E /* GeneratorRouter.swift */; };
+		F225AA0E29E5F69600F7221E /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F225AA0D29E5F69600F7221E /* OnboardingViewModel.swift */; };
+		F225AA1029E5FD7A00F7221E /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F225AA0F29E5FD7A00F7221E /* OnboardingCollectionViewCell.swift */; };
 		F2404BBE29C0AB100050469E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2404BBD29C0AB100050469E /* AppDelegate.swift */; };
 		F2404BC729C0AB130050469E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2404BC629C0AB130050469E /* Assets.xcassets */; };
 		F2404BCA29C0AB130050469E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2404BC829C0AB130050469E /* LaunchScreen.storyboard */; };
@@ -83,6 +85,8 @@
 /* Begin PBXFileReference section */
 		F225AA0929E5E6FB00F7221E /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		F225AA0B29E5EBA500F7221E /* GeneratorRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneratorRouter.swift; sourceTree = "<group>"; };
+		F225AA0D29E5F69600F7221E /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
+		F225AA0F29E5FD7A00F7221E /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
 		F2404BBA29C0AB100050469E /* GenGen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GenGen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2404BBD29C0AB100050469E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F2404BC629C0AB130050469E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -159,6 +163,8 @@
 			isa = PBXGroup;
 			children = (
 				F225AA0929E5E6FB00F7221E /* OnboardingViewController.swift */,
+				F225AA0D29E5F69600F7221E /* OnboardingViewModel.swift */,
+				F225AA0F29E5FD7A00F7221E /* OnboardingCollectionViewCell.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -497,6 +503,7 @@
 				F2BBC91629D0A9B1005B1952 /* BaseViewController.swift in Sources */,
 				F2A7E96229DC655300126688 /* DataModel.xcdatamodeld in Sources */,
 				F2A3015C29E55A4200F6E858 /* RuleCreatorTableViewCell.swift in Sources */,
+				F225AA0E29E5F69600F7221E /* OnboardingViewModel.swift in Sources */,
 				F2B607DD29E45A700080B715 /* RulesViewController.swift in Sources */,
 				F2B607DC29E45A700080B715 /* RulesRouter.swift in Sources */,
 				F2A916C729D8D9D20078A000 /* UIViewExtensions.swift in Sources */,
@@ -526,6 +533,7 @@
 				F225AA0A29E5E6FB00F7221E /* OnboardingViewController.swift in Sources */,
 				F225AA0C29E5EBA500F7221E /* GeneratorRouter.swift in Sources */,
 				F264D4B729D8ABD500901B40 /* Texts.swift in Sources */,
+				F225AA1029E5FD7A00F7221E /* OnboardingCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

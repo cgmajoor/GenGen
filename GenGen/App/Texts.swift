@@ -13,6 +13,7 @@ struct Texts {
     static let bookTableViewCell = String(describing: BookTableViewCell.self)
     static let rulesTableViewCell = String(describing: RulesTableViewCell.self)
     static let ruleCreatorTableViewCell = String(describing: RuleCreatorTableViewCell.self)
+    static let onboardingCollectionViewCell = String(describing: OnboardingCollectionViewCell.self)
 
     // MARK: - Color Asset Names
     static let ggWhite = "ggWhite"
