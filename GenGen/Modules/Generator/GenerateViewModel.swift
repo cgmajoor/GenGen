@@ -22,7 +22,7 @@ class GenerateViewModel: Generating {
     // MARK: - Properties
     var generatedStr: String = ""
     var activeRules: [Rule] = []
-    private var activeBooksWithWords: [String: [String]] = [:]
+    var activeBooksWithWords: [String: [String]] = [:]
 
     let ruleService: RuleServiceProtocol
     let bookService: BookServiceProtocol
