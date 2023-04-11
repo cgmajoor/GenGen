@@ -46,6 +46,7 @@ struct AppTheme {
         }
         struct Size {
             static var buttonHeight: CGFloat = 80.0
+            static var squareIconHeight: CGFloat = 44.0
         }
         struct Image {
             static var pickUp = UIImage(named: Texts.pickUp) ?? UIImage()
@@ -59,6 +60,17 @@ struct AppTheme {
             static var ruleBackground = UIColor(named: Texts.ggLightYellow) ?? .systemBackground
         }
     }
+    struct Onboarding {
+        struct Image {
+            static var onboarding1 = UIImage(named: Texts.onboarding1) ?? UIImage()
+            static var onboarding2 = UIImage(named: Texts.onboarding2) ?? UIImage()
+            static var onboarding3 = UIImage(named: Texts.onboarding3) ?? UIImage()
+            static var onboarding4 = UIImage(named: Texts.onboarding4) ?? UIImage()
+            static var onboarding5 = UIImage(named: Texts.onboarding5) ?? UIImage()
+            static var onboarding6 = UIImage(named: Texts.onboarding6) ?? UIImage()
+            static var onboarding7 = UIImage(named: Texts.onboarding7) ?? UIImage()
+        }
+    }
 
     struct Navigation {
         struct Image {
@@ -66,6 +78,7 @@ struct AppTheme {
             static var help = UIImage(named: Texts.help) ?? UIImage()
             static var add = UIImage(named: Texts.add) ?? UIImage()
             static var checkMark = UIImage(named: Texts.checkMark) ?? UIImage()
+            static var close = UIImage(named: Texts.close) ?? UIImage()
         }
         struct Color {
             static var library = UIColor(named: Texts.ggPink) ?? .systemFill

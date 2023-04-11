@@ -11,6 +11,7 @@ class GenerateViewController: BaseViewController {
 
     // MARK: - Properties
     var viewModel: Generating
+    private var router: GeneratorRouting
 
     // MARK: - UI
     private lazy var gengenLogo = UIImageView(image: AppTheme.Navigation.Image.logo)
@@ -33,8 +34,9 @@ class GenerateViewController: BaseViewController {
     }()
 
     // MARK: - Lifecycle
-    init(viewModel: Generating = GenerateViewModel()) {
+    init(viewModel: Generating = GenerateViewModel(), router: GeneratorRouting = GeneratorRouter()) {
         self.viewModel = viewModel
+        self.router = router
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -80,12 +82,12 @@ class GenerateViewController: BaseViewController {
 
     // MARK: - Internal Methods
     private func loadActiveRules() {
-        self.generateButton.isHidden = true
+        self.generateButton.isEnabled = false
         viewModel.getActiveRules { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(_):
-                self.generateButton.isHidden = false
+                self.generateButton.isEnabled = true
             case .failure(let failure):
                 print("Error loading active rules: \(failure)")
             }
@@ -94,7 +96,7 @@ class GenerateViewController: BaseViewController {
 
     // MARK: - Actions
     @objc private func helpTapped() {
-        print("help tapped")
+        router.didSelectHelp(in: self)
     }
 
     @objc private func generateTapped() {

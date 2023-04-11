@@ -34,6 +34,17 @@ struct Texts {
     static let rules = "rules"
     static let checkMark = "checkMark"
     static let pickUp = "pickUp"
+    static let addfav = "addfav"
+    static let close = "close"
+    
+    // MARK: - Onboarding Image Asset Names
+    static let onboarding1 = "onboarding1"
+    static let onboarding2 = "onboarding2"
+    static let onboarding3 = "onboarding3"
+    static let onboarding4 = "onboarding4"
+    static let onboarding5 = "onboarding5"
+    static let onboarding6 = "onboarding6"
+    static let onboarding7 = "onboarding7"
 
     // MARK: - Font Names
     static let arialRoundedMTBold = "ArialRoundedMTBold"
