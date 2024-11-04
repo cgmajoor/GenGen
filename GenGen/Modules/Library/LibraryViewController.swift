@@ -129,4 +129,24 @@ extension LibraryViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         router.didSelectBook(in: self, book: books[indexPath.row])
     }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { [weak self] (_, _, completionHandler) in
+            guard let self = self else { return }
+            let bookToDelete = self.books[indexPath.row]
+            
+            self.viewModel.deleteBookWithDependencies(bookToDelete) { result in
+                switch result {
+                case .success:
+                    self.books.remove(at: indexPath.row)
+                    tableView.deleteRows(at: [indexPath], with: .fade)
+                    completionHandler(true)
+                case .failure(let error):
+                    print("Error deleting book with dependencies: \(error)")
+                    completionHandler(false)
+                }
+            }
+        }
+        return UISwipeActionsConfiguration(actions: [deleteAction])
+    }
 }

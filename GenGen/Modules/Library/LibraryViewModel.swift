@@ -11,6 +11,8 @@ import CoreData
 protocol LibraryViewModelProtocol {
     func fetchBooks(_ completion: @escaping (Result<[Book], Error>) -> Void)
     func addBook(bookName: String, _ completion: @escaping (Result<[Book], Error>) -> Void)
+    func deleteBook(_ book: Book, completion: @escaping (Result<Void, Error>) -> Void)
+    func deleteBookWithDependencies(_ book: Book, completion: @escaping (Result<Void, Error>) -> Void)
 }
 
 class LibraryViewModel: LibraryViewModelProtocol {
@@ -53,7 +55,38 @@ class LibraryViewModel: LibraryViewModelProtocol {
         }
     }
     
+    func deleteBook(_ book: Book, completion: @escaping (Result<Void, Error>) -> Void) {
+        bookService.deleteBook(book) { [weak self] result in
+            switch result {
+            case .success:
+                if let index = self?.books.firstIndex(of: book) {
+                    self?.books.remove(at: index)
+                }
+                completion(.success(()))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    
     private func doesBookExist(with bookName: String) -> Bool {
         return books.contains(where: { $0.name == bookName })
     }
+    
+    // In LibraryViewModel.swift
+    func deleteBookWithDependencies(_ book: Book, completion: @escaping (Result<Void, Error>) -> Void) {
+        bookService.deleteBookWithDependencies(book) { result in
+            switch result {
+            case .success:
+                if let index = self.books.firstIndex(of: book) {
+                    self.books.remove(at: index)
+                }
+                completion(.success(()))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
 }
