@@ -11,7 +11,7 @@ public final class AppDependencies {
     public static let shared = AppDependencies()
 
     lazy var coreDataStack = CoreDataStack()
-    lazy var bookService = BookService(coreDataStack: coreDataStack)
-    lazy var wordService = WordService(coreDataStack: coreDataStack)
-    lazy var ruleService = RuleService(coreDataStack: coreDataStack)
+    lazy var wordService: WordServiceProtocol = WordService(coreDataStack: coreDataStack)
+    lazy var ruleService: RuleServiceProtocol = RuleService(coreDataStack: coreDataStack)
+    lazy var bookService = BookService(coreDataStack: coreDataStack, ruleService: ruleService, wordService: wordService)
 }
