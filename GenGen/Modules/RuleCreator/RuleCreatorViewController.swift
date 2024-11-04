@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RuleCreatorViewController: UIViewController {
+class RuleCreatorViewController: BaseViewController {
 
     // MARK: - Properties
     private var books: [Book] = []
@@ -78,7 +78,6 @@ class RuleCreatorViewController: UIViewController {
 
     // MARK: - Setup
     private func setup() {
-        view.backgroundColor = AppTheme.Main.Color.background
         tableView.register(RuleCreatorTableViewCell.self, forCellReuseIdentifier: Texts.ruleCreatorTableViewCell)
         tableView.dataSource = self
 

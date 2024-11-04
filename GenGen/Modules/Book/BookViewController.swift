@@ -8,7 +8,7 @@
 import UIKit
 import CoreData
 
-class BookViewController: UIViewController {
+class BookViewController: BaseViewController {
 
     // MARK: - Properties
     var book: Book
@@ -64,8 +64,6 @@ class BookViewController: UIViewController {
     }
 
     private func setup() {
-        view.backgroundColor = AppTheme.Main.Color.background
-
         tableView.register(BookTableViewCell.self, forCellReuseIdentifier: Texts.bookTableViewCell)
         tableView.dataSource = self
 
