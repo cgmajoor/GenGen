@@ -40,6 +40,7 @@ struct Texts {
     static let addFav = "addFav"
     static let close = "close"
     static let downloadGenGen = "downloadgengenonitunes"
+    static let openAI = "openAI"
 
     // MARK: - Onboarding Image Asset Names
     static let onboarding1 = "onboarding1"

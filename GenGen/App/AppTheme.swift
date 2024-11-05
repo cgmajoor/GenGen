@@ -27,16 +27,16 @@ struct AppTheme {
             static var favorites = UIImage(named: Texts.favorites) ?? UIImage()
         }
     }
-
+    
     struct Main {
         struct Color {
             static var background = UIColor(named: Texts.ggWhite) ?? .systemBackground
-
+            
             static var tableViewBackground = UIColor(named: Texts.ggLightGray) ?? .systemBackground
-
+            
             static var labelBackground = UIColor(named: Texts.ggLightGray) ?? .systemBackground
             static var labelTitle = UIColor(named: Texts.ggBlack) ?? .systemFill
-
+            
             static var buttonBackground = UIColor(named: Texts.ggDarkGray) ?? .systemBackground
             static var buttonTitle = UIColor(named: Texts.ggWhite) ?? .systemFill
         }
@@ -53,9 +53,10 @@ struct AppTheme {
             static var pickUp = UIImage(named: Texts.pickUp) ?? UIImage()
             static var addFav = UIImage(named: Texts.addFav) ?? UIImage()
             static var downloadGenGen = UIImage(named: Texts.downloadGenGen) ?? UIImage()
+            static var openAI = UIImage(named: Texts.openAI) ?? UIImage()
         }
     }
-
+    
     struct RuleCreator {
         struct Color {
             static var actionBackground = UIColor(named: Texts.ggYellow) ?? .systemBackground
@@ -63,7 +64,7 @@ struct AppTheme {
             static var ruleBackground = UIColor(named: Texts.ggLightYellow) ?? .systemBackground
         }
     }
-
+    
     struct Onboarding {
         struct Image {
             static var onboarding1 = UIImage(named: Texts.onboarding1) ?? UIImage()
@@ -75,7 +76,7 @@ struct AppTheme {
             static var onboarding7 = UIImage(named: Texts.onboarding7) ?? UIImage()
         }
     }
-
+    
     struct Navigation {
         struct Image {
             static var logo = UIImage(named: Texts.logo) ?? UIImage()
