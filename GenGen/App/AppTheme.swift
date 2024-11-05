@@ -24,6 +24,7 @@ struct AppTheme {
             static var generator = UIImage(named: Texts.magicWand) ?? UIImage()
             static var library = UIImage(named: Texts.book) ?? UIImage()
             static var rules = UIImage(named: Texts.rules) ?? UIImage()
+            static var favorites = UIImage(named: Texts.favorites) ?? UIImage()
         }
     }
 
@@ -50,6 +51,7 @@ struct AppTheme {
         }
         struct Image {
             static var pickUp = UIImage(named: Texts.pickUp) ?? UIImage()
+            static var addFav = UIImage(named: Texts.addFav) ?? UIImage()
         }
     }
 
@@ -60,6 +62,7 @@ struct AppTheme {
             static var ruleBackground = UIColor(named: Texts.ggLightYellow) ?? .systemBackground
         }
     }
+
     struct Onboarding {
         struct Image {
             static var onboarding1 = UIImage(named: Texts.onboarding1) ?? UIImage()
@@ -83,6 +86,7 @@ struct AppTheme {
         struct Color {
             static var library = UIColor(named: Texts.ggPink) ?? .systemFill
             static var rules = UIColor(named: Texts.ggYellow) ?? .systemFill
+            static var favorites = UIColor(named: Texts.ggGreen) ?? .systemFill
         }
         struct FontStyle {
             static var title = UIFont(name: Texts.arialRoundedMTBold, size: 26.0) ?? UIFont.preferredFont(forTextStyle: .headline)

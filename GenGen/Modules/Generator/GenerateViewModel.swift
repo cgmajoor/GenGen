@@ -14,27 +14,32 @@ protocol Generating {
     func getActiveRules(_ completion: @escaping (Result<[Rule], Error>) -> Void)
     func getBooksWithWords(_ completion: @escaping (Result<[String: [String]], Error>) -> Void)
     func generate(_ completion: @escaping (Result<String, Error>) -> Void)
+    func addFavorite(_ text: String, completion: @escaping (Result<Void, Error>) -> Void)
+
 }
 
 // MARK: - Generator
 class GenerateViewModel: Generating {
-    
+
     // MARK: - Properties
     var generatedStr: String = ""
     var activeRules: [Rule] = []
     var activeBooksWithWords: [String: [String]] = [:]
-
+    
     let ruleService: RuleServiceProtocol
     let bookService: BookServiceProtocol
     let wordService: WordServiceProtocol
-    
+    private let addFavoriteUseCase: AddFavoriteIfNotExistsUseCaseProtocol
+
     // MARK: - Initialization
     init(ruleService: RuleServiceProtocol = AppDependencies.shared.ruleService,
          bookService: BookServiceProtocol = AppDependencies.shared.bookService,
-         wordService: WordServiceProtocol = AppDependencies.shared.wordService) {
+         wordService: WordServiceProtocol = AppDependencies.shared.wordService,
+         addFavoriteUseCase: AddFavoriteIfNotExistsUseCaseProtocol) {
         self.ruleService = ruleService
         self.bookService = bookService
         self.wordService = wordService
+        self.addFavoriteUseCase = addFavoriteUseCase
     }
     
     // MARK: - Methods
@@ -58,7 +63,7 @@ class GenerateViewModel: Generating {
             }
         }
     }
-
+    
     func getBooksWithWords(_ completion: @escaping (Result<[String: [String]], Error>) -> Void) {
         bookService.getBooks { [weak self] booksResult in
             guard let self = self else { return }
@@ -82,20 +87,35 @@ class GenerateViewModel: Generating {
             }
         }
     }
-
+    
     func generate(_ completion: @escaping (Result<String, Error>) -> Void) {
         guard let randomRuleName = self.activeRules.randomElement()?.name else {
             completion(.success(""))
             return
         }
         print("Random selected rule: \(randomRuleName)")
-
+        
         let bookNames = randomRuleName.components(separatedBy: " ")
         print("Book names in rule: \(bookNames)")
-
+        
         self.generatedStr = bookNames.compactMap { activeBooksWithWords[$0]?.randomElement() }
             .joined(separator: " ")
         completion(.success(self.generatedStr))
     }
-    
+
+    func addFavorite(_ text: String, completion: @escaping (Result<Void, Error>) -> Void) {
+        addFavoriteUseCase.execute(favoriteTitle: text) { result in
+            switch result {
+            case .success(let favorite):
+                if favorite != nil {
+                    print("Favorite added successfully")
+                } else {
+                    print("Favorite already exists")
+                }
+                completion(.success(()))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
 }

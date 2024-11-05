@@ -69,7 +69,6 @@ class LibraryViewModel: LibraryViewModelProtocol {
         }
     }
     
-    
     private func doesBookExist(with bookName: String) -> Bool {
         return books.contains(where: { $0.name == bookName })
     }

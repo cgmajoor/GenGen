@@ -33,12 +33,28 @@ class GenerateViewController: BaseViewController {
         return button
     }()
 
+    private lazy var addToFavoritesButton: UIButton = {
+        let button = UIButton(type: .custom)
+        button.setImage(AppTheme.Main.Image.addFav, for: .normal)
+        button.addTarget(self, action: #selector(addToFavoritesTapped), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+
     // MARK: - Lifecycle
-    init(viewModel: Generating = GenerateViewModel(), router: GeneratorRouting = GeneratorRouter()) {
+    init(
+        viewModel: Generating = GenerateViewModel(
+            addFavoriteUseCase: AddFavoriteIfNotExistsUseCase(
+                favoriteService: AppDependencies.shared.favoriteService
+            )
+        ),
+        router: GeneratorRouting = GeneratorRouter()
+    ) {
         self.viewModel = viewModel
         self.router = router
         super.init(nibName: nil, bundle: nil)
     }
+
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -59,6 +75,7 @@ class GenerateViewController: BaseViewController {
     private func setup() {
         view.addSubview(generationLabel)
         view.addSubview(generateButton)
+        view.addSubview(addToFavoritesButton)
 
         NSLayoutConstraint.activate([
             generationLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -66,6 +83,11 @@ class GenerateViewController: BaseViewController {
             generationLabel.bottomAnchor.constraint(equalTo: generateButton.topAnchor, constant: -AppTheme.Padding.vertical),
             generationLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: AppTheme.Padding.horizontal),
             generationLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -AppTheme.Padding.horizontal),
+
+            addToFavoritesButton.bottomAnchor.constraint(equalTo: generationLabel.bottomAnchor, constant: -AppTheme.Padding.vertical),
+            addToFavoritesButton.trailingAnchor.constraint(equalTo: generationLabel.trailingAnchor, constant: -AppTheme.Padding.horizontal),
+            addToFavoritesButton.widthAnchor.constraint(equalToConstant: 44),
+            addToFavoritesButton.heightAnchor.constraint(equalToConstant: 44),
 
             generateButton.heightAnchor.constraint(equalToConstant: AppTheme.Main.Size.buttonHeight),
             generateButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: AppTheme.Padding.horizontal),
@@ -90,6 +112,19 @@ class GenerateViewController: BaseViewController {
                 self.generateButton.isEnabled = true
             case .failure(let failure):
                 print("Error loading active rules: \(failure)")
+            }
+        }
+    }
+
+    @objc private func addToFavoritesTapped() {
+        guard let text = generationLabel.text, !text.isEmpty else { return }
+        viewModel.addFavorite(text) { result in
+            switch result {
+            case .success:
+                print("Favorite added successfully")
+                NotificationCenter.default.post(name: .favoritesUpdated, object: nil) // Notify of update
+            case .failure(let error):
+                print("Failed to add favorite: \(error)")
             }
         }
     }
