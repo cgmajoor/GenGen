@@ -36,10 +36,10 @@ class FavoritesViewController: BaseViewController {
 
     // MARK: - Lifecycle
     init(viewModel: FavoritesViewModelProtocol = FavoritesViewModel(
-            getAllFavoritesUseCase: GetAllFavoritesUseCase(favoriteService: AppDependencies.shared.favoriteService),
-            addFavoriteUseCase: AddFavoriteIfNotExistsUseCase(favoriteService: AppDependencies.shared.favoriteService),
-            deleteFavoriteUseCase: DeleteFavoriteUseCase(favoriteService: AppDependencies.shared.favoriteService)
-        )) {
+        getAllFavoritesUseCase: GetAllFavoritesUseCase(favoriteService: AppDependencies.shared.favoriteService),
+        addFavoriteUseCase: AddFavoriteIfNotExistsUseCase(favoriteService: AppDependencies.shared.favoriteService),
+        deleteFavoriteUseCase: DeleteFavoriteUseCase(favoriteService: AppDependencies.shared.favoriteService)
+    )) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -61,7 +61,7 @@ class FavoritesViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         loadFavorites()
     }
-    
+
     deinit {
         NotificationCenter.default.removeObserver(self, name: .favoritesUpdated, object: nil)
     }
@@ -135,7 +135,6 @@ extension FavoritesViewController: UITableViewDataSource {
     }
 }
 
-
 // MARK: - UITableViewDelegate
 extension FavoritesViewController: UITableViewDelegate {
 
@@ -156,6 +155,27 @@ extension FavoritesViewController: UITableViewDelegate {
                 }
             }
         }
-        return UISwipeActionsConfiguration(actions: [deleteAction])
+
+        let shareAction = UIContextualAction(style: .normal, title: "Share") { [weak self] (_, _, completionHandler) in
+            self?.shareSelectedRow(at: indexPath)
+            completionHandler(true)
+        }
+
+        shareAction.backgroundColor = .systemBlue
+        return UISwipeActionsConfiguration(actions: [deleteAction, shareAction])
+    }
+}
+
+private extension FavoritesViewController {
+    func shareSelectedRow(at indexPath: IndexPath) {
+        guard let selectedFavorite = favorites[indexPath.row].title else { return }
+
+        let textToShare = selectedFavorite + Texts.downloadGenGenText
+
+        let logo = AppTheme.Main.Image.downloadGenGen
+
+        let activityViewController = UIActivityViewController(activityItems: [textToShare, logo], applicationActivities: nil)
+
+        present(activityViewController, animated: true, completion: nil)
     }
 }
