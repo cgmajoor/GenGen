@@ -5,6 +5,9 @@
         <relationship name="rule" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Rule" inverseName="bookOrder" inverseEntity="Rule"/>
         <relationship name="words" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Word" inverseName="parentBook" inverseEntity="Word"/>
     </entity>
+    <entity name="Favorite" representedClassName=".Favorite" syncable="YES" codeGenerationType="class">
+        <attribute name="title" attributeType="String"/>
+    </entity>
     <entity name="Rule" representedClassName=".Rule" syncable="YES" codeGenerationType="class">
         <attribute name="active" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="name" attributeType="String"/>

@@ -12,6 +12,7 @@ struct Texts {
     static let libraryTableViewCell = String(describing: LibraryTableViewCell.self)
     static let bookTableViewCell = String(describing: BookTableViewCell.self)
     static let rulesTableViewCell = String(describing: RulesTableViewCell.self)
+    static let favoritesTableViewCell = String(describing: FavoritesTableViewCell.self)
     static let ruleCreatorTableViewCell = String(describing: RuleCreatorTableViewCell.self)
     static let onboardingCollectionViewCell = String(describing: OnboardingCollectionViewCell.self)
 
@@ -33,9 +34,10 @@ struct Texts {
     static let book = "book"
     static let add = "add"
     static let rules = "rules"
+    static let favorites = "favorites"
     static let checkMark = "checkMark"
     static let pickUp = "pickUp"
-    static let addfav = "addfav"
+    static let addFav = "addFav"
     static let close = "close"
     
     // MARK: - Onboarding Image Asset Names
@@ -55,10 +57,12 @@ struct Texts {
     static let generatorTabBarTitle = "Generator"
     static let libraryTabBarTitle = "Library"
     static let rulesTabBarTitle = "Rules"
+    static let favoritesTabBarTitle = "Favorites"
 
     // MARK: - Navigation
     static let libraryNavigationTitle = "Library"
     static let rulesNavigationTitle = "Rules"
+    static let favoritesNavigationTitle = "Favorites"
     static let ruleCreatorNavigationTitle = "New Rule"
 
     // MARK: - Generator
@@ -69,6 +73,9 @@ struct Texts {
 
     // MARK: - Book
     static let addNewWordAlertTitle = "Enter a word"
+
+    // MARK: - Favorite
+    static let addNewFavoriteAlertTitle = "Enter a custom text to your favorites"
 
     // MARK: - PromptAlert
     static let promptAlertAddActionTitle = "Add"

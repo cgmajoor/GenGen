@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "addFav.png",
+      "filename" : "favoritesButton.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "addFav@2x.png",
+      "filename" : "favoritesButton@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "addFav@3x.png",
+      "filename" : "favoritesButton@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

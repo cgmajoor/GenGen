@@ -12,6 +12,7 @@ public enum TabBarItemType: Int, Equatable {
     case generator
     case library
     case rules
+    case favorites
 
     var viewController: UIViewController {
         var viewController: UIViewController
@@ -23,6 +24,8 @@ public enum TabBarItemType: Int, Equatable {
             viewController = LibraryViewController()
         case .rules:
             viewController = RulesViewController()
+        case .favorites:
+            viewController = FavoritesViewController()
         }
         viewController.tabBarItem = self.tabBarItem
         return viewController
@@ -33,12 +36,15 @@ public enum TabBarItemType: Int, Equatable {
         case .generator:    return UITabBarItem(title: Texts.generatorTabBarTitle,
                                                 image: AppTheme.TabBar.Image.generator,
                                                 selectedImage: AppTheme.TabBar.Image.generator)
-        case .library:      return UITabBarItem(title: Texts.libraryTabBarTitle,
+        case .library:  return UITabBarItem(title: Texts.libraryTabBarTitle,
                                                 image: AppTheme.TabBar.Image.library,
                                                 selectedImage: AppTheme.TabBar.Image.library)
-        case .rules:      return UITabBarItem(title: Texts.rulesTabBarTitle,
+        case .rules:    return UITabBarItem(title: Texts.rulesTabBarTitle,
                                               image: AppTheme.TabBar.Image.rules,
                                               selectedImage: AppTheme.TabBar.Image.rules)
+        case .favorites:    return UITabBarItem(title: Texts.favoritesTabBarTitle,
+                                                image: AppTheme.TabBar.Image.favorites,
+                                                selectedImage: AppTheme.TabBar.Image.favorites)
         }
     }
 }
@@ -61,8 +67,9 @@ final class MainTabBarController: UITabBarController, UITabBarControllerDelegate
         let generatorVC = TabBarItemType.generator.viewController
         let libraryVC = TabBarItemType.library.viewController
         let rulesVC = TabBarItemType.rules.viewController
+        let favoritesVC = TabBarItemType.favorites.viewController
 
-        let viewControllerList: [UIViewController] = [generatorVC, libraryVC, rulesVC]
+        let viewControllerList: [UIViewController] = [generatorVC, libraryVC, rulesVC, favoritesVC]
 
         setViewControllers(viewControllerList)
 
