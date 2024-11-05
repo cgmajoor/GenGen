@@ -52,6 +52,7 @@ struct AppTheme {
         struct Image {
             static var pickUp = UIImage(named: Texts.pickUp) ?? UIImage()
             static var addFav = UIImage(named: Texts.addFav) ?? UIImage()
+            static var downloadGenGen = UIImage(named: Texts.downloadGenGen) ?? UIImage()
         }
     }
 

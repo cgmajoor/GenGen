@@ -39,7 +39,8 @@ struct Texts {
     static let pickUp = "pickUp"
     static let addFav = "addFav"
     static let close = "close"
-    
+    static let downloadGenGen = "downloadgengenonitunes"
+
     // MARK: - Onboarding Image Asset Names
     static let onboarding1 = "onboarding1"
     static let onboarding2 = "onboarding2"
@@ -80,4 +81,11 @@ struct Texts {
     // MARK: - PromptAlert
     static let promptAlertAddActionTitle = "Add"
     static let promptAlertCancelActionTitle = "Cancel"
+
+    static let downloadGenGenText = """
+        
+        
+        Sent from GenGen Custom Text Generator
+        https://itunes.apple.com/us/app/gengen-custom-text-generator/id431167784?mt=8
+        """
 }
