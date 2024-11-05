@@ -36,7 +36,15 @@ class LibraryTableViewCell: UITableViewCell {
 
         label.setText(fullText: bookName)
         
-        contentView.embed(view: label)
+        contentView.embed(
+            view: label,
+            insets: .init(
+                top: AppTheme.Padding.vertical,
+                left: AppTheme.Padding.horizontal,
+                bottom: AppTheme.Padding.vertical,
+                right: AppTheme.Padding.horizontal
+            )
+        )
     }
 
     // MARK: - Setup
