@@ -39,10 +39,12 @@ class LibraryViewModel: LibraryViewModelProtocol {
             }
         }
     }
-    
+
     func addBook(bookName: String, _ completion: @escaping (Result<[Book], Error>) -> Void) {
-        if !doesBookExist(with: bookName) {
-            bookService.addBook(bookName) { [weak self] result in
+        let sanitizedBookName = bookName.replacingOccurrences(of: " ", with: "_")
+
+        if !doesBookExist(with: sanitizedBookName) {
+            bookService.addBook(sanitizedBookName) { [weak self] result in
                 guard let self = self else { return }
                 switch result {
                 case .success(let book):
@@ -52,8 +54,11 @@ class LibraryViewModel: LibraryViewModelProtocol {
                     completion(.failure(error))
                 }
             }
+        } else {
+            print("Book with name '\(sanitizedBookName)' already exists.")
         }
     }
+
     
     func deleteBook(_ book: Book, completion: @escaping (Result<Void, Error>) -> Void) {
         bookService.deleteBook(book) { [weak self] result in

@@ -34,7 +34,14 @@ class BookViewController: BaseViewController {
     }()
 
     // MARK: - Lifecycle
-    init(book: Book, viewModel: BookViewModelProtocol = BookViewModel()) {
+    init(
+        book: Book,
+        viewModel: BookViewModelProtocol =
+        BookViewModel(
+            wordService: AppDependencies.shared.wordService,
+            deleteWordUseCase: DeleteWordUseCase(wordService: AppDependencies.shared.wordService)
+        )
+    ) {
         self.book = book
         self.viewModel = viewModel
         self.headerLabel = GGLabel(textColor: AppTheme.Navigation.Color.library,
@@ -42,6 +49,7 @@ class BookViewController: BaseViewController {
                                    fullText: book.name ?? "")
         super.init(nibName: nil, bundle: nil)
     }
+    
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -66,6 +74,7 @@ class BookViewController: BaseViewController {
     private func setup() {
         tableView.register(BookTableViewCell.self, forCellReuseIdentifier: Texts.bookTableViewCell)
         tableView.dataSource = self
+        tableView.delegate = self
 
         view.addSubview(tableView)
         view.embedToSafeArea(view: tableView)
@@ -117,5 +126,28 @@ extension BookViewController: UITableViewDataSource {
         }
         cell.configure(with: wordTitle)
         return cell
+    }
+}
+
+// MARK: - UITableViewDelegate
+extension BookViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { [weak self] (_, _, completionHandler) in
+            guard let self = self else { return }
+            let wordToDelete = self.words[indexPath.row]
+
+            self.viewModel.deleteWord(wordToDelete) { result in
+                switch result {
+                case .success:
+                    self.words.remove(at: indexPath.row)
+                    tableView.deleteRows(at: [indexPath], with: .fade)
+                    completionHandler(true)
+                case .failure(let error):
+                    print("Failed to delete word: \(error)")
+                    completionHandler(false)
+                }
+            }
+        }
+        return UISwipeActionsConfiguration(actions: [deleteAction])
     }
 }
