@@ -11,21 +11,28 @@ import CoreData
 protocol BookViewModelProtocol {
     func fetchWords(for book: Book, _ completion: @escaping (Result<[Word], Error>) -> Void)
     func addWord(_ wordTitle: String, to book: Book, _ completion: @escaping (Result<(Book, [Word]), Error>) -> Void)
+    func deleteWord(_ word: Word, completion: @escaping (Result<Void, Error>) -> Void) // New method
 }
 
 class BookViewModel: BookViewModelProtocol {
 
     // MARK: - Properties
+    private let deleteWordUseCase: DeleteWordUseCaseProtocol
     let wordService: WordServiceProtocol
     private var book: Book?
     private var words: [Word]
 
-    init(wordService: WordServiceProtocol = AppDependencies.shared.wordService, book: Book? = nil, words: [Word] = []) {
+    init(
+        wordService: WordServiceProtocol = AppDependencies.shared.wordService,
+        deleteWordUseCase: DeleteWordUseCaseProtocol,
+        book: Book? = nil, words: [Word] = []
+    ) {
         self.wordService = wordService
+        self.deleteWordUseCase = deleteWordUseCase
         self.book = book
         self.words = words
     }
-    
+
     // MARK: - Methods
     func fetchWords(for book: Book, _ completion: @escaping (Result<[Word], Error>) -> Void) {
         wordService.getWords(for: book) { [weak self] result in
@@ -59,4 +66,19 @@ class BookViewModel: BookViewModelProtocol {
     private func doesWordExist(with wordTitle: String) -> Bool {
         return words.contains(where: { $0.title == wordTitle })
     }
+
+    func deleteWord(_ word: Word, completion: @escaping (Result<Void, Error>) -> Void) {
+            deleteWordUseCase.execute(word: word) { [weak self] result in
+                guard let self = self else { return }
+                switch result {
+                case .success:
+                    if let index = self.words.firstIndex(of: word) {
+                        self.words.remove(at: index)
+                    }
+                    completion(.success(()))
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+            }
+        }
 }

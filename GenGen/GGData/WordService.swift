@@ -12,6 +12,7 @@ public protocol WordServiceProtocol {
     func addWord(_ wordTitle: String, to book: Book, _ completion: @escaping (Result<(Book, Word), Error>) -> Void)
     func getWords(for book: Book, _ completion: @escaping (Result<[Word], Error>) -> Void)
     func deleteAllWords(in book: Book, completion: @escaping (Result<Void, Error>) -> Void)
+    func deleteWord(_ word: Word, completion: @escaping (Result<Void, Error>) -> Void)
 }
 
 public class WordService: WordServiceProtocol {
@@ -64,6 +65,16 @@ extension WordService {
                 context.delete(word)
             }
             try coreDataStack.saveContext()
+            completion(.success(()))
+        } catch {
+            completion(.failure(error))
+        }
+    }
+
+    public func deleteWord(_ word: Word, completion: @escaping (Result<Void, Error>) -> Void) {
+        context.delete(word)
+        do {
+            try context.save()
             completion(.success(()))
         } catch {
             completion(.failure(error))
