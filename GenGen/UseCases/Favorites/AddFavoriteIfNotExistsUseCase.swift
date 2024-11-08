@@ -14,7 +14,7 @@ protocol AddFavoriteIfNotExistsUseCaseProtocol {
 class AddFavoriteIfNotExistsUseCase: AddFavoriteIfNotExistsUseCaseProtocol {
     private let favoriteService: FavoriteServiceProtocol
 
-    init(favoriteService: FavoriteServiceProtocol) {
+    init(favoriteService: FavoriteServiceProtocol = AppDependencies.shared.favoriteService) {
         self.favoriteService = favoriteService
     }
 
