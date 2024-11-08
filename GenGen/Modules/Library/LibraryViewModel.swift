@@ -11,28 +11,38 @@ import CoreData
 protocol LibraryViewModelProtocol {
     func fetchBooks(_ completion: @escaping (Result<[Book], Error>) -> Void)
     func addBook(bookName: String, _ completion: @escaping (Result<[Book], Error>) -> Void)
-    func deleteBook(_ book: Book, completion: @escaping (Result<Void, Error>) -> Void)
     func deleteBookWithDependencies(_ book: Book, completion: @escaping (Result<Void, Error>) -> Void)
 }
 
 class LibraryViewModel: LibraryViewModelProtocol {
-    
-    // MARK: - Dependencies
-    let bookService: BookServiceProtocol
-    private var books: [Book]
-    
-    init(bookService: BookServiceProtocol = AppDependencies.shared.bookService, books: [Book] = []) {
-        self.bookService = bookService
-        self.books = books
+
+    // MARK: - Use Cases
+    private let getAllBooksUseCase: GetAllBooksUseCaseProtocol
+    private let addBookUseCase: AddBookUseCaseProtocol
+    private let deleteBookWithDependenciesUseCase: DeleteBookWithDependenciesUseCaseProtocol
+    private let deleteBookUseCase: DeleteBookUseCaseProtocol
+
+    private var books: [Book] = []
+
+    // MARK: - Initialization
+    init(
+        getAllBooksUseCase: GetAllBooksUseCaseProtocol = GetAllBooksUseCase(),
+        addBookUseCase: AddBookUseCaseProtocol = AddBookUseCase(),
+        deleteBookWithDependenciesUseCase: DeleteBookWithDependenciesUseCaseProtocol = DeleteBookWithDependenciesUseCase(),
+        deleteBookUseCase: DeleteBookUseCaseProtocol = DeleteBookUseCase()
+    ) {
+        self.getAllBooksUseCase = getAllBooksUseCase
+        self.addBookUseCase = addBookUseCase
+        self.deleteBookWithDependenciesUseCase = deleteBookWithDependenciesUseCase
+        self.deleteBookUseCase = deleteBookUseCase
     }
-    
+
     // MARK: - Methods
     func fetchBooks(_ completion: @escaping (Result<[Book], Error>) -> Void) {
-        bookService.getBooks { [weak self] result in
-            guard let self = self else { return }
+        getAllBooksUseCase.execute { [weak self] result in
             switch result {
             case .success(let books):
-                self.books = books
+                self?.books = books
                 completion(.success(books))
             case .failure(let error):
                 completion(.failure(error))
@@ -41,56 +51,10 @@ class LibraryViewModel: LibraryViewModelProtocol {
     }
 
     func addBook(bookName: String, _ completion: @escaping (Result<[Book], Error>) -> Void) {
-        let sanitizedBookName = bookName.replacingOccurrences(of: " ", with: "_")
-
-        if !doesBookExist(with: sanitizedBookName) {
-            bookService.addBook(sanitizedBookName) { [weak self] result in
-                guard let self = self else { return }
-                switch result {
-                case .success(let book):
-                    self.books.append(book)
-                    completion(.success(self.books))
-                case .failure(let error):
-                    completion(.failure(error))
-                }
-            }
-        } else {
-            print("Book with name '\(sanitizedBookName)' already exists.")
-        }
+        addBookUseCase.execute(bookName: bookName, completion: completion)
     }
 
-    
-    func deleteBook(_ book: Book, completion: @escaping (Result<Void, Error>) -> Void) {
-        bookService.deleteBook(book) { [weak self] result in
-            switch result {
-            case .success:
-                if let index = self?.books.firstIndex(of: book) {
-                    self?.books.remove(at: index)
-                }
-                completion(.success(()))
-            case .failure(let error):
-                completion(.failure(error))
-            }
-        }
-    }
-    
-    private func doesBookExist(with bookName: String) -> Bool {
-        return books.contains(where: { $0.name == bookName })
-    }
-    
-    // In LibraryViewModel.swift
     func deleteBookWithDependencies(_ book: Book, completion: @escaping (Result<Void, Error>) -> Void) {
-        bookService.deleteBookWithDependencies(book) { result in
-            switch result {
-            case .success:
-                if let index = self.books.firstIndex(of: book) {
-                    self.books.remove(at: index)
-                }
-                completion(.success(()))
-            case .failure(let error):
-                completion(.failure(error))
-            }
-        }
+        deleteBookWithDependenciesUseCase.execute(book: book, completion)
     }
-    
 }
