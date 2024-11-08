@@ -5,7 +5,6 @@
 //  Created by Ceren Gazioglu Majoor on 10/04/2023.
 //
 
-
 import Foundation
 import CoreData
 
@@ -34,10 +33,11 @@ extension RuleService {
         let rule = Rule(context: context)
         rule.name = ruleName
         rule.active = isActive
+        rule.bookIDs = books.compactMap { $0.id } as NSArray
         books.forEach {
             rule.addToBookOrder($0)
         }
-        
+
         do {
             try coreDataStack.saveContext()
             completion(.success(rule))
@@ -45,7 +45,7 @@ extension RuleService {
             completion(.failure(error))
         }
     }
-    
+
     public func getRules(activeOnly: Bool = false, _ completion: @escaping (Result<[Rule], Error>) -> Void) {
         let request: NSFetchRequest<Rule> = Rule.fetchRequest()
         if activeOnly {
@@ -79,14 +79,17 @@ extension RuleService {
     }
     
     public func deleteAllRulesContaining(book: Book, completion: @escaping (Result<Void, Error>) -> Void) {
+        guard let bookID = book.id else {
+            completion(.failure(RuleError.invalidBookID))
+            return
+        }
+
         let request: NSFetchRequest<Rule> = Rule.fetchRequest()
-        let bookNamePredicate = NSPredicate(format: "name CONTAINS[cd] %@", book.name ?? "")
-        request.predicate = bookNamePredicate
-        
+
         do {
             let rules = try context.fetch(request)
             for rule in rules {
-                if let ruleText = rule.name, ruleText.contains(book.name ?? "") {
+                if let bookIDs = rule.bookIDs as? [UUID], bookIDs.contains(bookID) {
                     context.delete(rule)
                 }
             }
@@ -96,4 +99,8 @@ extension RuleService {
             completion(.failure(error))
         }
     }
+}
+
+enum RuleError: Error {
+    case invalidBookID
 }
