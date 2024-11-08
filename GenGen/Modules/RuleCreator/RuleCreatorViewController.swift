@@ -125,10 +125,11 @@ class RuleCreatorViewController: BaseViewController {
     // MARK: - Actions
     @objc private func doneTapped() {
         let ruleName = buildRuleName()
-        viewModel.addRule(ruleName, books: selectedBooks, isActive: true) { result in
+        viewModel.addRule(ruleName, books: selectedBooks, isActive: true) { [weak self] result in
+            guard let self = self else { return }
+
             switch result {
-            case .success(let success):
-                print("Success \(success)")
+            case .success:
                 self.navigationController?.popViewController(animated: true)
             case .failure(let error):
                 print("Error adding rule: \(error)")
