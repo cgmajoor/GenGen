@@ -23,22 +23,18 @@ class AddBookUseCase: AddBookUseCaseProtocol {
     }
     
     func execute(bookName: String, completion: @escaping (Result<[Book], Error>) -> Void) {
-        let sanitizedBookName = bookName.sanitizedForDatabase()
-        
-        doesBookExistUseCase.execute(bookName: sanitizedBookName) { [weak self] result in
+        doesBookExistUseCase.execute(bookName: bookName) { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let doesExist):
                 if doesExist {
-                    // Fetch and return all books if a duplicate is found
-                    print("Book with name '\(sanitizedBookName)' already exists.")
+                    print("Book with name '\(bookName)' already exists.")
                     self.getAllBooksUseCase.execute(completion)
                 } else {
-                    self.bookService.addBook(sanitizedBookName) { [weak self] addResult in
+                    self.bookService.addBook(bookName) { [weak self] addResult in
                         guard let self = self else { return }
                         switch addResult {
                         case .success:
-                            // Reload books after adding a new one
                             self.getAllBooksUseCase.execute(completion)
                         case .failure(let error):
                             completion(.failure(error))
