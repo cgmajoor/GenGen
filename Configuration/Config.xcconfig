@@ -1,0 +1,12 @@
+//
+//  Config.xcconfig
+//  GenGen
+//
+//  Created by Ceren Gazioglu Majoor on 14/03/2023.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+// Replace XYZ with your own API_KEY
+API_KEY = XYZDefault
