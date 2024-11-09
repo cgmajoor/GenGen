@@ -24,9 +24,10 @@ class OnboardingCollectionViewCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         imageView.image = nil
+        contentView.backgroundColor = .clear
     }
 
-    func configure(image: UIImage) {
+    func configure(image: UIImage, backgroundColor: UIColor) {
         imageView.removeFromSuperview()
         imageView.image = image
         imageView.contentMode = .scaleAspectFit
@@ -34,6 +35,7 @@ class OnboardingCollectionViewCell: UICollectionViewCell {
         imageView.layer.masksToBounds = true
 
         contentView.embed(view: imageView)
+        contentView.backgroundColor = backgroundColor
     }
 
     // MARK: - Setup
