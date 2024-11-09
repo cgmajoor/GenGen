@@ -7,184 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F21F8B5C2CDD8A1600BFA34C /* NSValueTransformerName+transformedValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21F8B5B2CDD8A0200BFA34C /* NSValueTransformerName+transformedValue.swift */; };
-		F225AA0A29E5E6FB00F7221E /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F225AA0929E5E6FB00F7221E /* OnboardingViewController.swift */; };
-		F225AA0C29E5EBA500F7221E /* GeneratorRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F225AA0B29E5EBA500F7221E /* GeneratorRouter.swift */; };
-		F225AA0E29E5F69600F7221E /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F225AA0D29E5F69600F7221E /* OnboardingViewModel.swift */; };
-		F225AA1029E5FD7A00F7221E /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F225AA0F29E5FD7A00F7221E /* OnboardingCollectionViewCell.swift */; };
 		F2404BBE29C0AB100050469E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2404BBD29C0AB100050469E /* AppDelegate.swift */; };
+		F2404BC029C0AB100050469E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2404BBF29C0AB100050469E /* SceneDelegate.swift */; };
+		F2404BC229C0AB100050469E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2404BC129C0AB100050469E /* ViewController.swift */; };
+		F2404BC529C0AB100050469E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2404BC329C0AB100050469E /* Main.storyboard */; };
 		F2404BC729C0AB130050469E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2404BC629C0AB130050469E /* Assets.xcassets */; };
 		F2404BCA29C0AB130050469E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2404BC829C0AB130050469E /* LaunchScreen.storyboard */; };
-		F2425FEC29DC77B70039D026 /* BookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2425FEB29DC77B70039D026 /* BookViewModel.swift */; };
-		F2425FEE29DC79860039D026 /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2425FED29DC79860039D026 /* BookTableViewCell.swift */; };
-		F254812E29E598910016AD56 /* RuleServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F254812D29E598910016AD56 /* RuleServiceTests.swift */; };
-		F2629E392CDD9016001FB62C /* Word+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2629E382CDD9012001FB62C /* Word+extension.swift */; };
-		F2629E3B2CDD902D001FB62C /* Rule+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2629E3A2CDD9029001FB62C /* Rule+extension.swift */; };
-		F2629E3D2CDD9042001FB62C /* Book+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2629E3C2CDD903E001FB62C /* Book+extension.swift */; };
-		F2629E412CDE30ED001FB62C /* GetBookIDsInRuleUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2629E402CDE30E4001FB62C /* GetBookIDsInRuleUseCase.swift */; };
-		F2629E432CDE3113001FB62C /* GetWordsInBookUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2629E422CDE310C001FB62C /* GetWordsInBookUseCase.swift */; };
-		F2629E452CDE3309001FB62C /* GetActiveRulesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2629E442CDE3303001FB62C /* GetActiveRulesUseCase.swift */; };
-		F264D4B729D8ABD500901B40 /* Texts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F264D4B629D8ABD500901B40 /* Texts.swift */; };
-		F264D4B929D8B7AE00901B40 /* GenerateViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F264D4B829D8B7AE00901B40 /* GenerateViewControllerTests.swift */; };
-		F264D4BB29D8BC1700901B40 /* LibraryViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F264D4BA29D8BC1700901B40 /* LibraryViewControllerTests.swift */; };
-		F27C5FEF2CD998E300B13059 /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27C5FEE2CD998DE00B13059 /* FavoritesViewModel.swift */; };
-		F27C5FF12CD9991000B13059 /* FavoritesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27C5FF02CD9990B00B13059 /* FavoritesTableViewCell.swift */; };
-		F27C5FF32CDA259200B13059 /* GetAllFavoritesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27C5FF22CDA258B00B13059 /* GetAllFavoritesUseCase.swift */; };
-		F27C5FF52CDA267400B13059 /* AddFavoriteIfNotExistsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27C5FF42CDA266B00B13059 /* AddFavoriteIfNotExistsUseCase.swift */; };
-		F27C5FF82CDA295700B13059 /* Notification+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27C5FF72CDA295100B13059 /* Notification+Name.swift */; };
-		F27C5FFB2CDA29A200B13059 /* DoesFavoriteExistUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27C5FFA2CDA299C00B13059 /* DoesFavoriteExistUseCase.swift */; };
-		F27C5FFD2CDA29BA00B13059 /* DeleteFavoriteUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27C5FFC2CDA29B500B13059 /* DeleteFavoriteUseCase.swift */; };
-		F2A3015C29E55A4200F6E858 /* RuleCreatorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A3015B29E55A4200F6E858 /* RuleCreatorTableViewCell.swift */; };
-		F2A3015F29E58F8200F6E858 /* BookServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A3015E29E58F8200F6E858 /* BookServiceTests.swift */; };
-		F2A3016129E593CB00F6E858 /* WordServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A3016029E593CB00F6E858 /* WordServiceTests.swift */; };
-		F2A742AE29DAC913000334FD /* BookViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A742AD29DAC913000334FD /* BookViewControllerTests.swift */; };
-		F2A742B129DACBA6000334FD /* BookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A742B029DACBA6000334FD /* BookViewController.swift */; };
-		F2A742B429DAD09F000334FD /* LibraryRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A742B329DAD09F000334FD /* LibraryRouter.swift */; };
-		F2A742B629DB079B000334FD /* GGPromptAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A742B529DB079B000334FD /* GGPromptAlert.swift */; };
-		F2A7E96229DC655300126688 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F2A7E96029DC655300126688 /* DataModel.xcdatamodeld */; };
-		F2A916C329D8D1970078A000 /* LibraryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A916C229D8D1970078A000 /* LibraryTableViewCell.swift */; };
-		F2A916C729D8D9D20078A000 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A916C629D8D9D20078A000 /* UIViewExtensions.swift */; };
-		F2A9B08129D76581004C646B /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A9B08029D76581004C646B /* AppConfig.swift */; };
-		F2A9B09629D79378004C646B /* GenerateViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A9B09529D79378004C646B /* GenerateViewModelTests.swift */; };
-		F2A9B09D29D79F73004C646B /* GenerateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A9B09C29D79F73004C646B /* GenerateViewModel.swift */; };
-		F2A9B0A029D7A6FC004C646B /* GGButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A9B09F29D7A6FC004C646B /* GGButton.swift */; };
-		F2B4908C29CF6DF7002E5D8B /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B4908B29CF6DF7002E5D8B /* MainTabBarController.swift */; };
-		F2B607C429E4153D0080B715 /* BookService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B607C329E4153D0080B715 /* BookService.swift */; };
-		F2B607C829E4397A0080B715 /* WordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B607C729E4397A0080B715 /* WordService.swift */; };
-		F2B607CA29E440BB0080B715 /* AppDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B607C929E440BB0080B715 /* AppDependencies.swift */; };
-		F2B607DB29E45A700080B715 /* RulesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B607D729E45A700080B715 /* RulesViewModel.swift */; };
-		F2B607DC29E45A700080B715 /* RulesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B607D829E45A700080B715 /* RulesRouter.swift */; };
-		F2B607DD29E45A700080B715 /* RulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B607D929E45A700080B715 /* RulesViewController.swift */; };
-		F2B607DE29E45A700080B715 /* RulesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B607DA29E45A700080B715 /* RulesTableViewCell.swift */; };
-		F2B607E029E45A7C0080B715 /* RuleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B607DF29E45A7C0080B715 /* RuleService.swift */; };
-		F2B607E329E4607E0080B715 /* RulesViewcontrollerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B607E229E4607E0080B715 /* RulesViewcontrollerTests.swift */; };
-		F2B607E529E460930080B715 /* RulesViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B607E429E460930080B715 /* RulesViewModelTests.swift */; };
-		F2B607E829E462E70080B715 /* RuleCreatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B607E729E462E70080B715 /* RuleCreatorViewController.swift */; };
-		F2B607EA29E46E880080B715 /* RuleCreatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B607E929E46E880080B715 /* RuleCreatorViewModel.swift */; };
-		F2B799952CD99128000B7717 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B799942CD99120000B7717 /* FavoritesViewController.swift */; };
-		F2B799972CD9952D000B7717 /* FavoriteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B799962CD99526000B7717 /* FavoriteService.swift */; };
-		F2BBC90E29D09CD2005B1952 /* GenerateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BBC90D29D09CD2005B1952 /* GenerateViewController.swift */; };
-		F2BBC91129D09D81005B1952 /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BBC91029D09D81005B1952 /* LibraryViewController.swift */; };
-		F2BBC91629D0A9B1005B1952 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BBC91529D0A9B1005B1952 /* BaseViewController.swift */; };
-		F2BBC91D29D0BC45005B1952 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BBC91C29D0BC45005B1952 /* AppTheme.swift */; };
-		F2C184D029E0B553009D13C1 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C184CF29E0B553009D13C1 /* CoreDataStack.swift */; };
-		F2C184D429E0B759009D13C1 /* TestCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C184D329E0B759009D13C1 /* TestCoreDataStack.swift */; };
-		F2C184D629E0DCF5009D13C1 /* BookViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C184D529E0DCF5009D13C1 /* BookViewModelTests.swift */; };
-		F2C34AB329D99584008E06FB /* LibraryViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C34AB229D99584008E06FB /* LibraryViewModelTests.swift */; };
-		F2C34AB529D995F4008E06FB /* LibraryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C34AB429D995F4008E06FB /* LibraryViewModel.swift */; };
-		F2F0DF1F29D88588009AE9DE /* GGLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F0DF1E29D88588009AE9DE /* GGLabel.swift */; };
-		F2FEA4272CDD49C700EA0633 /* DeleteWordsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FEA4262CDD49C300EA0633 /* DeleteWordsUseCase.swift */; };
-		F2FEA42A2CDD5C2800EA0633 /* GetAllBooksUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FEA4292CDD5C2200EA0633 /* GetAllBooksUseCase.swift */; };
-		F2FEA42C2CDD5C3E00EA0633 /* AddBookUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FEA42B2CDD5C3800EA0633 /* AddBookUseCase.swift */; };
-		F2FEA42E2CDD5C4600EA0633 /* DeleteBookWithDependenciesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FEA42D2CDD5C4500EA0633 /* DeleteBookWithDependenciesUseCase.swift */; };
-		F2FEA4302CDD5C4F00EA0633 /* DeleteBookUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FEA42F2CDD5C4E00EA0633 /* DeleteBookUseCase.swift */; };
-		F2FEA4342CDD635B00EA0633 /* DoesBookExistUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FEA4332CDD635600EA0633 /* DoesBookExistUseCase.swift */; };
-		F2FEA4362CDD6B1B00EA0633 /* String+sanitizedForDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FEA4352CDD6AFC00EA0633 /* String+sanitizedForDatabase.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		F2A9B09729D79378004C646B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F2404BB229C0AB100050469E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F2404BB929C0AB100050469E;
-			remoteInfo = GenGen;
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		F2A742D629DB17BF000334FD /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
-		F21F8B5B2CDD8A0200BFA34C /* NSValueTransformerName+transformedValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSValueTransformerName+transformedValue.swift"; sourceTree = "<group>"; };
-		F225AA0929E5E6FB00F7221E /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
-		F225AA0B29E5EBA500F7221E /* GeneratorRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneratorRouter.swift; sourceTree = "<group>"; };
-		F225AA0D29E5F69600F7221E /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
-		F225AA0F29E5FD7A00F7221E /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
 		F2404BBA29C0AB100050469E /* GenGen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GenGen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2404BBD29C0AB100050469E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F2404BBF29C0AB100050469E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		F2404BC129C0AB100050469E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F2404BC429C0AB100050469E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F2404BC629C0AB130050469E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F2404BC929C0AB130050469E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F2404BCB29C0AB130050469E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F2425FEB29DC77B70039D026 /* BookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewModel.swift; sourceTree = "<group>"; };
-		F2425FED29DC79860039D026 /* BookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
-		F24265B729C0B57800B16F5F /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
-		F24265B829C0B5AA00B16F5F /* ConfigDebug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ConfigDebug.xcconfig; sourceTree = "<group>"; };
-		F24265B929C0B5BF00B16F5F /* ConfigRelease.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ConfigRelease.xcconfig; sourceTree = "<group>"; };
-		F254812D29E598910016AD56 /* RuleServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuleServiceTests.swift; sourceTree = "<group>"; };
-		F2629E382CDD9012001FB62C /* Word+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Word+extension.swift"; sourceTree = "<group>"; };
-		F2629E3A2CDD9029001FB62C /* Rule+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rule+extension.swift"; sourceTree = "<group>"; };
-		F2629E3C2CDD903E001FB62C /* Book+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Book+extension.swift"; sourceTree = "<group>"; };
-		F2629E402CDE30E4001FB62C /* GetBookIDsInRuleUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetBookIDsInRuleUseCase.swift; sourceTree = "<group>"; };
-		F2629E422CDE310C001FB62C /* GetWordsInBookUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetWordsInBookUseCase.swift; sourceTree = "<group>"; };
-		F2629E442CDE3303001FB62C /* GetActiveRulesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetActiveRulesUseCase.swift; sourceTree = "<group>"; };
-		F264D4B629D8ABD500901B40 /* Texts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Texts.swift; sourceTree = "<group>"; };
-		F264D4B829D8B7AE00901B40 /* GenerateViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateViewControllerTests.swift; sourceTree = "<group>"; };
-		F264D4BA29D8BC1700901B40 /* LibraryViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewControllerTests.swift; sourceTree = "<group>"; };
-		F27C5FEE2CD998DE00B13059 /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
-		F27C5FF02CD9990B00B13059 /* FavoritesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewCell.swift; sourceTree = "<group>"; };
-		F27C5FF22CDA258B00B13059 /* GetAllFavoritesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllFavoritesUseCase.swift; sourceTree = "<group>"; };
-		F27C5FF42CDA266B00B13059 /* AddFavoriteIfNotExistsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFavoriteIfNotExistsUseCase.swift; sourceTree = "<group>"; };
-		F27C5FF72CDA295100B13059 /* Notification+Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Name.swift"; sourceTree = "<group>"; };
-		F27C5FFA2CDA299C00B13059 /* DoesFavoriteExistUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoesFavoriteExistUseCase.swift; sourceTree = "<group>"; };
-		F27C5FFC2CDA29B500B13059 /* DeleteFavoriteUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteFavoriteUseCase.swift; sourceTree = "<group>"; };
-		F2A3015B29E55A4200F6E858 /* RuleCreatorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuleCreatorTableViewCell.swift; sourceTree = "<group>"; };
-		F2A3015E29E58F8200F6E858 /* BookServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookServiceTests.swift; sourceTree = "<group>"; };
-		F2A3016029E593CB00F6E858 /* WordServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordServiceTests.swift; sourceTree = "<group>"; };
-		F2A742AD29DAC913000334FD /* BookViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewControllerTests.swift; sourceTree = "<group>"; };
-		F2A742B029DACBA6000334FD /* BookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewController.swift; sourceTree = "<group>"; };
-		F2A742B329DAD09F000334FD /* LibraryRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryRouter.swift; sourceTree = "<group>"; };
-		F2A742B529DB079B000334FD /* GGPromptAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGPromptAlert.swift; sourceTree = "<group>"; };
-		F2A7E96129DC655300126688 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
-		F2A916C229D8D1970078A000 /* LibraryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryTableViewCell.swift; sourceTree = "<group>"; };
-		F2A916C629D8D9D20078A000 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
-		F2A9B08029D76581004C646B /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
-		F2A9B09329D79377004C646B /* GenGenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GenGenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F2A9B09529D79378004C646B /* GenerateViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateViewModelTests.swift; sourceTree = "<group>"; };
-		F2A9B09C29D79F73004C646B /* GenerateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateViewModel.swift; sourceTree = "<group>"; };
-		F2A9B09F29D7A6FC004C646B /* GGButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGButton.swift; sourceTree = "<group>"; };
-		F2B4908B29CF6DF7002E5D8B /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
-		F2B607C329E4153D0080B715 /* BookService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookService.swift; sourceTree = "<group>"; };
-		F2B607C729E4397A0080B715 /* WordService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordService.swift; sourceTree = "<group>"; };
-		F2B607C929E440BB0080B715 /* AppDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencies.swift; sourceTree = "<group>"; };
-		F2B607D729E45A700080B715 /* RulesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RulesViewModel.swift; sourceTree = "<group>"; };
-		F2B607D829E45A700080B715 /* RulesRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RulesRouter.swift; sourceTree = "<group>"; };
-		F2B607D929E45A700080B715 /* RulesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RulesViewController.swift; sourceTree = "<group>"; };
-		F2B607DA29E45A700080B715 /* RulesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RulesTableViewCell.swift; sourceTree = "<group>"; };
-		F2B607DF29E45A7C0080B715 /* RuleService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuleService.swift; sourceTree = "<group>"; };
-		F2B607E229E4607E0080B715 /* RulesViewcontrollerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesViewcontrollerTests.swift; sourceTree = "<group>"; };
-		F2B607E429E460930080B715 /* RulesViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesViewModelTests.swift; sourceTree = "<group>"; };
-		F2B607E729E462E70080B715 /* RuleCreatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuleCreatorViewController.swift; sourceTree = "<group>"; };
-		F2B607E929E46E880080B715 /* RuleCreatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuleCreatorViewModel.swift; sourceTree = "<group>"; };
-		F2B799942CD99120000B7717 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
-		F2B799962CD99526000B7717 /* FavoriteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteService.swift; sourceTree = "<group>"; };
-		F2BBC90D29D09CD2005B1952 /* GenerateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateViewController.swift; sourceTree = "<group>"; };
-		F2BBC91029D09D81005B1952 /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
-		F2BBC91529D0A9B1005B1952 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		F2BBC91C29D0BC45005B1952 /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
-		F2C184CF29E0B553009D13C1 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
-		F2C184D329E0B759009D13C1 /* TestCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCoreDataStack.swift; sourceTree = "<group>"; };
-		F2C184D529E0DCF5009D13C1 /* BookViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewModelTests.swift; sourceTree = "<group>"; };
-		F2C34AB229D99584008E06FB /* LibraryViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewModelTests.swift; sourceTree = "<group>"; };
-		F2C34AB429D995F4008E06FB /* LibraryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewModel.swift; sourceTree = "<group>"; };
-		F2F0DF1E29D88588009AE9DE /* GGLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGLabel.swift; sourceTree = "<group>"; };
-		F2FEA4262CDD49C300EA0633 /* DeleteWordsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteWordsUseCase.swift; sourceTree = "<group>"; };
-		F2FEA4292CDD5C2200EA0633 /* GetAllBooksUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllBooksUseCase.swift; sourceTree = "<group>"; };
-		F2FEA42B2CDD5C3800EA0633 /* AddBookUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookUseCase.swift; sourceTree = "<group>"; };
-		F2FEA42D2CDD5C4500EA0633 /* DeleteBookWithDependenciesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteBookWithDependenciesUseCase.swift; sourceTree = "<group>"; };
-		F2FEA42F2CDD5C4E00EA0633 /* DeleteBookUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteBookUseCase.swift; sourceTree = "<group>"; };
-		F2FEA4332CDD635600EA0633 /* DoesBookExistUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoesBookExistUseCase.swift; sourceTree = "<group>"; };
-		F2FEA4352CDD6AFC00EA0633 /* String+sanitizedForDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+sanitizedForDatabase.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,32 +34,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F2A9B09029D79377004C646B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F225AA0829E5E6BA00F7221E /* Onboarding */ = {
-			isa = PBXGroup;
-			children = (
-				F225AA0929E5E6FB00F7221E /* OnboardingViewController.swift */,
-				F225AA0D29E5F69600F7221E /* OnboardingViewModel.swift */,
-				F225AA0F29E5FD7A00F7221E /* OnboardingCollectionViewCell.swift */,
-			);
-			path = Onboarding;
-			sourceTree = "<group>";
-		};
 		F2404BB129C0AB100050469E = {
 			isa = PBXGroup;
 			children = (
-				F24265BB29C0DA0000B16F5F /* Configuration */,
 				F2404BBC29C0AB100050469E /* GenGen */,
-				F2A9B09429D79378004C646B /* GenGenTests */,
 				F2404BBB29C0AB100050469E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -229,7 +49,6 @@
 			isa = PBXGroup;
 			children = (
 				F2404BBA29C0AB100050469E /* GenGen.app */,
-				F2A9B09329D79377004C646B /* GenGenTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -237,297 +56,15 @@
 		F2404BBC29C0AB100050469E /* GenGen */ = {
 			isa = PBXGroup;
 			children = (
-				F27C5FF62CDA294B00B13059 /* Extensions */,
-				F2C184CE29E0B4DA009D13C1 /* GGData */,
-				F2A7E96029DC655300126688 /* DataModel.xcdatamodeld */,
-				F2A9B09E29D7A64D004C646B /* CustomViews */,
-				F2B4908529CF6C67002E5D8B /* App */,
-				F27C5FF92CDA299300B13059 /* UseCases */,
-				F2B4908929CF6DB3002E5D8B /* Modules */,
-				F2BBC91429D0A996005B1952 /* Utility */,
+				F2404BBD29C0AB100050469E /* AppDelegate.swift */,
+				F2404BBF29C0AB100050469E /* SceneDelegate.swift */,
+				F2404BC129C0AB100050469E /* ViewController.swift */,
+				F2404BC329C0AB100050469E /* Main.storyboard */,
 				F2404BC629C0AB130050469E /* Assets.xcassets */,
 				F2404BC829C0AB130050469E /* LaunchScreen.storyboard */,
 				F2404BCB29C0AB130050469E /* Info.plist */,
 			);
 			path = GenGen;
-			sourceTree = "<group>";
-		};
-		F24265BB29C0DA0000B16F5F /* Configuration */ = {
-			isa = PBXGroup;
-			children = (
-				F24265B929C0B5BF00B16F5F /* ConfigRelease.xcconfig */,
-				F24265B829C0B5AA00B16F5F /* ConfigDebug.xcconfig */,
-				F24265B729C0B57800B16F5F /* Config.xcconfig */,
-			);
-			path = Configuration;
-			sourceTree = "<group>";
-		};
-		F2629E3E2CDD9104001FB62C /* EntityExtensions */ = {
-			isa = PBXGroup;
-			children = (
-				F2629E3C2CDD903E001FB62C /* Book+extension.swift */,
-				F2629E3A2CDD9029001FB62C /* Rule+extension.swift */,
-				F2629E382CDD9012001FB62C /* Word+extension.swift */,
-			);
-			path = EntityExtensions;
-			sourceTree = "<group>";
-		};
-		F2629E3F2CDE30DF001FB62C /* Rules */ = {
-			isa = PBXGroup;
-			children = (
-				F2629E442CDE3303001FB62C /* GetActiveRulesUseCase.swift */,
-				F2629E402CDE30E4001FB62C /* GetBookIDsInRuleUseCase.swift */,
-			);
-			path = Rules;
-			sourceTree = "<group>";
-		};
-		F27C5FF62CDA294B00B13059 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				F21F8B5B2CDD8A0200BFA34C /* NSValueTransformerName+transformedValue.swift */,
-				F2FEA4352CDD6AFC00EA0633 /* String+sanitizedForDatabase.swift */,
-				F27C5FF72CDA295100B13059 /* Notification+Name.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		F27C5FF92CDA299300B13059 /* UseCases */ = {
-			isa = PBXGroup;
-			children = (
-				F2629E3F2CDE30DF001FB62C /* Rules */,
-				F2FEA4282CDD5C0900EA0633 /* Books */,
-				F2FEA4252CDD49B900EA0633 /* Words */,
-				F27C5FFE2CDA2D8C00B13059 /* Favorites */,
-			);
-			path = UseCases;
-			sourceTree = "<group>";
-		};
-		F27C5FFE2CDA2D8C00B13059 /* Favorites */ = {
-			isa = PBXGroup;
-			children = (
-				F27C5FFC2CDA29B500B13059 /* DeleteFavoriteUseCase.swift */,
-				F27C5FFA2CDA299C00B13059 /* DoesFavoriteExistUseCase.swift */,
-				F27C5FF42CDA266B00B13059 /* AddFavoriteIfNotExistsUseCase.swift */,
-				F27C5FF22CDA258B00B13059 /* GetAllFavoritesUseCase.swift */,
-			);
-			path = Favorites;
-			sourceTree = "<group>";
-		};
-		F29300B329D9A39A00941AA2 /* GeneratorTests */ = {
-			isa = PBXGroup;
-			children = (
-				F264D4B829D8B7AE00901B40 /* GenerateViewControllerTests.swift */,
-				F2A9B09529D79378004C646B /* GenerateViewModelTests.swift */,
-			);
-			path = GeneratorTests;
-			sourceTree = "<group>";
-		};
-		F29300B429D9A3A800941AA2 /* LibraryTests */ = {
-			isa = PBXGroup;
-			children = (
-				F264D4BA29D8BC1700901B40 /* LibraryViewControllerTests.swift */,
-				F2C34AB229D99584008E06FB /* LibraryViewModelTests.swift */,
-			);
-			path = LibraryTests;
-			sourceTree = "<group>";
-		};
-		F2A3015D29E58F6A00F6E858 /* GGDataTests */ = {
-			isa = PBXGroup;
-			children = (
-				F2A3015E29E58F8200F6E858 /* BookServiceTests.swift */,
-				F2A3016029E593CB00F6E858 /* WordServiceTests.swift */,
-				F254812D29E598910016AD56 /* RuleServiceTests.swift */,
-			);
-			path = GGDataTests;
-			sourceTree = "<group>";
-		};
-		F2A742AF29DACA02000334FD /* Book */ = {
-			isa = PBXGroup;
-			children = (
-				F2A742B029DACBA6000334FD /* BookViewController.swift */,
-				F2425FEB29DC77B70039D026 /* BookViewModel.swift */,
-				F2425FED29DC79860039D026 /* BookTableViewCell.swift */,
-			);
-			path = Book;
-			sourceTree = "<group>";
-		};
-		F2A742B229DACE20000334FD /* BookTests */ = {
-			isa = PBXGroup;
-			children = (
-				F2A742AD29DAC913000334FD /* BookViewControllerTests.swift */,
-				F2C184D529E0DCF5009D13C1 /* BookViewModelTests.swift */,
-			);
-			path = BookTests;
-			sourceTree = "<group>";
-		};
-		F2A9B09429D79378004C646B /* GenGenTests */ = {
-			isa = PBXGroup;
-			children = (
-				F2A3015D29E58F6A00F6E858 /* GGDataTests */,
-				F2C184D229E0B73E009D13C1 /* Utility */,
-				F29300B329D9A39A00941AA2 /* GeneratorTests */,
-				F29300B429D9A3A800941AA2 /* LibraryTests */,
-				F2A742B229DACE20000334FD /* BookTests */,
-				F2B607E129E460580080B715 /* RulesTests */,
-			);
-			path = GenGenTests;
-			sourceTree = "<group>";
-		};
-		F2A9B09E29D7A64D004C646B /* CustomViews */ = {
-			isa = PBXGroup;
-			children = (
-				F2A9B09F29D7A6FC004C646B /* GGButton.swift */,
-				F2F0DF1E29D88588009AE9DE /* GGLabel.swift */,
-			);
-			path = CustomViews;
-			sourceTree = "<group>";
-		};
-		F2B4908529CF6C67002E5D8B /* App */ = {
-			isa = PBXGroup;
-			children = (
-				F2404BBD29C0AB100050469E /* AppDelegate.swift */,
-				F2A9B08029D76581004C646B /* AppConfig.swift */,
-				F2BBC91C29D0BC45005B1952 /* AppTheme.swift */,
-				F264D4B629D8ABD500901B40 /* Texts.swift */,
-				F2B607C929E440BB0080B715 /* AppDependencies.swift */,
-			);
-			path = App;
-			sourceTree = "<group>";
-		};
-		F2B4908929CF6DB3002E5D8B /* Modules */ = {
-			isa = PBXGroup;
-			children = (
-				F2B799932CD990FB000B7717 /* Favorites */,
-				F2B4908A29CF6DB9002E5D8B /* Main */,
-				F225AA0829E5E6BA00F7221E /* Onboarding */,
-				F2BBC90C29D09CB1005B1952 /* Generator */,
-				F2BBC90F29D09D62005B1952 /* Library */,
-				F2A742AF29DACA02000334FD /* Book */,
-				F2B607D629E45A5F0080B715 /* Rules */,
-				F2B607E629E4627A0080B715 /* RuleCreator */,
-			);
-			path = Modules;
-			sourceTree = "<group>";
-		};
-		F2B4908A29CF6DB9002E5D8B /* Main */ = {
-			isa = PBXGroup;
-			children = (
-				F2B4908B29CF6DF7002E5D8B /* MainTabBarController.swift */,
-			);
-			path = Main;
-			sourceTree = "<group>";
-		};
-		F2B607D629E45A5F0080B715 /* Rules */ = {
-			isa = PBXGroup;
-			children = (
-				F2B607D929E45A700080B715 /* RulesViewController.swift */,
-				F2B607D729E45A700080B715 /* RulesViewModel.swift */,
-				F2B607DA29E45A700080B715 /* RulesTableViewCell.swift */,
-				F2B607D829E45A700080B715 /* RulesRouter.swift */,
-			);
-			path = Rules;
-			sourceTree = "<group>";
-		};
-		F2B607E129E460580080B715 /* RulesTests */ = {
-			isa = PBXGroup;
-			children = (
-				F2B607E229E4607E0080B715 /* RulesViewcontrollerTests.swift */,
-				F2B607E429E460930080B715 /* RulesViewModelTests.swift */,
-			);
-			path = RulesTests;
-			sourceTree = "<group>";
-		};
-		F2B607E629E4627A0080B715 /* RuleCreator */ = {
-			isa = PBXGroup;
-			children = (
-				F2B607E729E462E70080B715 /* RuleCreatorViewController.swift */,
-				F2B607E929E46E880080B715 /* RuleCreatorViewModel.swift */,
-				F2A3015B29E55A4200F6E858 /* RuleCreatorTableViewCell.swift */,
-			);
-			path = RuleCreator;
-			sourceTree = "<group>";
-		};
-		F2B799932CD990FB000B7717 /* Favorites */ = {
-			isa = PBXGroup;
-			children = (
-				F2B799942CD99120000B7717 /* FavoritesViewController.swift */,
-				F27C5FEE2CD998DE00B13059 /* FavoritesViewModel.swift */,
-				F27C5FF02CD9990B00B13059 /* FavoritesTableViewCell.swift */,
-			);
-			path = Favorites;
-			sourceTree = "<group>";
-		};
-		F2BBC90C29D09CB1005B1952 /* Generator */ = {
-			isa = PBXGroup;
-			children = (
-				F2BBC90D29D09CD2005B1952 /* GenerateViewController.swift */,
-				F2A9B09C29D79F73004C646B /* GenerateViewModel.swift */,
-				F225AA0B29E5EBA500F7221E /* GeneratorRouter.swift */,
-			);
-			path = Generator;
-			sourceTree = "<group>";
-		};
-		F2BBC90F29D09D62005B1952 /* Library */ = {
-			isa = PBXGroup;
-			children = (
-				F2BBC91029D09D81005B1952 /* LibraryViewController.swift */,
-				F2C34AB429D995F4008E06FB /* LibraryViewModel.swift */,
-				F2A916C229D8D1970078A000 /* LibraryTableViewCell.swift */,
-				F2A742B329DAD09F000334FD /* LibraryRouter.swift */,
-			);
-			path = Library;
-			sourceTree = "<group>";
-		};
-		F2BBC91429D0A996005B1952 /* Utility */ = {
-			isa = PBXGroup;
-			children = (
-				F2BBC91529D0A9B1005B1952 /* BaseViewController.swift */,
-				F2A916C629D8D9D20078A000 /* UIViewExtensions.swift */,
-				F2A742B529DB079B000334FD /* GGPromptAlert.swift */,
-			);
-			path = Utility;
-			sourceTree = "<group>";
-		};
-		F2C184CE29E0B4DA009D13C1 /* GGData */ = {
-			isa = PBXGroup;
-			children = (
-				F2629E3E2CDD9104001FB62C /* EntityExtensions */,
-				F2C184CF29E0B553009D13C1 /* CoreDataStack.swift */,
-				F2B607C329E4153D0080B715 /* BookService.swift */,
-				F2B607C729E4397A0080B715 /* WordService.swift */,
-				F2B607DF29E45A7C0080B715 /* RuleService.swift */,
-				F2B799962CD99526000B7717 /* FavoriteService.swift */,
-			);
-			path = GGData;
-			sourceTree = "<group>";
-		};
-		F2C184D229E0B73E009D13C1 /* Utility */ = {
-			isa = PBXGroup;
-			children = (
-				F2C184D329E0B759009D13C1 /* TestCoreDataStack.swift */,
-			);
-			path = Utility;
-			sourceTree = "<group>";
-		};
-		F2FEA4252CDD49B900EA0633 /* Words */ = {
-			isa = PBXGroup;
-			children = (
-				F2629E422CDE310C001FB62C /* GetWordsInBookUseCase.swift */,
-				F2FEA4262CDD49C300EA0633 /* DeleteWordsUseCase.swift */,
-			);
-			path = Words;
-			sourceTree = "<group>";
-		};
-		F2FEA4282CDD5C0900EA0633 /* Books */ = {
-			isa = PBXGroup;
-			children = (
-				F2FEA4332CDD635600EA0633 /* DoesBookExistUseCase.swift */,
-				F2FEA4292CDD5C2200EA0633 /* GetAllBooksUseCase.swift */,
-				F2FEA42B2CDD5C3800EA0633 /* AddBookUseCase.swift */,
-				F2FEA42F2CDD5C4E00EA0633 /* DeleteBookUseCase.swift */,
-				F2FEA42D2CDD5C4500EA0633 /* DeleteBookWithDependenciesUseCase.swift */,
-			);
-			path = Books;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -540,7 +77,6 @@
 				F2404BB629C0AB100050469E /* Sources */,
 				F2404BB729C0AB100050469E /* Frameworks */,
 				F2404BB829C0AB100050469E /* Resources */,
-				F2A742D629DB17BF000334FD /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -551,24 +87,6 @@
 			productReference = F2404BBA29C0AB100050469E /* GenGen.app */;
 			productType = "com.apple.product-type.application";
 		};
-		F2A9B09229D79377004C646B /* GenGenTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F2A9B09929D79378004C646B /* Build configuration list for PBXNativeTarget "GenGenTests" */;
-			buildPhases = (
-				F2A9B08F29D79377004C646B /* Sources */,
-				F2A9B09029D79377004C646B /* Frameworks */,
-				F2A9B09129D79377004C646B /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				F2A9B09829D79378004C646B /* PBXTargetDependency */,
-			);
-			name = GenGenTests;
-			productName = GenGenTests;
-			productReference = F2A9B09329D79377004C646B /* GenGenTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -576,15 +94,11 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1430;
+				LastSwiftUpdateCheck = 1420;
 				LastUpgradeCheck = 1420;
 				TargetAttributes = {
 					F2404BB929C0AB100050469E = {
 						CreatedOnToolsVersion = 14.2;
-					};
-					F2A9B09229D79377004C646B = {
-						CreatedOnToolsVersion = 14.2;
-						TestTargetID = F2404BB929C0AB100050469E;
 					};
 				};
 			};
@@ -602,7 +116,6 @@
 			projectRoot = "";
 			targets = (
 				F2404BB929C0AB100050469E /* GenGen */,
-				F2A9B09229D79377004C646B /* GenGenTests */,
 			);
 		};
 /* End PBXProject section */
@@ -614,13 +127,7 @@
 			files = (
 				F2404BCA29C0AB130050469E /* LaunchScreen.storyboard in Resources */,
 				F2404BC729C0AB130050469E /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F2A9B09129D79377004C646B /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				F2404BC529C0AB100050469E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -631,98 +138,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F2B607CA29E440BB0080B715 /* AppDependencies.swift in Sources */,
-				F2FEA42E2CDD5C4600EA0633 /* DeleteBookWithDependenciesUseCase.swift in Sources */,
-				F2629E3D2CDD9042001FB62C /* Book+extension.swift in Sources */,
-				F2C184D029E0B553009D13C1 /* CoreDataStack.swift in Sources */,
-				F2FEA4302CDD5C4F00EA0633 /* DeleteBookUseCase.swift in Sources */,
-				F21F8B5C2CDD8A1600BFA34C /* NSValueTransformerName+transformedValue.swift in Sources */,
-				F2BBC91629D0A9B1005B1952 /* BaseViewController.swift in Sources */,
-				F2A7E96229DC655300126688 /* DataModel.xcdatamodeld in Sources */,
-				F2A3015C29E55A4200F6E858 /* RuleCreatorTableViewCell.swift in Sources */,
-				F27C5FF12CD9991000B13059 /* FavoritesTableViewCell.swift in Sources */,
-				F27C5FFD2CDA29BA00B13059 /* DeleteFavoriteUseCase.swift in Sources */,
-				F225AA0E29E5F69600F7221E /* OnboardingViewModel.swift in Sources */,
-				F2B607DD29E45A700080B715 /* RulesViewController.swift in Sources */,
-				F2B799972CD9952D000B7717 /* FavoriteService.swift in Sources */,
-				F2FEA4272CDD49C700EA0633 /* DeleteWordsUseCase.swift in Sources */,
-				F2B607DC29E45A700080B715 /* RulesRouter.swift in Sources */,
-				F2A916C729D8D9D20078A000 /* UIViewExtensions.swift in Sources */,
-				F2FEA42A2CDD5C2800EA0633 /* GetAllBooksUseCase.swift in Sources */,
-				F2C34AB529D995F4008E06FB /* LibraryViewModel.swift in Sources */,
-				F2B607DB29E45A700080B715 /* RulesViewModel.swift in Sources */,
-				F27C5FEF2CD998E300B13059 /* FavoritesViewModel.swift in Sources */,
-				F2FEA4362CDD6B1B00EA0633 /* String+sanitizedForDatabase.swift in Sources */,
-				F2A742B129DACBA6000334FD /* BookViewController.swift in Sources */,
-				F2FEA4342CDD635B00EA0633 /* DoesBookExistUseCase.swift in Sources */,
-				F2A9B09D29D79F73004C646B /* GenerateViewModel.swift in Sources */,
-				F2A742B629DB079B000334FD /* GGPromptAlert.swift in Sources */,
-				F2629E432CDE3113001FB62C /* GetWordsInBookUseCase.swift in Sources */,
-				F2BBC90E29D09CD2005B1952 /* GenerateViewController.swift in Sources */,
-				F2425FEE29DC79860039D026 /* BookTableViewCell.swift in Sources */,
-				F2B607E829E462E70080B715 /* RuleCreatorViewController.swift in Sources */,
-				F2B607C429E4153D0080B715 /* BookService.swift in Sources */,
-				F2629E3B2CDD902D001FB62C /* Rule+extension.swift in Sources */,
-				F2B4908C29CF6DF7002E5D8B /* MainTabBarController.swift in Sources */,
-				F2A9B08129D76581004C646B /* AppConfig.swift in Sources */,
-				F27C5FF32CDA259200B13059 /* GetAllFavoritesUseCase.swift in Sources */,
-				F27C5FF82CDA295700B13059 /* Notification+Name.swift in Sources */,
-				F2F0DF1F29D88588009AE9DE /* GGLabel.swift in Sources */,
-				F2A742B429DAD09F000334FD /* LibraryRouter.swift in Sources */,
-				F2629E392CDD9016001FB62C /* Word+extension.swift in Sources */,
-				F2A916C329D8D1970078A000 /* LibraryTableViewCell.swift in Sources */,
-				F2A9B0A029D7A6FC004C646B /* GGButton.swift in Sources */,
-				F2B607E029E45A7C0080B715 /* RuleService.swift in Sources */,
-				F2629E412CDE30ED001FB62C /* GetBookIDsInRuleUseCase.swift in Sources */,
-				F2B607DE29E45A700080B715 /* RulesTableViewCell.swift in Sources */,
-				F2425FEC29DC77B70039D026 /* BookViewModel.swift in Sources */,
-				F2BBC91D29D0BC45005B1952 /* AppTheme.swift in Sources */,
-				F2B607EA29E46E880080B715 /* RuleCreatorViewModel.swift in Sources */,
-				F27C5FFB2CDA29A200B13059 /* DoesFavoriteExistUseCase.swift in Sources */,
-				F2B607C829E4397A0080B715 /* WordService.swift in Sources */,
-				F2BBC91129D09D81005B1952 /* LibraryViewController.swift in Sources */,
-				F2B799952CD99128000B7717 /* FavoritesViewController.swift in Sources */,
+				F2404BC229C0AB100050469E /* ViewController.swift in Sources */,
 				F2404BBE29C0AB100050469E /* AppDelegate.swift in Sources */,
-				F225AA0A29E5E6FB00F7221E /* OnboardingViewController.swift in Sources */,
-				F225AA0C29E5EBA500F7221E /* GeneratorRouter.swift in Sources */,
-				F2629E452CDE3309001FB62C /* GetActiveRulesUseCase.swift in Sources */,
-				F2FEA42C2CDD5C3E00EA0633 /* AddBookUseCase.swift in Sources */,
-				F264D4B729D8ABD500901B40 /* Texts.swift in Sources */,
-				F27C5FF52CDA267400B13059 /* AddFavoriteIfNotExistsUseCase.swift in Sources */,
-				F225AA1029E5FD7A00F7221E /* OnboardingCollectionViewCell.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F2A9B08F29D79377004C646B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F2A3015F29E58F8200F6E858 /* BookServiceTests.swift in Sources */,
-				F2A9B09629D79378004C646B /* GenerateViewModelTests.swift in Sources */,
-				F2C184D429E0B759009D13C1 /* TestCoreDataStack.swift in Sources */,
-				F264D4B929D8B7AE00901B40 /* GenerateViewControllerTests.swift in Sources */,
-				F2C34AB329D99584008E06FB /* LibraryViewModelTests.swift in Sources */,
-				F254812E29E598910016AD56 /* RuleServiceTests.swift in Sources */,
-				F264D4BB29D8BC1700901B40 /* LibraryViewControllerTests.swift in Sources */,
-				F2A742AE29DAC913000334FD /* BookViewControllerTests.swift in Sources */,
-				F2B607E329E4607E0080B715 /* RulesViewcontrollerTests.swift in Sources */,
-				F2A3016129E593CB00F6E858 /* WordServiceTests.swift in Sources */,
-				F2B607E529E460930080B715 /* RulesViewModelTests.swift in Sources */,
-				F2C184D629E0DCF5009D13C1 /* BookViewModelTests.swift in Sources */,
+				F2404BC029C0AB100050469E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		F2A9B09829D79378004C646B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = F2404BB929C0AB100050469E /* GenGen */;
-			targetProxy = F2A9B09729D79378004C646B /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin PBXVariantGroup section */
+		F2404BC329C0AB100050469E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F2404BC429C0AB100050469E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
 		F2404BC829C0AB130050469E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -736,7 +168,6 @@
 /* Begin XCBuildConfiguration section */
 		F2404BCC29C0AB130050469E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F24265B729C0B57800B16F5F /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -797,7 +228,6 @@
 		};
 		F2404BCD29C0AB130050469E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F24265B729C0B57800B16F5F /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -862,13 +292,14 @@
 				INFOPLIST_FILE = GenGen/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 4.0.0;
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tiwworks.GenGen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -889,54 +320,19 @@
 				INFOPLIST_FILE = GenGen/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 4.0.0;
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tiwworks.GenGen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		F2A9B09A29D79378004C646B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6W8T8P6246;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.tiwworks.GenGenTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GenGen.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/GenGen";
-			};
-			name = Debug;
-		};
-		F2A9B09B29D79378004C646B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6W8T8P6246;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.tiwworks.GenGenTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GenGen.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/GenGen";
 			};
 			name = Release;
 		};
@@ -961,29 +357,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F2A9B09929D79378004C646B /* Build configuration list for PBXNativeTarget "GenGenTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F2A9B09A29D79378004C646B /* Debug */,
-				F2A9B09B29D79378004C646B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		F2A7E96029DC655300126688 /* DataModel.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				F2A7E96129DC655300126688 /* DataModel.xcdatamodel */,
-			);
-			currentVersion = F2A7E96129DC655300126688 /* DataModel.xcdatamodel */;
-			path = DataModel.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = F2404BB229C0AB100050469E /* Project object */;
 }
