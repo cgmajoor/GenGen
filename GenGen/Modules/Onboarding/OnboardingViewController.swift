@@ -85,11 +85,17 @@ extension OnboardingViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Texts.onboardingCollectionViewCell, for: indexPath) as? OnboardingCollectionViewCell else { return UICollectionViewCell() }
-        cell.configure(image: self.viewModel.contentImages[indexPath.row])
+        guard let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: Texts.onboardingCollectionViewCell,
+            for: indexPath) as? OnboardingCollectionViewCell else
+        { return UICollectionViewCell() }
+
+        let image = self.viewModel.contentImages[indexPath.row]
+        print("Color for \(indexPath.row) of \(AppTheme.Onboarding.backgroundColors.count)")
+        let backgroundColor = AppTheme.Onboarding.backgroundColors[indexPath.row % AppTheme.Onboarding.backgroundColors.count]
+        cell.configure(image: image, backgroundColor: backgroundColor)
         return cell
     }
-
 }
 
 extension OnboardingViewController: UICollectionViewDelegateFlowLayout {
