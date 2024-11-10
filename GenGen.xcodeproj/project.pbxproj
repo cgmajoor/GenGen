@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F21F8B5C2CDD8A1600BFA34C /* NSValueTransformerName+transformedValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21F8B5B2CDD8A0200BFA34C /* NSValueTransformerName+transformedValue.swift */; };
+		F21F8B5C2CDD8A1600BFA34C /* UUIDArrayTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21F8B5B2CDD8A0200BFA34C /* UUIDArrayTransformer.swift */; };
 		F225AA0A29E5E6FB00F7221E /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F225AA0929E5E6FB00F7221E /* OnboardingViewController.swift */; };
 		F225AA0C29E5EBA500F7221E /* GeneratorRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F225AA0B29E5EBA500F7221E /* GeneratorRouter.swift */; };
 		F225AA0E29E5F69600F7221E /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F225AA0D29E5F69600F7221E /* OnboardingViewModel.swift */; };
@@ -106,7 +106,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		F21F8B5B2CDD8A0200BFA34C /* NSValueTransformerName+transformedValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSValueTransformerName+transformedValue.swift"; sourceTree = "<group>"; };
+		F21F8B5B2CDD8A0200BFA34C /* UUIDArrayTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UUIDArrayTransformer.swift; sourceTree = "<group>"; };
 		F225AA0929E5E6FB00F7221E /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		F225AA0B29E5EBA500F7221E /* GeneratorRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneratorRouter.swift; sourceTree = "<group>"; };
 		F225AA0D29E5F69600F7221E /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
@@ -284,7 +284,7 @@
 		F27C5FF62CDA294B00B13059 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				F21F8B5B2CDD8A0200BFA34C /* NSValueTransformerName+transformedValue.swift */,
+				F21F8B5B2CDD8A0200BFA34C /* UUIDArrayTransformer.swift */,
 				F2FEA4352CDD6AFC00EA0633 /* String+sanitizedForDatabase.swift */,
 				F27C5FF72CDA295100B13059 /* Notification+Name.swift */,
 			);
@@ -636,7 +636,7 @@
 				F2629E3D2CDD9042001FB62C /* Book+extension.swift in Sources */,
 				F2C184D029E0B553009D13C1 /* CoreDataStack.swift in Sources */,
 				F2FEA4302CDD5C4F00EA0633 /* DeleteBookUseCase.swift in Sources */,
-				F21F8B5C2CDD8A1600BFA34C /* NSValueTransformerName+transformedValue.swift in Sources */,
+				F21F8B5C2CDD8A1600BFA34C /* UUIDArrayTransformer.swift in Sources */,
 				F2BBC91629D0A9B1005B1952 /* BaseViewController.swift in Sources */,
 				F2A7E96229DC655300126688 /* DataModel.xcdatamodeld in Sources */,
 				F2A3015C29E55A4200F6E858 /* RuleCreatorTableViewCell.swift in Sources */,

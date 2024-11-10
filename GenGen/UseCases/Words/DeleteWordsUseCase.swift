@@ -14,7 +14,7 @@ protocol DeleteWordUseCaseProtocol {
 class DeleteWordUseCase: DeleteWordUseCaseProtocol {
     private let wordService: WordServiceProtocol
 
-    init(wordService: WordServiceProtocol) {
+    init(wordService: WordServiceProtocol = AppDependencies.shared.wordService) {
         self.wordService = wordService
     }
 

@@ -1,5 +1,5 @@
 //
-//  NSValueTransformerName+transformedValue.swift
+//  UUIDArrayTransformer.swift
 //  GenGen
 //
 //  Created by Ceren Majoor on 08/11/2024.
