@@ -103,4 +103,5 @@ extension RuleService {
 
 enum RuleError: Error {
     case invalidBookID
+    case ruleAlreadyExists
 }

@@ -14,7 +14,7 @@ protocol GetAllFavoritesUseCaseProtocol {
 class GetAllFavoritesUseCase: GetAllFavoritesUseCaseProtocol {
     private let favoriteService: FavoriteServiceProtocol
 
-    init(favoriteService: FavoriteServiceProtocol) {
+    init(favoriteService: FavoriteServiceProtocol = AppDependencies.shared.favoriteService) {
         self.favoriteService = favoriteService
     }
 

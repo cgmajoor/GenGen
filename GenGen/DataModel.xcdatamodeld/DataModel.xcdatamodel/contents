@@ -11,7 +11,7 @@
     </entity>
     <entity name="Rule" representedClassName=".Rule" syncable="YES" codeGenerationType="class">
         <attribute name="active" attributeType="Boolean" usesScalarValueType="YES"/>
-        <attribute name="bookIDs" attributeType="Transformable" valueTransformerName="&quot;UUIDArrayTransformer&quot;" customClassName=".NSArray"/>
+        <attribute name="bookIDs" attributeType="Transformable" valueTransformerName="UUIDArrayTransformer" customClassName=".NSArray"/>
         <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" attributeType="String"/>
         <relationship name="bookOrder" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Book" inverseName="rules" inverseEntity="Book"/>

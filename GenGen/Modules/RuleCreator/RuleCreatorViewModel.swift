@@ -46,8 +46,9 @@ class RuleCreatorViewModel: RuleCreatorViewModelProtocol {
                             completion(.failure(error))
                         }
                     }
+                } else {
+                    completion(.failure(RuleError.ruleAlreadyExists))
                 }
-                print("Cannot add rule, it already exists")
             case .failure(let error):
                 completion(.failure(error))
             }

@@ -91,7 +91,6 @@ extension OnboardingViewController: UICollectionViewDataSource {
         { return UICollectionViewCell() }
 
         let image = self.viewModel.contentImages[indexPath.row]
-        print("Color for \(indexPath.row) of \(AppTheme.Onboarding.backgroundColors.count)")
         let backgroundColor = AppTheme.Onboarding.backgroundColors[indexPath.row % AppTheme.Onboarding.backgroundColors.count]
         cell.configure(image: image, backgroundColor: backgroundColor)
         return cell
