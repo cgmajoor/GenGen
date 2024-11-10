@@ -31,6 +31,7 @@ struct AppTheme {
     struct Main {
         struct Color {
             static var background = UIColor(named: Texts.ggWhite) ?? .systemBackground
+            static var loadingOverlay = UIColor(named: Texts.ggOverlay) ?? .tertiarySystemBackground
 
             static var tableViewBackground = UIColor(named: Texts.ggLightGray) ?? .systemBackground
 

@@ -18,6 +18,12 @@
 		F2425FEC29DC77B70039D026 /* BookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2425FEB29DC77B70039D026 /* BookViewModel.swift */; };
 		F2425FEE29DC79860039D026 /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2425FED29DC79860039D026 /* BookTableViewCell.swift */; };
 		F254812E29E598910016AD56 /* RuleServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F254812D29E598910016AD56 /* RuleServiceTests.swift */; };
+		F25F1D672CE1023900CA9747 /* PrepopulateDatabaseUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25F1D662CE1022C00CA9747 /* PrepopulateDatabaseUseCase.swift */; };
+		F25F1D692CE1025300CA9747 /* LoadingOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25F1D682CE1024E00CA9747 /* LoadingOverlay.swift */; };
+		F25F1D6C2CE109FF00CA9747 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25F1D6B2CE109F900CA9747 /* LoadingViewController.swift */; };
+		F25F1D6E2CE10AA300CA9747 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25F1D6D2CE10AA100CA9747 /* AppRouter.swift */; };
+		F25F1D722CE1159500CA9747 /* CanGenerateSomethingUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25F1D712CE1158E00CA9747 /* CanGenerateSomethingUseCase.swift */; };
+		F25F1D742CE1248000CA9747 /* DoesRuleExistUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25F1D732CE1247B00CA9747 /* DoesRuleExistUseCase.swift */; };
 		F2629E392CDD9016001FB62C /* Word+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2629E382CDD9012001FB62C /* Word+extension.swift */; };
 		F2629E3B2CDD902D001FB62C /* Rule+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2629E3A2CDD9029001FB62C /* Rule+extension.swift */; };
 		F2629E3D2CDD9042001FB62C /* Book+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2629E3C2CDD903E001FB62C /* Book+extension.swift */; };
@@ -122,6 +128,12 @@
 		F24265B829C0B5AA00B16F5F /* ConfigDebug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ConfigDebug.xcconfig; sourceTree = "<group>"; };
 		F24265B929C0B5BF00B16F5F /* ConfigRelease.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ConfigRelease.xcconfig; sourceTree = "<group>"; };
 		F254812D29E598910016AD56 /* RuleServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuleServiceTests.swift; sourceTree = "<group>"; };
+		F25F1D662CE1022C00CA9747 /* PrepopulateDatabaseUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepopulateDatabaseUseCase.swift; sourceTree = "<group>"; };
+		F25F1D682CE1024E00CA9747 /* LoadingOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingOverlay.swift; sourceTree = "<group>"; };
+		F25F1D6B2CE109F900CA9747 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
+		F25F1D6D2CE10AA100CA9747 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
+		F25F1D712CE1158E00CA9747 /* CanGenerateSomethingUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanGenerateSomethingUseCase.swift; sourceTree = "<group>"; };
+		F25F1D732CE1247B00CA9747 /* DoesRuleExistUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoesRuleExistUseCase.swift; sourceTree = "<group>"; };
 		F2629E382CDD9012001FB62C /* Word+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Word+extension.swift"; sourceTree = "<group>"; };
 		F2629E3A2CDD9029001FB62C /* Rule+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rule+extension.swift"; sourceTree = "<group>"; };
 		F2629E3C2CDD903E001FB62C /* Book+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Book+extension.swift"; sourceTree = "<group>"; };
@@ -262,6 +274,14 @@
 			path = Configuration;
 			sourceTree = "<group>";
 		};
+		F25F1D6A2CE109F000CA9747 /* Loading */ = {
+			isa = PBXGroup;
+			children = (
+				F25F1D6B2CE109F900CA9747 /* LoadingViewController.swift */,
+			);
+			path = Loading;
+			sourceTree = "<group>";
+		};
 		F2629E3E2CDD9104001FB62C /* EntityExtensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -275,6 +295,8 @@
 		F2629E3F2CDE30DF001FB62C /* Rules */ = {
 			isa = PBXGroup;
 			children = (
+				F25F1D732CE1247B00CA9747 /* DoesRuleExistUseCase.swift */,
+				F25F1D712CE1158E00CA9747 /* CanGenerateSomethingUseCase.swift */,
 				F2629E442CDE3303001FB62C /* GetActiveRulesUseCase.swift */,
 				F2629E402CDE30E4001FB62C /* GetBookIDsInRuleUseCase.swift */,
 			);
@@ -376,6 +398,7 @@
 		F2A9B09E29D7A64D004C646B /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				F25F1D682CE1024E00CA9747 /* LoadingOverlay.swift */,
 				F2A9B09F29D7A6FC004C646B /* GGButton.swift */,
 				F2F0DF1E29D88588009AE9DE /* GGLabel.swift */,
 			);
@@ -385,6 +408,7 @@
 		F2B4908529CF6C67002E5D8B /* App */ = {
 			isa = PBXGroup;
 			children = (
+				F25F1D6D2CE10AA100CA9747 /* AppRouter.swift */,
 				F2404BBD29C0AB100050469E /* AppDelegate.swift */,
 				F2A9B08029D76581004C646B /* AppConfig.swift */,
 				F2BBC91C29D0BC45005B1952 /* AppTheme.swift */,
@@ -397,6 +421,7 @@
 		F2B4908929CF6DB3002E5D8B /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				F25F1D6A2CE109F000CA9747 /* Loading */,
 				F2B799932CD990FB000B7717 /* Favorites */,
 				F2B4908A29CF6DB9002E5D8B /* Main */,
 				F225AA0829E5E6BA00F7221E /* Onboarding */,
@@ -521,6 +546,7 @@
 		F2FEA4282CDD5C0900EA0633 /* Books */ = {
 			isa = PBXGroup;
 			children = (
+				F25F1D662CE1022C00CA9747 /* PrepopulateDatabaseUseCase.swift */,
 				F2FEA4332CDD635600EA0633 /* DoesBookExistUseCase.swift */,
 				F2FEA4292CDD5C2200EA0633 /* GetAllBooksUseCase.swift */,
 				F2FEA42B2CDD5C3800EA0633 /* AddBookUseCase.swift */,
@@ -639,6 +665,7 @@
 				F21F8B5C2CDD8A1600BFA34C /* UUIDArrayTransformer.swift in Sources */,
 				F2BBC91629D0A9B1005B1952 /* BaseViewController.swift in Sources */,
 				F2A7E96229DC655300126688 /* DataModel.xcdatamodeld in Sources */,
+				F25F1D672CE1023900CA9747 /* PrepopulateDatabaseUseCase.swift in Sources */,
 				F2A3015C29E55A4200F6E858 /* RuleCreatorTableViewCell.swift in Sources */,
 				F27C5FF12CD9991000B13059 /* FavoritesTableViewCell.swift in Sources */,
 				F27C5FFD2CDA29BA00B13059 /* DeleteFavoriteUseCase.swift in Sources */,
@@ -652,16 +679,20 @@
 				F2C34AB529D995F4008E06FB /* LibraryViewModel.swift in Sources */,
 				F2B607DB29E45A700080B715 /* RulesViewModel.swift in Sources */,
 				F27C5FEF2CD998E300B13059 /* FavoritesViewModel.swift in Sources */,
+				F25F1D742CE1248000CA9747 /* DoesRuleExistUseCase.swift in Sources */,
 				F2FEA4362CDD6B1B00EA0633 /* String+sanitizedForDatabase.swift in Sources */,
 				F2A742B129DACBA6000334FD /* BookViewController.swift in Sources */,
 				F2FEA4342CDD635B00EA0633 /* DoesBookExistUseCase.swift in Sources */,
+				F25F1D6C2CE109FF00CA9747 /* LoadingViewController.swift in Sources */,
 				F2A9B09D29D79F73004C646B /* GenerateViewModel.swift in Sources */,
 				F2A742B629DB079B000334FD /* GGPromptAlert.swift in Sources */,
 				F2629E432CDE3113001FB62C /* GetWordsInBookUseCase.swift in Sources */,
 				F2BBC90E29D09CD2005B1952 /* GenerateViewController.swift in Sources */,
 				F2425FEE29DC79860039D026 /* BookTableViewCell.swift in Sources */,
 				F2B607E829E462E70080B715 /* RuleCreatorViewController.swift in Sources */,
+				F25F1D6E2CE10AA300CA9747 /* AppRouter.swift in Sources */,
 				F2B607C429E4153D0080B715 /* BookService.swift in Sources */,
+				F25F1D722CE1159500CA9747 /* CanGenerateSomethingUseCase.swift in Sources */,
 				F2629E3B2CDD902D001FB62C /* Rule+extension.swift in Sources */,
 				F2B4908C29CF6DF7002E5D8B /* MainTabBarController.swift in Sources */,
 				F2A9B08129D76581004C646B /* AppConfig.swift in Sources */,
@@ -676,6 +707,7 @@
 				F2629E412CDE30ED001FB62C /* GetBookIDsInRuleUseCase.swift in Sources */,
 				F2B607DE29E45A700080B715 /* RulesTableViewCell.swift in Sources */,
 				F2425FEC29DC77B70039D026 /* BookViewModel.swift in Sources */,
+				F25F1D692CE1025300CA9747 /* LoadingOverlay.swift in Sources */,
 				F2BBC91D29D0BC45005B1952 /* AppTheme.swift in Sources */,
 				F2B607EA29E46E880080B715 /* RuleCreatorViewModel.swift in Sources */,
 				F27C5FFB2CDA29A200B13059 /* DoesFavoriteExistUseCase.swift in Sources */,
