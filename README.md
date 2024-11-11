@@ -9,7 +9,7 @@ GenGen is an iOS app demonstrating a modern, scalable, and testable architecture
 
 1. Clone the repository:
    ```sh
-   git clone https://github.com/yourusername/GenGen.git
+   git clone https://github.com/cgmajoor/GenGen.git
    cd GenGen
    ```
 
