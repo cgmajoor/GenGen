@@ -16,12 +16,15 @@ protocol BookViewModelProtocol {
 
 class BookViewModel: BookViewModelProtocol {
 
-    // MARK: - Properties
+    // MARK: - Dependencies
     private let deleteWordUseCase: DeleteWordUseCaseProtocol
     let wordService: WordServiceProtocol
+
+    // MARK: - Properties
     private var book: Book?
     private var words: [Word]
 
+    // MARK: - Initialization
     init(
         wordService: WordServiceProtocol = AppDependencies.shared.wordService,
         deleteWordUseCase: DeleteWordUseCaseProtocol,

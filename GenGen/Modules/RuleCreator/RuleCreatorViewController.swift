@@ -16,19 +16,22 @@ class RuleCreatorViewController: BaseViewController {
     private var viewModel: RuleCreatorViewModelProtocol
 
     // MARK: - UI
-    lazy var headerLabel = GGLabel(textColor: AppTheme.Navigation.Color.rules,
-                                   font:AppTheme.Navigation.FontStyle.title,
-                                   fullText: Texts.ruleCreatorNavigationTitle)
+    lazy var headerLabel = GGLabel(
+        textColor: AppTheme.Navigation.Color.rules,
+        font:AppTheme.Navigation.FontStyle.title,
+        fullText: Texts.ruleCreatorNavigationTitle
+    )
 
     private lazy var doneButton: UIBarButtonItem = {
-        let barButtonItem = UIBarButtonItem(image: AppTheme.Navigation.Image.checkMark,
-                                            style: .plain,
-                                            target: self,
-                                            action: #selector(doneTapped))
+        let barButtonItem = UIBarButtonItem(
+            image: AppTheme.Navigation.Image.checkMark,
+            style: .plain,
+            target: self,
+            action: #selector(doneTapped)
+        )
         barButtonItem.tintColor = AppTheme.Main.Color.buttonBackground
         return barButtonItem
     }()
-
 
     lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -51,7 +54,7 @@ class RuleCreatorViewController: BaseViewController {
     }()
 
     // MARK: - LifeCycle
-    init(viewModel: RuleCreatorViewModelProtocol = RuleCreatorViewModel(bookService: AppDependencies.shared.bookService)) {
+    init(viewModel: RuleCreatorViewModelProtocol = RuleCreatorViewModel()) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -68,7 +71,7 @@ class RuleCreatorViewController: BaseViewController {
 
         loadBooks()
     }
-    
+
     // MARK: - Configurations
     private func configureNavigationItems() {
         self.navigationItem.titleView = headerLabel
@@ -154,7 +157,6 @@ class RuleCreatorViewController: BaseViewController {
         return selectedBooks.compactMap { $0.name }.joined(separator: " ")
     }
 }
-
 
 // MARK: - UITableViewDataSource
 extension RuleCreatorViewController: UITableViewDataSource {

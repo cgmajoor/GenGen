@@ -19,10 +19,12 @@ class GenerateViewController: BaseViewController {
                                                fullText: "")
 
     private lazy var helpButton: UIBarButtonItem = {
-        let barButtonItem = UIBarButtonItem(image: AppTheme.Navigation.Image.help,
-                                            style: .plain,
-                                            target: self,
-                                            action: #selector(helpTapped))
+        let barButtonItem = UIBarButtonItem(
+            image: AppTheme.Navigation.Image.help,
+            style: .plain,
+            target: self,
+            action: #selector(helpTapped)
+        )
         barButtonItem.tintColor = AppTheme.Main.Color.buttonBackground
         return barButtonItem
     }()
@@ -124,7 +126,7 @@ class GenerateViewController: BaseViewController {
             }
         }
     }
-
+    
     // MARK: - Actions
     @objc private func helpTapped() {
         router.didSelectHelp(in: self)

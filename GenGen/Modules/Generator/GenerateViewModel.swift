@@ -14,7 +14,6 @@ protocol Generating {
     func getActiveRules(_ completion: @escaping (Result<[Rule], Error>) -> Void)
     func generate(_ completion: @escaping (Result<String, Error>) -> Void)
     func addFavorite(_ text: String, completion: @escaping (Result<Void, Error>) -> Void)
-
 }
 
 // MARK: - Generator
@@ -24,9 +23,9 @@ class GenerateViewModel: Generating {
     var generatedStr: String = ""
     var activeRules: [Rule] = []
 
-    let getActiveRulesUseCase: GetActiveRulesUseCaseProtocol
-    let getBookIDsInRuleUseCase: GetBookIDsInRuleUseCaseProtocol
-    let getWordsInBookUseCase: GetWordsInBookUseCaseProtocol
+    private let getActiveRulesUseCase: GetActiveRulesUseCaseProtocol
+    private let getBookIDsInRuleUseCase: GetBookIDsInRuleUseCaseProtocol
+    private let getWordsInBookUseCase: GetWordsInBookUseCaseProtocol
     private let addFavoriteUseCase: AddFavoriteIfNotExistsUseCaseProtocol
 
     // MARK: - Initialization
