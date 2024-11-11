@@ -87,6 +87,7 @@ class FavoritesViewController: BaseViewController {
     @objc private func loadFavorites() {
         viewModel.fetchFavorites { [weak self] result in
             guard let self = self else { return }
+
             switch result {
             case .success(let favorites):
                 self.favorites = favorites
@@ -100,13 +101,19 @@ class FavoritesViewController: BaseViewController {
 
     // MARK: - Actions
     @objc private func addTapped() {
-        GGPromptAlert.createAlert(title: Texts.addNewFavoriteAlertTitle, message: nil, in: self) { [weak self] favoriteTitleInput in
-            guard let self = self else { return }
-            guard let favoriteTitle = favoriteTitleInput else {
-                return
-            }
-            viewModel.addFavorite(favoriteTitle: favoriteTitle) { [weak self] result in
+        GGPromptAlert.createAlert(
+            title: Texts.addNewFavoriteAlertTitle,
+            message: nil,
+            in: self
+        ) { [weak self] favoriteTitleInput in
+
+            guard let self = self,
+                  let favoriteTitle = favoriteTitleInput
+            else { return }
+
+            self.viewModel.addFavorite(favoriteTitle: favoriteTitle) { [weak self] result in
                 guard let self = self else { return }
+                
                 switch result {
                 case .success(let favorites):
                     self.favorites = favorites
@@ -117,6 +124,7 @@ class FavoritesViewController: BaseViewController {
             }
         }
     }
+
 }
 
 // MARK: - UITableViewDataSource

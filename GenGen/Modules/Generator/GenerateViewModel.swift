@@ -12,10 +12,8 @@ import CoreData
 protocol Generating {
     var generatedStr: String { get }
     func getActiveRules(_ completion: @escaping (Result<[Rule], Error>) -> Void)
-    func getBooksWithWords(_ completion: @escaping (Result<[String: [String]], Error>) -> Void)
     func generate(_ completion: @escaping (Result<String, Error>) -> Void)
     func addFavorite(_ text: String, completion: @escaping (Result<Void, Error>) -> Void)
-
 }
 
 // MARK: - Generator
@@ -24,83 +22,76 @@ class GenerateViewModel: Generating {
     // MARK: - Properties
     var generatedStr: String = ""
     var activeRules: [Rule] = []
-    var activeBooksWithWords: [String: [String]] = [:]
-    
-    let ruleService: RuleServiceProtocol
-    let bookService: BookServiceProtocol
-    let wordService: WordServiceProtocol
+
+    private let getActiveRulesUseCase: GetActiveRulesUseCaseProtocol
+    private let getBookIDsInRuleUseCase: GetBookIDsInRuleUseCaseProtocol
+    private let getWordsInBookUseCase: GetWordsInBookUseCaseProtocol
     private let addFavoriteUseCase: AddFavoriteIfNotExistsUseCaseProtocol
 
     // MARK: - Initialization
-    init(ruleService: RuleServiceProtocol = AppDependencies.shared.ruleService,
-         bookService: BookServiceProtocol = AppDependencies.shared.bookService,
-         wordService: WordServiceProtocol = AppDependencies.shared.wordService,
-         addFavoriteUseCase: AddFavoriteIfNotExistsUseCaseProtocol) {
-        self.ruleService = ruleService
-        self.bookService = bookService
-        self.wordService = wordService
+    init(
+        getActiveRulesUseCase: GetActiveRulesUseCaseProtocol = GetActiveRulesUseCase(),
+        getBookIDsInRuleUseCase: GetBookIDsInRuleUseCaseProtocol = GetBookIDsInRuleUseCase(),
+        getWordsInBookUseCase: GetWordsInBookUseCaseProtocol = GetWordsInBookUseCase(),
+        addFavoriteUseCase: AddFavoriteIfNotExistsUseCaseProtocol = AddFavoriteIfNotExistsUseCase()
+    ) {
+        self.getActiveRulesUseCase = getActiveRulesUseCase
+        self.getBookIDsInRuleUseCase = getBookIDsInRuleUseCase
+        self.getWordsInBookUseCase = getWordsInBookUseCase
         self.addFavoriteUseCase = addFavoriteUseCase
     }
-    
+
     // MARK: - Methods
     func getActiveRules(_ completion: @escaping (Result<[Rule], Error>) -> Void) {
-        ruleService.getRules(activeOnly: true) { [weak self] rulesResult in
+        getActiveRulesUseCase.execute { [weak self] result in
             guard let self = self else { return }
-            switch rulesResult {
+            switch result {
             case .success(let activeRules):
                 self.activeRules = activeRules
-                self.getBooksWithWords { booksWithWordsResult in
-                    switch booksWithWordsResult {
-                    case .success(let booksWithWords):
-                        print("BOOKS WITH WORDS: \(booksWithWords)")
-                        completion(.success(activeRules))
-                    case .failure(let failure):
-                        completion(.failure(failure))
-                    }
-                }
+                completion(.success(activeRules))
             case .failure(let error):
                 completion(.failure(error))
             }
         }
     }
-    
-    func getBooksWithWords(_ completion: @escaping (Result<[String: [String]], Error>) -> Void) {
-        bookService.getBooks { [weak self] booksResult in
-            guard let self = self else { return }
-            switch booksResult {
-            case .success(let books):
-                books.forEach { book in
-                    self.wordService.getWords(for: book) { [weak self] wordsResult in
-                        guard let self = self else { return }
-                        switch wordsResult {
-                        case .success(let words):
-                            guard let bookName = book.name else { return }
-                            self.activeBooksWithWords[bookName] = words.compactMap { $0.title }
-                            completion(.success(activeBooksWithWords))
-                        case .failure(let error):
-                            completion(.failure(error))
-                        }
-                    }
-                }
-            case .failure(let failure):
-                completion(.failure(failure))
-            }
-        }
-    }
-    
+
     func generate(_ completion: @escaping (Result<String, Error>) -> Void) {
-        guard let randomRuleName = self.activeRules.randomElement()?.name else {
+        guard let randomRule = activeRules.randomElement() else {
             completion(.success(""))
             return
         }
-        print("Random selected rule: \(randomRuleName)")
-        
-        let bookNames = randomRuleName.components(separatedBy: " ")
-        print("Book names in rule: \(bookNames)")
-        
-        self.generatedStr = bookNames.compactMap { activeBooksWithWords[$0]?.randomElement() }
-            .joined(separator: " ")
-        completion(.success(self.generatedStr))
+
+        getBookIDsInRuleUseCase.execute(rule: randomRule) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let bookIDs):
+                var generatedWords: [String] = []
+                let dispatchGroup = DispatchGroup()
+
+                for bookID in bookIDs {
+                    dispatchGroup.enter()
+                    self.getWordsInBookUseCase.execute(bookID: bookID) { wordResult in
+                        switch wordResult {
+                        case .success(let words):
+                            if let randomWord = words.randomElement() {
+                                generatedWords.append(randomWord)
+                            }
+                        case .failure(let error):
+                            print("Failed to get words for bookID \(bookID): \(error)")
+                        }
+                        dispatchGroup.leave()
+                    }
+                }
+
+                dispatchGroup.notify(queue: .main) {
+                    self.generatedStr = generatedWords.joined(separator: " ")
+                    completion(.success(self.generatedStr))
+                }
+
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
     }
 
     func addFavorite(_ text: String, completion: @escaping (Result<Void, Error>) -> Void) {

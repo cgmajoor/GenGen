@@ -9,21 +9,18 @@ import UIKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-    var window: UIWindow?
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        setupCoreDataTransformers()
 
         AppConfig.configure(application)
 
-        print("LOG: \(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))")
-
-        window = UIWindow(frame: UIScreen.main.bounds)
-        let tabBarController = MainTabBarController.create()
-        window?.rootViewController = tabBarController
-        window?.makeKeyAndVisible()
+        AppRouter.shared.startApp()
 
         return true
+    }
+
+    func setupCoreDataTransformers() {
+        ValueTransformer.setValueTransformer(UUIDArrayTransformer(), forName: NSValueTransformerName("UUIDArrayTransformer"))
     }
 }
 

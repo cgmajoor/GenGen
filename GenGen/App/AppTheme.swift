@@ -31,7 +31,8 @@ struct AppTheme {
     struct Main {
         struct Color {
             static var background = UIColor(named: Texts.ggWhite) ?? .systemBackground
-            
+            static var loadingOverlay = UIColor(named: Texts.ggOverlay) ?? .tertiarySystemBackground
+
             static var tableViewBackground = UIColor(named: Texts.ggLightGray) ?? .systemBackground
             
             static var labelBackground = UIColor(named: Texts.ggLightGray) ?? .systemBackground
@@ -75,6 +76,16 @@ struct AppTheme {
             static var onboarding6 = UIImage(named: Texts.onboarding6) ?? UIImage()
             static var onboarding7 = UIImage(named: Texts.onboarding7) ?? UIImage()
         }
+
+        static var backgroundColors: [UIColor] = [
+            UIColor(named: Texts.ggFixedLightGray) ?? .systemFill,
+            UIColor(named: Texts.ggPink) ?? .systemFill,
+            UIColor(named: Texts.ggYellow) ?? .systemFill,
+            UIColor(named: Texts.ggGreen) ?? .systemFill,
+            UIColor(named: Texts.ggLila) ?? .systemFill,
+            UIColor(named: Texts.ggMint) ?? .systemFill,
+            UIColor(named: Texts.ggOrange) ?? .systemFill,
+        ]
     }
     
     struct Navigation {

@@ -19,10 +19,12 @@ class GenerateViewController: BaseViewController {
                                                fullText: "")
 
     private lazy var helpButton: UIBarButtonItem = {
-        let barButtonItem = UIBarButtonItem(image: AppTheme.Navigation.Image.help,
-                                            style: .plain,
-                                            target: self,
-                                            action: #selector(helpTapped))
+        let barButtonItem = UIBarButtonItem(
+            image: AppTheme.Navigation.Image.help,
+            style: .plain,
+            target: self,
+            action: #selector(helpTapped)
+        )
         barButtonItem.tintColor = AppTheme.Main.Color.buttonBackground
         return barButtonItem
     }()
@@ -51,18 +53,13 @@ class GenerateViewController: BaseViewController {
 
     // MARK: - Lifecycle
     init(
-        viewModel: Generating = GenerateViewModel(
-            addFavoriteUseCase: AddFavoriteIfNotExistsUseCase(
-                favoriteService: AppDependencies.shared.favoriteService
-            )
-        ),
+        viewModel: Generating = GenerateViewModel(),
         router: GeneratorRouting = GeneratorRouter()
     ) {
         self.viewModel = viewModel
         self.router = router
         super.init(nibName: nil, bundle: nil)
     }
-
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -118,14 +115,15 @@ class GenerateViewController: BaseViewController {
 
     // MARK: - Internal Methods
     private func loadActiveRules() {
-        self.generateButton.isEnabled = false
+        generateButton.isEnabled = false
         viewModel.getActiveRules { [weak self] result in
             guard let self = self else { return }
+
             switch result {
-            case .success(_):
-                self.generateButton.isEnabled = true
-            case .failure(let failure):
-                print("Error loading active rules: \(failure)")
+            case .success(let activeRules):
+                self.generateButton.isEnabled = !activeRules.isEmpty
+            case .failure(let error):
+                print("Error loading active rules: \(error)")
             }
         }
     }
@@ -142,7 +140,7 @@ class GenerateViewController: BaseViewController {
             }
         }
     }
-
+    
     // MARK: - Actions
     @objc private func helpTapped() {
         router.didSelectHelp(in: self)

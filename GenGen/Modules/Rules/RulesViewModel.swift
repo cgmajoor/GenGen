@@ -19,7 +19,8 @@ class RulesViewModel: RuleProvider {
     // MARK: - Properties
     let ruleService: RuleServiceProtocol
     private var rules: [Rule]
-    
+
+    // MARK: - Initialization
     init(ruleService: RuleServiceProtocol = AppDependencies.shared.ruleService, rules: [Rule] = []) {
         self.ruleService = ruleService
         self.rules = rules
