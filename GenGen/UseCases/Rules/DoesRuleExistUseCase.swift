@@ -12,21 +12,21 @@ protocol DoesRuleExistUseCaseProtocol {
 }
 
 class DoesRuleExistUseCase: DoesRuleExistUseCaseProtocol {
-    private let ruleService: RuleServiceProtocol
+    private let getAllRulesUseCase: GetAllRulesUseCaseProtocol
     private let bookService: BookServiceProtocol
 
     init(
-        ruleService: RuleServiceProtocol = AppDependencies.shared.ruleService,
+        getAllRulesUseCase: GetAllRulesUseCaseProtocol = GetAllRulesUseCase(),
         bookService: BookServiceProtocol = AppDependencies.shared.bookService
     ) {
-        self.ruleService = ruleService
+        self.getAllRulesUseCase = getAllRulesUseCase
         self.bookService = bookService
     }
 
     func execute(ruleName: String, books: [Book], completion: @escaping (Result<Bool, Error>) -> Void) {
-        ruleService.getRules(activeOnly: false) { [weak self] result in
+        getAllRulesUseCase.execute() { [weak self] result in
             guard let self = self else { return }
-
+            
             switch result {
             case .success(let existingRules):
                 let bookIDs = Set(books.compactMap { $0.id })

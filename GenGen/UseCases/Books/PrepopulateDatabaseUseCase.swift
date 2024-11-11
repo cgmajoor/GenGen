@@ -13,21 +13,24 @@ protocol PrepopulateDatabaseUseCaseProtocol {
 
 class PrepopulateDatabaseUseCase: PrepopulateDatabaseUseCaseProtocol {
     private let addBookUseCase: AddBookUseCaseProtocol
-    private let wordService: WordServiceProtocol
-    private let ruleService: RuleServiceProtocol
+    private let addWordToBookUseCase: AddWordToBookUseCaseProtocol
+    private let getWordsInBookUseCase: GetWordsInBookUseCaseProtocol
+    private let addRuleUseCase: AddRuleUseCaseProtocol
     private let doesRuleExistUseCase: DoesRuleExistUseCaseProtocol
     private let getAllBooksUseCase: GetAllBooksUseCaseProtocol
 
     init(
         addBookUseCase: AddBookUseCaseProtocol = AddBookUseCase(),
-        wordService: WordServiceProtocol = AppDependencies.shared.wordService,
-        ruleService: RuleServiceProtocol = AppDependencies.shared.ruleService,
+        addWordToBookUseCase: AddWordToBookUseCaseProtocol = AddWordToBookUseCase(),
+        getWordsInBookUseCase: GetWordsInBookUseCaseProtocol = GetWordsInBookUseCase(),
+        addRuleUseCase: AddRuleUseCaseProtocol = AddRuleUseCase(),
         doesRuleExistUseCase: DoesRuleExistUseCaseProtocol = DoesRuleExistUseCase(),
         getAllBooksUseCase: GetAllBooksUseCaseProtocol = GetAllBooksUseCase()
     ) {
         self.addBookUseCase = addBookUseCase
-        self.wordService = wordService
-        self.ruleService = ruleService
+        self.addWordToBookUseCase = addWordToBookUseCase
+        self.getWordsInBookUseCase = getWordsInBookUseCase
+        self.addRuleUseCase = addRuleUseCase
         self.doesRuleExistUseCase = doesRuleExistUseCase
         self.getAllBooksUseCase = getAllBooksUseCase
     }
@@ -91,15 +94,21 @@ class PrepopulateDatabaseUseCase: PrepopulateDatabaseUseCaseProtocol {
     }
 
     private func addWordsIfNeeded(_ words: [String], to book: Book, completion: @escaping (Result<Void, Error>) -> Void) {
+        guard let bookID = book.id else {
+            completion(.failure(NSError(domain: "Invalid Book ID", code: 500, userInfo: nil)))
+            return
+        }
         let dispatchGroup = DispatchGroup()
 
         for word in words {
             dispatchGroup.enter()
-            wordService.getWords(for: book) { result in
+            getWordsInBookUseCase.execute(bookID: bookID) { [weak self] result in
+                guard let self = self else { return }
+
                 switch result {
                 case .success(let existingWords):
-                    if !existingWords.contains(where: { $0.title == word }) {
-                        self.wordService.addWord(word, to: book) { _ in
+                    if !existingWords.contains(word) {
+                        self.addWordToBookUseCase.execute(word: word, book: book) { _ in
                             dispatchGroup.leave()
                         }
                     } else {
@@ -158,7 +167,7 @@ class PrepopulateDatabaseUseCase: PrepopulateDatabaseUseCaseProtocol {
                 switch result {
                 case .success(let ruleExists):
                     if !ruleExists {
-                        self.ruleService.addRule(ruleName, books: ruleBooks, isActive: true) { _ in
+                        self.addRuleUseCase.execute(ruleName: ruleName, books: ruleBooks, isActive: true) { _ in
                             dispatchGroup.leave()
                         }
                     } else {

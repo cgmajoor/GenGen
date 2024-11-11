@@ -16,12 +16,13 @@ protocol LibraryViewModelProtocol {
 
 class LibraryViewModel: LibraryViewModelProtocol {
 
-    // MARK: - Use Cases
+    // MARK: - Dependencies
     private let getAllBooksUseCase: GetAllBooksUseCaseProtocol
     private let addBookUseCase: AddBookUseCaseProtocol
     private let deleteBookWithDependenciesUseCase: DeleteBookWithDependenciesUseCaseProtocol
     private let deleteBookUseCase: DeleteBookUseCaseProtocol
 
+    // MARK: - Properties
     private var books: [Book] = []
 
     // MARK: - Initialization

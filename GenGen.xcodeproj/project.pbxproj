@@ -24,6 +24,10 @@
 		F25F1D6E2CE10AA300CA9747 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25F1D6D2CE10AA100CA9747 /* AppRouter.swift */; };
 		F25F1D722CE1159500CA9747 /* CanGenerateSomethingUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25F1D712CE1158E00CA9747 /* CanGenerateSomethingUseCase.swift */; };
 		F25F1D742CE1248000CA9747 /* DoesRuleExistUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25F1D732CE1247B00CA9747 /* DoesRuleExistUseCase.swift */; };
+		F25F1D762CE15C7000CA9747 /* AddWordToBookUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25F1D752CE15C6B00CA9747 /* AddWordToBookUseCase.swift */; };
+		F25F1D782CE15D9000CA9747 /* AddRuleUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25F1D772CE15D8C00CA9747 /* AddRuleUseCase.swift */; };
+		F25F1D7A2CE15F0B00CA9747 /* GetAllRulesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25F1D792CE15F0700CA9747 /* GetAllRulesUseCase.swift */; };
+		F25F1D7C2CE169FE00CA9747 /* DoesWordExistUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25F1D7B2CE169F500CA9747 /* DoesWordExistUseCase.swift */; };
 		F2629E392CDD9016001FB62C /* Word+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2629E382CDD9012001FB62C /* Word+extension.swift */; };
 		F2629E3B2CDD902D001FB62C /* Rule+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2629E3A2CDD9029001FB62C /* Rule+extension.swift */; };
 		F2629E3D2CDD9042001FB62C /* Book+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2629E3C2CDD903E001FB62C /* Book+extension.swift */; };
@@ -134,6 +138,10 @@
 		F25F1D6D2CE10AA100CA9747 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
 		F25F1D712CE1158E00CA9747 /* CanGenerateSomethingUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanGenerateSomethingUseCase.swift; sourceTree = "<group>"; };
 		F25F1D732CE1247B00CA9747 /* DoesRuleExistUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoesRuleExistUseCase.swift; sourceTree = "<group>"; };
+		F25F1D752CE15C6B00CA9747 /* AddWordToBookUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWordToBookUseCase.swift; sourceTree = "<group>"; };
+		F25F1D772CE15D8C00CA9747 /* AddRuleUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRuleUseCase.swift; sourceTree = "<group>"; };
+		F25F1D792CE15F0700CA9747 /* GetAllRulesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllRulesUseCase.swift; sourceTree = "<group>"; };
+		F25F1D7B2CE169F500CA9747 /* DoesWordExistUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoesWordExistUseCase.swift; sourceTree = "<group>"; };
 		F2629E382CDD9012001FB62C /* Word+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Word+extension.swift"; sourceTree = "<group>"; };
 		F2629E3A2CDD9029001FB62C /* Rule+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rule+extension.swift"; sourceTree = "<group>"; };
 		F2629E3C2CDD903E001FB62C /* Book+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Book+extension.swift"; sourceTree = "<group>"; };
@@ -295,6 +303,8 @@
 		F2629E3F2CDE30DF001FB62C /* Rules */ = {
 			isa = PBXGroup;
 			children = (
+				F25F1D792CE15F0700CA9747 /* GetAllRulesUseCase.swift */,
+				F25F1D772CE15D8C00CA9747 /* AddRuleUseCase.swift */,
 				F25F1D732CE1247B00CA9747 /* DoesRuleExistUseCase.swift */,
 				F25F1D712CE1158E00CA9747 /* CanGenerateSomethingUseCase.swift */,
 				F2629E442CDE3303001FB62C /* GetActiveRulesUseCase.swift */,
@@ -537,6 +547,8 @@
 		F2FEA4252CDD49B900EA0633 /* Words */ = {
 			isa = PBXGroup;
 			children = (
+				F25F1D7B2CE169F500CA9747 /* DoesWordExistUseCase.swift */,
+				F25F1D752CE15C6B00CA9747 /* AddWordToBookUseCase.swift */,
 				F2629E422CDE310C001FB62C /* GetWordsInBookUseCase.swift */,
 				F2FEA4262CDD49C300EA0633 /* DeleteWordsUseCase.swift */,
 			);
@@ -659,11 +671,13 @@
 			files = (
 				F2B607CA29E440BB0080B715 /* AppDependencies.swift in Sources */,
 				F2FEA42E2CDD5C4600EA0633 /* DeleteBookWithDependenciesUseCase.swift in Sources */,
+				F25F1D7C2CE169FE00CA9747 /* DoesWordExistUseCase.swift in Sources */,
 				F2629E3D2CDD9042001FB62C /* Book+extension.swift in Sources */,
 				F2C184D029E0B553009D13C1 /* CoreDataStack.swift in Sources */,
 				F2FEA4302CDD5C4F00EA0633 /* DeleteBookUseCase.swift in Sources */,
 				F21F8B5C2CDD8A1600BFA34C /* UUIDArrayTransformer.swift in Sources */,
 				F2BBC91629D0A9B1005B1952 /* BaseViewController.swift in Sources */,
+				F25F1D762CE15C7000CA9747 /* AddWordToBookUseCase.swift in Sources */,
 				F2A7E96229DC655300126688 /* DataModel.xcdatamodeld in Sources */,
 				F25F1D672CE1023900CA9747 /* PrepopulateDatabaseUseCase.swift in Sources */,
 				F2A3015C29E55A4200F6E858 /* RuleCreatorTableViewCell.swift in Sources */,
@@ -684,9 +698,11 @@
 				F2A742B129DACBA6000334FD /* BookViewController.swift in Sources */,
 				F2FEA4342CDD635B00EA0633 /* DoesBookExistUseCase.swift in Sources */,
 				F25F1D6C2CE109FF00CA9747 /* LoadingViewController.swift in Sources */,
+				F25F1D7A2CE15F0B00CA9747 /* GetAllRulesUseCase.swift in Sources */,
 				F2A9B09D29D79F73004C646B /* GenerateViewModel.swift in Sources */,
 				F2A742B629DB079B000334FD /* GGPromptAlert.swift in Sources */,
 				F2629E432CDE3113001FB62C /* GetWordsInBookUseCase.swift in Sources */,
+				F25F1D782CE15D9000CA9747 /* AddRuleUseCase.swift in Sources */,
 				F2BBC90E29D09CD2005B1952 /* GenerateViewController.swift in Sources */,
 				F2425FEE29DC79860039D026 /* BookTableViewCell.swift in Sources */,
 				F2B607E829E462E70080B715 /* RuleCreatorViewController.swift in Sources */,
