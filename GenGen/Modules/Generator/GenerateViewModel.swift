@@ -14,6 +14,8 @@ protocol Generating {
     func getActiveRules(_ completion: @escaping (Result<[Rule], Error>) -> Void)
     func generate(_ completion: @escaping (Result<String, Error>) -> Void)
     func addFavorite(_ text: String, completion: @escaping (Result<Void, Error>) -> Void)
+    func generateTextWithOpenAI(for prompt: String, completion: @escaping (Result<String, Error>) -> Void)
+
 }
 
 // MARK: - Generator
@@ -27,18 +29,21 @@ class GenerateViewModel: Generating {
     private let getBookIDsInRuleUseCase: GetBookIDsInRuleUseCaseProtocol
     private let getWordsInBookUseCase: GetWordsInBookUseCaseProtocol
     private let addFavoriteUseCase: AddFavoriteIfNotExistsUseCaseProtocol
+    private let generateTextWithOpenAIUseCase: GenerateTextWithOpenAIUseCaseProtocol
 
     // MARK: - Initialization
     init(
         getActiveRulesUseCase: GetActiveRulesUseCaseProtocol = GetActiveRulesUseCase(),
         getBookIDsInRuleUseCase: GetBookIDsInRuleUseCaseProtocol = GetBookIDsInRuleUseCase(),
         getWordsInBookUseCase: GetWordsInBookUseCaseProtocol = GetWordsInBookUseCase(),
-        addFavoriteUseCase: AddFavoriteIfNotExistsUseCaseProtocol = AddFavoriteIfNotExistsUseCase()
+        addFavoriteUseCase: AddFavoriteIfNotExistsUseCaseProtocol = AddFavoriteIfNotExistsUseCase(),
+        generateTextWithOpenAIUseCase: GenerateTextWithOpenAIUseCaseProtocol = GenerateTextWithOpenAIUseCase()
     ) {
         self.getActiveRulesUseCase = getActiveRulesUseCase
         self.getBookIDsInRuleUseCase = getBookIDsInRuleUseCase
         self.getWordsInBookUseCase = getWordsInBookUseCase
         self.addFavoriteUseCase = addFavoriteUseCase
+        self.generateTextWithOpenAIUseCase = generateTextWithOpenAIUseCase
     }
 
     // MARK: - Methods
@@ -109,4 +114,8 @@ class GenerateViewModel: Generating {
             }
         }
     }
+
+    func generateTextWithOpenAI(for prompt: String, completion: @escaping (Result<String, Error>) -> Void) {
+          generateTextWithOpenAIUseCase.execute(for: prompt, completion: completion)
+      }
 }

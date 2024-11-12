@@ -37,7 +37,10 @@ class GenerateViewController: BaseViewController {
 
     private lazy var openAIButton: UIButton = {
         let button = UIButton(type: .custom)
-        button.setImage(AppTheme.Main.Image.openAI, for: .normal)  // Replace with your OpenAI icon
+        let openAIColor = AppTheme.Generator.Color.openAIButton
+        button.setImage(AppTheme.Main.Image.openAI.withRenderingMode(.alwaysTemplate), for: .normal)
+        button.tintColor = openAIColor
+        button.backgroundColor = .clear
         button.addTarget(self, action: #selector(openAITapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -140,7 +143,7 @@ class GenerateViewController: BaseViewController {
             }
         }
     }
-    
+
     // MARK: - Actions
     @objc private func helpTapped() {
         router.didSelectHelp(in: self)
@@ -159,69 +162,28 @@ class GenerateViewController: BaseViewController {
     }
 
     @objc private func openAITapped() {
-        let apiKey = Environment.apiKey
-
-        guard let textToGenerate = generationLabel.text, !textToGenerate.isEmpty else {
-            print("No text to generate ideas from.")
+        guard let prompt = generationLabel.text, !prompt.isEmpty else {
+            print("No prompt to send.")
             return
         }
 
-        generateButton.isEnabled = false
         let loadingIndicator = UIActivityIndicatorView(style: .medium)
         loadingIndicator.center = openAIButton.center
         view.addSubview(loadingIndicator)
         loadingIndicator.startAnimating()
 
-        Task {
-            defer {
-                DispatchQueue.main.async {
-                    loadingIndicator.stopAnimating()
-                    loadingIndicator.removeFromSuperview()
-                    self.generateButton.isEnabled = true
-                }
-            }
+        viewModel.generateTextWithOpenAI(for: prompt) { [weak self] result in
+            DispatchQueue.main.async { // Ensure UI updates happen on the main thread
+                loadingIndicator.stopAnimating()
+                loadingIndicator.removeFromSuperview()
 
-            let result = await fetchOpenAIResponse(prompt: textToGenerate, apiKey: apiKey)
-
-            DispatchQueue.main.async {
-                if let responseText = result {
-                    self.generationLabel.text = responseText
-                } else {
-                    print("Failed to get response from OpenAI.")
+                switch result {
+                case .success(let generatedText):
+                    self?.generationLabel.text = generatedText
+                case .failure(let error):
+                    print("Failed to get OpenAI response: \(error)")
                 }
             }
         }
-    }
-
-    private func fetchOpenAIResponse(prompt: String, apiKey: String) async -> String? {
-        guard let url = URL(string: "https://api.openai.com/v1/chat/completions") else { return nil }
-
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue("Bearer \(apiKey)", forHTTPHeaderField: "Authorization")
-
-        let parameters: [String: Any] = [
-            "model": "gpt-4o-mini",
-            "messages": [["role": "user", "content": "Give related text for '\(prompt)' in less than 20 tokens."]],
-            "max_tokens": 100,
-            "temperature": 0.5
-        ]
-        request.httpBody = try? JSONSerialization.data(withJSONObject: parameters)
-        dump(request, name: "🌍OpenAI request")
-        do {
-            let (data, _) = try await URLSession.shared.data(for: request)
-
-            if let jsonObject = try JSONSerialization.jsonObject(with: data) as? [String: Any],
-               let choices = jsonObject["choices"] as? [[String: Any]],
-               let message = choices.first?["message"] as? [String: Any],
-               let content = message["content"] as? String {
-                dump(jsonObject, name: "🌍OpenAI request")
-                return content.trimmingCharacters(in: .whitespacesAndNewlines)
-            }
-        } catch {
-            print("Error fetching OpenAI response: \(error)")
-        }
-        return nil
     }
 }

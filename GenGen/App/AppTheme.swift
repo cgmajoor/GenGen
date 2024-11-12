@@ -57,7 +57,13 @@ struct AppTheme {
             static var openAI = UIImage(named: Texts.openAI) ?? UIImage()
         }
     }
-    
+
+    struct Generator {
+        struct Color {
+            static var openAIButton = UIColor(named: Texts.ggOpenAI) ?? .systemFill
+        }
+    }
+
     struct RuleCreator {
         struct Color {
             static var actionBackground = UIColor(named: Texts.ggYellow) ?? .systemBackground

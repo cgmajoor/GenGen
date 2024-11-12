@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F21881382CE3AD2100D1BE57 /* OpenAIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21881372CE3AD1D00D1BE57 /* OpenAIService.swift */; };
+		F218813C2CE3ADA700D1BE57 /* GenerateTextWithOpenAIUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F218813B2CE3ADA100D1BE57 /* GenerateTextWithOpenAIUseCase.swift */; };
+		F218813F2CE3B89000D1BE57 /* URLRequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F218813E2CE3B88800D1BE57 /* URLRequestBuilder.swift */; };
+		F21881402CE3B99000D1BE57 /* ConfigurationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F218813D2CE3B7FC00D1BE57 /* ConfigurationProvider.swift */; };
 		F21F8B5C2CDD8A1600BFA34C /* UUIDArrayTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21F8B5B2CDD8A0200BFA34C /* UUIDArrayTransformer.swift */; };
 		F225AA0A29E5E6FB00F7221E /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F225AA0929E5E6FB00F7221E /* OnboardingViewController.swift */; };
 		F225AA0C29E5EBA500F7221E /* GeneratorRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F225AA0B29E5EBA500F7221E /* GeneratorRouter.swift */; };
@@ -117,6 +121,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F21881372CE3AD1D00D1BE57 /* OpenAIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIService.swift; sourceTree = "<group>"; };
+		F218813B2CE3ADA100D1BE57 /* GenerateTextWithOpenAIUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateTextWithOpenAIUseCase.swift; sourceTree = "<group>"; };
+		F218813D2CE3B7FC00D1BE57 /* ConfigurationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationProvider.swift; sourceTree = "<group>"; };
+		F218813E2CE3B88800D1BE57 /* URLRequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestBuilder.swift; sourceTree = "<group>"; };
 		F21F8B5B2CDD8A0200BFA34C /* UUIDArrayTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UUIDArrayTransformer.swift; sourceTree = "<group>"; };
 		F225AA0929E5E6FB00F7221E /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		F225AA0B29E5EBA500F7221E /* GeneratorRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneratorRouter.swift; sourceTree = "<group>"; };
@@ -227,6 +235,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F21881392CE3AD5F00D1BE57 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				F27C5FF92CDA299300B13059 /* UseCases */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		F218813A2CE3AD9D00D1BE57 /* OpenAI */ = {
+			isa = PBXGroup;
+			children = (
+				F218813B2CE3ADA100D1BE57 /* GenerateTextWithOpenAIUseCase.swift */,
+			);
+			path = OpenAI;
+			sourceTree = "<group>";
+		};
 		F225AA0829E5E6BA00F7221E /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
@@ -259,12 +283,12 @@
 		F2404BBC29C0AB100050469E /* GenGen */ = {
 			isa = PBXGroup;
 			children = (
+				F21881392CE3AD5F00D1BE57 /* Domain */,
 				F27C5FF62CDA294B00B13059 /* Extensions */,
 				F2C184CE29E0B4DA009D13C1 /* GGData */,
 				F2A7E96029DC655300126688 /* DataModel.xcdatamodeld */,
 				F2A9B09E29D7A64D004C646B /* CustomViews */,
 				F2B4908529CF6C67002E5D8B /* App */,
-				F27C5FF92CDA299300B13059 /* UseCases */,
 				F2B4908929CF6DB3002E5D8B /* Modules */,
 				F2BBC91429D0A996005B1952 /* Utility */,
 				F2404BC629C0AB130050469E /* Assets.xcassets */,
@@ -277,6 +301,7 @@
 		F24265BB29C0DA0000B16F5F /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
+				F218813D2CE3B7FC00D1BE57 /* ConfigurationProvider.swift */,
 				F24265B929C0B5BF00B16F5F /* ConfigRelease.xcconfig */,
 				F24265B829C0B5AA00B16F5F /* ConfigDebug.xcconfig */,
 				F24265B729C0B57800B16F5F /* Config.xcconfig */,
@@ -328,6 +353,7 @@
 		F27C5FF92CDA299300B13059 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
+				F218813A2CE3AD9D00D1BE57 /* OpenAI */,
 				F2629E3F2CDE30DF001FB62C /* Rules */,
 				F2FEA4282CDD5C0900EA0633 /* Books */,
 				F2FEA4252CDD49B900EA0633 /* Words */,
@@ -435,9 +461,9 @@
 			isa = PBXGroup;
 			children = (
 				F25F1D6A2CE109F000CA9747 /* Loading */,
-				F2B799932CD990FB000B7717 /* Favorites */,
 				F2B4908A29CF6DB9002E5D8B /* Main */,
 				F225AA0829E5E6BA00F7221E /* Onboarding */,
+				F2B799932CD990FB000B7717 /* Favorites */,
 				F2BBC90C29D09CB1005B1952 /* Generator */,
 				F2BBC90F29D09D62005B1952 /* Library */,
 				F2A742AF29DACA02000334FD /* Book */,
@@ -529,6 +555,8 @@
 		F2C184CE29E0B4DA009D13C1 /* GGData */ = {
 			isa = PBXGroup;
 			children = (
+				F218813E2CE3B88800D1BE57 /* URLRequestBuilder.swift */,
+				F21881372CE3AD1D00D1BE57 /* OpenAIService.swift */,
 				F2629E3E2CDD9104001FB62C /* EntityExtensions */,
 				F2C184CF29E0B553009D13C1 /* CoreDataStack.swift */,
 				F2B607C329E4153D0080B715 /* BookService.swift */,
@@ -681,6 +709,7 @@
 				F21F8B5C2CDD8A1600BFA34C /* UUIDArrayTransformer.swift in Sources */,
 				F2BBC91629D0A9B1005B1952 /* BaseViewController.swift in Sources */,
 				F25F1D762CE15C7000CA9747 /* AddWordToBookUseCase.swift in Sources */,
+				F21881382CE3AD2100D1BE57 /* OpenAIService.swift in Sources */,
 				F2A7E96229DC655300126688 /* DataModel.xcdatamodeld in Sources */,
 				F25F1D672CE1023900CA9747 /* PrepopulateDatabaseUseCase.swift in Sources */,
 				F2A3015C29E55A4200F6E858 /* RuleCreatorTableViewCell.swift in Sources */,
@@ -696,6 +725,7 @@
 				F2C34AB529D995F4008E06FB /* LibraryViewModel.swift in Sources */,
 				F27C600E2CDAC36400B13059 /* Environment.swift in Sources */,
 				F2B607DB29E45A700080B715 /* RulesViewModel.swift in Sources */,
+				F21881402CE3B99000D1BE57 /* ConfigurationProvider.swift in Sources */,
 				F27C5FEF2CD998E300B13059 /* FavoritesViewModel.swift in Sources */,
 				F25F1D742CE1248000CA9747 /* DoesRuleExistUseCase.swift in Sources */,
 				F2FEA4362CDD6B1B00EA0633 /* String+sanitizedForDatabase.swift in Sources */,
@@ -722,6 +752,7 @@
 				F2A742B429DAD09F000334FD /* LibraryRouter.swift in Sources */,
 				F2629E392CDD9016001FB62C /* Word+extension.swift in Sources */,
 				F2A916C329D8D1970078A000 /* LibraryTableViewCell.swift in Sources */,
+				F218813C2CE3ADA700D1BE57 /* GenerateTextWithOpenAIUseCase.swift in Sources */,
 				F2A9B0A029D7A6FC004C646B /* GGButton.swift in Sources */,
 				F2B607E029E45A7C0080B715 /* RuleService.swift in Sources */,
 				F2629E412CDE30ED001FB62C /* GetBookIDsInRuleUseCase.swift in Sources */,
@@ -735,6 +766,7 @@
 				F2BBC91129D09D81005B1952 /* LibraryViewController.swift in Sources */,
 				F2B799952CD99128000B7717 /* FavoritesViewController.swift in Sources */,
 				F2404BBE29C0AB100050469E /* AppDelegate.swift in Sources */,
+				F218813F2CE3B89000D1BE57 /* URLRequestBuilder.swift in Sources */,
 				F225AA0A29E5E6FB00F7221E /* OnboardingViewController.swift in Sources */,
 				F225AA0C29E5EBA500F7221E /* GeneratorRouter.swift in Sources */,
 				F2629E452CDE3309001FB62C /* GetActiveRulesUseCase.swift in Sources */,
@@ -849,7 +881,7 @@
 		};
 		F2404BCD29C0AB130050469E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F24265B729C0B57800B16F5F /* Config.xcconfig */;
+			baseConfigurationReference = F24265B929C0B5BF00B16F5F /* ConfigRelease.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -904,7 +936,7 @@
 		};
 		F2404BCF29C0AB130050469E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F24265B729C0B57800B16F5F /* Config.xcconfig */;
+			baseConfigurationReference = F24265B829C0B5AA00B16F5F /* ConfigDebug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -933,7 +965,7 @@
 		};
 		F2404BD029C0AB130050469E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F24265B729C0B57800B16F5F /* Config.xcconfig */;
+			baseConfigurationReference = F24265B929C0B5BF00B16F5F /* ConfigRelease.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -962,7 +994,7 @@
 		};
 		F27C600A2CDABF1800B13059 /* Develop */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F24265B729C0B57800B16F5F /* Config.xcconfig */;
+			baseConfigurationReference = F24265B829C0B5AA00B16F5F /* ConfigDebug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1023,7 +1055,7 @@
 		};
 		F27C600B2CDABF1800B13059 /* Develop */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F24265B729C0B57800B16F5F /* Config.xcconfig */;
+			baseConfigurationReference = F24265B829C0B5AA00B16F5F /* ConfigDebug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1052,7 +1084,7 @@
 		};
 		F27C600C2CDABF1800B13059 /* Develop */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F24265B729C0B57800B16F5F /* Config.xcconfig */;
+			baseConfigurationReference = F24265B829C0B5AA00B16F5F /* ConfigDebug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -1071,7 +1103,7 @@
 		};
 		F2A9B09A29D79378004C646B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F24265B729C0B57800B16F5F /* Config.xcconfig */;
+			baseConfigurationReference = F24265B829C0B5AA00B16F5F /* ConfigDebug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -1090,7 +1122,7 @@
 		};
 		F2A9B09B29D79378004C646B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F24265B729C0B57800B16F5F /* Config.xcconfig */;
+			baseConfigurationReference = F24265B929C0B5BF00B16F5F /* ConfigRelease.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
