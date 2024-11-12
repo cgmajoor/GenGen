@@ -4,10 +4,11 @@
 //
 //  Created by Ceren Majoor on 12/11/2024.
 //
+
 import Foundation
 
 protocol OpenAIServiceProtocol {
-    func fetchResponse(prompt: String, completion: @escaping (Result<String, Error>) -> Void)
+    func fetchResponse(with body: [String: Any], completion: @escaping (Result<String, Error>) -> Void)
 }
 
 class OpenAIService: OpenAIServiceProtocol {
@@ -17,7 +18,7 @@ class OpenAIService: OpenAIServiceProtocol {
         self.configuration = configuration
     }
 
-    func fetchResponse(prompt: String, completion: @escaping (Result<String, Error>) -> Void) {
+    func fetchResponse(with body: [String: Any], completion: @escaping (Result<String, Error>) -> Void) {
         let url = configuration.openAIBaseURL
         let apiKey = configuration.openAIAPIKey
 
@@ -25,12 +26,7 @@ class OpenAIService: OpenAIServiceProtocol {
             .setMethod("POST")
             .addHeader(key: "Content-Type", value: "application/json")
             .addHeader(key: "Authorization", value: "Bearer \(apiKey)")
-            .setBody([
-                "model": "gpt-4o-mini",
-                "messages": [["role": "user", "content": "Give related text for '\(prompt)' in less than 20 tokens."]],
-                "max_tokens": 100,
-                "temperature": 0.5
-            ])
+            .setBody(body)
             .build()
 
         URLSession.shared.dataTask(with: request) { data, response, error in

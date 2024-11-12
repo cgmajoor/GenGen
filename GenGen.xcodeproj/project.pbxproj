@@ -8,9 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		F21881382CE3AD2100D1BE57 /* OpenAIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21881372CE3AD1D00D1BE57 /* OpenAIService.swift */; };
-		F218813C2CE3ADA700D1BE57 /* GenerateTextWithOpenAIUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F218813B2CE3ADA100D1BE57 /* GenerateTextWithOpenAIUseCase.swift */; };
+		F218813C2CE3ADA700D1BE57 /* GenerateRelatedTextUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F218813B2CE3ADA100D1BE57 /* GenerateRelatedTextUseCase.swift */; };
 		F218813F2CE3B89000D1BE57 /* URLRequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F218813E2CE3B88800D1BE57 /* URLRequestBuilder.swift */; };
 		F21881402CE3B99000D1BE57 /* ConfigurationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F218813D2CE3B7FC00D1BE57 /* ConfigurationProvider.swift */; };
+		F21881422CE3C08F00D1BE57 /* GenerateRhymeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21881412CE3C08700D1BE57 /* GenerateRhymeUseCase.swift */; };
+		F21881442CE3C83C00D1BE57 /* GenerateMnemonicUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21881432CE3C83900D1BE57 /* GenerateMnemonicUseCase.swift */; };
+		F21881462CE3EE9E00D1BE57 /* GPTCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21881452CE3EE9B00D1BE57 /* GPTCell.swift */; };
+		F21881482CE3EF1F00D1BE57 /* GPTType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21881472CE3EF1D00D1BE57 /* GPTType.swift */; };
+		F218814A2CE3FAD900D1BE57 /* GenerateJokeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21881492CE3FAD800D1BE57 /* GenerateJokeUseCase.swift */; };
 		F21F8B5C2CDD8A1600BFA34C /* UUIDArrayTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21F8B5B2CDD8A0200BFA34C /* UUIDArrayTransformer.swift */; };
 		F225AA0A29E5E6FB00F7221E /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F225AA0929E5E6FB00F7221E /* OnboardingViewController.swift */; };
 		F225AA0C29E5EBA500F7221E /* GeneratorRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F225AA0B29E5EBA500F7221E /* GeneratorRouter.swift */; };
@@ -122,9 +127,14 @@
 
 /* Begin PBXFileReference section */
 		F21881372CE3AD1D00D1BE57 /* OpenAIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIService.swift; sourceTree = "<group>"; };
-		F218813B2CE3ADA100D1BE57 /* GenerateTextWithOpenAIUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateTextWithOpenAIUseCase.swift; sourceTree = "<group>"; };
+		F218813B2CE3ADA100D1BE57 /* GenerateRelatedTextUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateRelatedTextUseCase.swift; sourceTree = "<group>"; };
 		F218813D2CE3B7FC00D1BE57 /* ConfigurationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationProvider.swift; sourceTree = "<group>"; };
 		F218813E2CE3B88800D1BE57 /* URLRequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestBuilder.swift; sourceTree = "<group>"; };
+		F21881412CE3C08700D1BE57 /* GenerateRhymeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateRhymeUseCase.swift; sourceTree = "<group>"; };
+		F21881432CE3C83900D1BE57 /* GenerateMnemonicUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateMnemonicUseCase.swift; sourceTree = "<group>"; };
+		F21881452CE3EE9B00D1BE57 /* GPTCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTCell.swift; sourceTree = "<group>"; };
+		F21881472CE3EF1D00D1BE57 /* GPTType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTType.swift; sourceTree = "<group>"; };
+		F21881492CE3FAD800D1BE57 /* GenerateJokeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateJokeUseCase.swift; sourceTree = "<group>"; };
 		F21F8B5B2CDD8A0200BFA34C /* UUIDArrayTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UUIDArrayTransformer.swift; sourceTree = "<group>"; };
 		F225AA0929E5E6FB00F7221E /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		F225AA0B29E5EBA500F7221E /* GeneratorRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneratorRouter.swift; sourceTree = "<group>"; };
@@ -246,7 +256,10 @@
 		F218813A2CE3AD9D00D1BE57 /* OpenAI */ = {
 			isa = PBXGroup;
 			children = (
-				F218813B2CE3ADA100D1BE57 /* GenerateTextWithOpenAIUseCase.swift */,
+				F218813B2CE3ADA100D1BE57 /* GenerateRelatedTextUseCase.swift */,
+				F21881412CE3C08700D1BE57 /* GenerateRhymeUseCase.swift */,
+				F21881492CE3FAD800D1BE57 /* GenerateJokeUseCase.swift */,
+				F21881432CE3C83900D1BE57 /* GenerateMnemonicUseCase.swift */,
 			);
 			path = OpenAI;
 			sourceTree = "<group>";
@@ -524,6 +537,8 @@
 		F2BBC90C29D09CB1005B1952 /* Generator */ = {
 			isa = PBXGroup;
 			children = (
+				F21881472CE3EF1D00D1BE57 /* GPTType.swift */,
+				F21881452CE3EE9B00D1BE57 /* GPTCell.swift */,
 				F2BBC90D29D09CD2005B1952 /* GenerateViewController.swift */,
 				F2A9B09C29D79F73004C646B /* GenerateViewModel.swift */,
 				F225AA0B29E5EBA500F7221E /* GeneratorRouter.swift */,
@@ -719,13 +734,16 @@
 				F2B607DD29E45A700080B715 /* RulesViewController.swift in Sources */,
 				F2B799972CD9952D000B7717 /* FavoriteService.swift in Sources */,
 				F2FEA4272CDD49C700EA0633 /* DeleteWordsUseCase.swift in Sources */,
+				F21881482CE3EF1F00D1BE57 /* GPTType.swift in Sources */,
 				F2B607DC29E45A700080B715 /* RulesRouter.swift in Sources */,
 				F2A916C729D8D9D20078A000 /* UIViewExtensions.swift in Sources */,
 				F2FEA42A2CDD5C2800EA0633 /* GetAllBooksUseCase.swift in Sources */,
+				F21881442CE3C83C00D1BE57 /* GenerateMnemonicUseCase.swift in Sources */,
 				F2C34AB529D995F4008E06FB /* LibraryViewModel.swift in Sources */,
 				F27C600E2CDAC36400B13059 /* Environment.swift in Sources */,
 				F2B607DB29E45A700080B715 /* RulesViewModel.swift in Sources */,
 				F21881402CE3B99000D1BE57 /* ConfigurationProvider.swift in Sources */,
+				F21881422CE3C08F00D1BE57 /* GenerateRhymeUseCase.swift in Sources */,
 				F27C5FEF2CD998E300B13059 /* FavoritesViewModel.swift in Sources */,
 				F25F1D742CE1248000CA9747 /* DoesRuleExistUseCase.swift in Sources */,
 				F2FEA4362CDD6B1B00EA0633 /* String+sanitizedForDatabase.swift in Sources */,
@@ -741,6 +759,7 @@
 				F2425FEE29DC79860039D026 /* BookTableViewCell.swift in Sources */,
 				F2B607E829E462E70080B715 /* RuleCreatorViewController.swift in Sources */,
 				F25F1D6E2CE10AA300CA9747 /* AppRouter.swift in Sources */,
+				F21881462CE3EE9E00D1BE57 /* GPTCell.swift in Sources */,
 				F2B607C429E4153D0080B715 /* BookService.swift in Sources */,
 				F25F1D722CE1159500CA9747 /* CanGenerateSomethingUseCase.swift in Sources */,
 				F2629E3B2CDD902D001FB62C /* Rule+extension.swift in Sources */,
@@ -750,9 +769,10 @@
 				F27C5FF82CDA295700B13059 /* Notification+Name.swift in Sources */,
 				F2F0DF1F29D88588009AE9DE /* GGLabel.swift in Sources */,
 				F2A742B429DAD09F000334FD /* LibraryRouter.swift in Sources */,
+				F218814A2CE3FAD900D1BE57 /* GenerateJokeUseCase.swift in Sources */,
 				F2629E392CDD9016001FB62C /* Word+extension.swift in Sources */,
 				F2A916C329D8D1970078A000 /* LibraryTableViewCell.swift in Sources */,
-				F218813C2CE3ADA700D1BE57 /* GenerateTextWithOpenAIUseCase.swift in Sources */,
+				F218813C2CE3ADA700D1BE57 /* GenerateRelatedTextUseCase.swift in Sources */,
 				F2A9B0A029D7A6FC004C646B /* GGButton.swift in Sources */,
 				F2B607E029E45A7C0080B715 /* RuleService.swift in Sources */,
 				F2629E412CDE30ED001FB62C /* GetBookIDsInRuleUseCase.swift in Sources */,

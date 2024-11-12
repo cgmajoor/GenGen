@@ -32,6 +32,9 @@ struct Texts {
     static let ggFixedLightGray = "ggFixedLightGray"
     static let ggOverlay = "ggOverlay"
     static let ggOpenAI = "ggOpenAI"
+    static let ggRed = "ggRed"
+    static let ggBlue = "ggBlue"
+    static let ggPaleGreen = "ggPaleGreen"
 
     // MARK: - Image Asset Names
     static let logo = "logo"
@@ -96,6 +99,13 @@ struct Texts {
         Sent from GenGen Custom Text Generator
         https://itunes.apple.com/us/app/gengen-custom-text-generator/id431167784?mt=8
         """
+
+    // MARK: - GPT Types
+    static let gptDefaultGenerateTitle = "Generate"
+    static let gptAI2CentsTitle = "AI 2 cents"
+    static let gptRhymeTitle = "Rhyme"
+    static let gptJokeTitle = "Joke"
+    static let gptMnemonicTitle = "Mnemonic"
 
     // MARK: - Data
     struct PrepopulationData {

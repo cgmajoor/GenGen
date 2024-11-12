@@ -37,7 +37,7 @@ class GenerateViewModel: Generating {
         getBookIDsInRuleUseCase: GetBookIDsInRuleUseCaseProtocol = GetBookIDsInRuleUseCase(),
         getWordsInBookUseCase: GetWordsInBookUseCaseProtocol = GetWordsInBookUseCase(),
         addFavoriteUseCase: AddFavoriteIfNotExistsUseCaseProtocol = AddFavoriteIfNotExistsUseCase(),
-        generateTextWithOpenAIUseCase: GenerateTextWithOpenAIUseCaseProtocol = GenerateTextWithOpenAIUseCase()
+        generateTextWithOpenAIUseCase: GenerateTextWithOpenAIUseCaseProtocol = GenerateRelatedTextUseCase()
     ) {
         self.getActiveRulesUseCase = getActiveRulesUseCase
         self.getBookIDsInRuleUseCase = getBookIDsInRuleUseCase

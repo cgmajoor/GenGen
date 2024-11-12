@@ -61,6 +61,15 @@ struct AppTheme {
     struct Generator {
         struct Color {
             static var openAIButton = UIColor(named: Texts.ggOpenAI) ?? .systemFill
+
+            static var generateDefaultBackgroundColor = UIColor(named: Texts.ggMint) ?? .systemBackground
+            static var ai2CentsBackgroundColor = UIColor(named: Texts.ggOpenAI) ?? .systemBackground
+            static var gptRhymeBackgroundColor = UIColor(named: Texts.ggPink) ?? .systemBackground
+            static var gptJokeBackgroundColor = UIColor(named: Texts.ggYellow) ?? .systemBackground
+            static var gptMnemonicBackgroundColor = UIColor(named: Texts.ggLila) ?? .systemBackground
+        }
+        struct Size {
+            static var gptCellHeight: CGFloat = 100.0
         }
     }
 
