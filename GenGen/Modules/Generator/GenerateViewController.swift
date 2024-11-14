@@ -12,14 +12,12 @@ class GenerateViewController: BaseViewController {
     // MARK: - Properties
     var viewModel: Generating
     private var router: GeneratorRouting
-    private let gptTypes: [GPTType] = [.defaultGenerate, .ai2Cents, .rhyme, .joke, .mnemonic]
-    private let useCases: [GenerateTextWithOpenAIUseCaseProtocol]
-    private var isFirstCellEnabled = false
 
     // MARK: - UI
     private lazy var gengenLogo = UIImageView(image: AppTheme.Navigation.Image.logo)
     private lazy var generationLabel = GGLabel(
         backgroundColor: AppTheme.Main.Color.labelBackground,
+        textColor: AppTheme.Main.Color.labelTitle,
         fullText: ""
     )
 
@@ -34,10 +32,24 @@ class GenerateViewController: BaseViewController {
         return barButtonItem
     }()
 
+    private lazy var generateButton: UIButton = {
+        let button = UIButton(type: .custom)
+        let buttonColor = AppTheme.Generator.Color.generateButton
+        button.setImage(AppTheme.TabBar.Image.generator.withRenderingMode(.alwaysTemplate), for: .normal)
+        button.tintColor = buttonColor
+        button.backgroundColor = .clear
+        button.addTarget(self, action: #selector(generateTapped), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+
     private lazy var gptCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.itemSize = CGSize(width: 100, height: 100)
+        layout.itemSize = CGSize(
+            width: AppTheme.Generator.Size.gptCellWidth,
+            height: AppTheme.Generator.Size.gptCellHeight
+        )
 
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -59,12 +71,7 @@ class GenerateViewController: BaseViewController {
     init(viewModel: Generating = GenerateViewModel(), router: GeneratorRouting = GeneratorRouter()) {
         self.viewModel = viewModel
         self.router = router
-        self.useCases = [
-            GenerateRelatedTextUseCase(),
-            GenerateRhymeUseCase(),
-            GenerateJokeUseCase(),
-            GenerateMnemonicUseCase()
-        ]
+
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -88,6 +95,7 @@ class GenerateViewController: BaseViewController {
     // MARK: - Setup
     private func setup() {
         view.addSubview(generationLabel)
+        view.addSubview(generateButton)
         view.addSubview(gptCollectionView)
         view.addSubview(addToFavoritesButton)
 
@@ -103,7 +111,12 @@ class GenerateViewController: BaseViewController {
             addToFavoritesButton.widthAnchor.constraint(equalToConstant: 44),
             addToFavoritesButton.heightAnchor.constraint(equalToConstant: 44),
 
-            gptCollectionView.heightAnchor.constraint(equalToConstant: AppTheme.Main.Size.buttonHeight),
+            generateButton.bottomAnchor.constraint(equalTo: generationLabel.bottomAnchor, constant: -AppTheme.Padding.vertical),
+            generateButton.trailingAnchor.constraint(equalTo: generationLabel.trailingAnchor, constant: -AppTheme.Padding.horizontal),
+            generateButton.widthAnchor.constraint(equalToConstant: 60),
+            generateButton.heightAnchor.constraint(equalToConstant: 60),
+
+            gptCollectionView.heightAnchor.constraint(equalToConstant: AppTheme.Generator.Size.gptCellHeight),
             gptCollectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: AppTheme.Padding.horizontal),
             gptCollectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -AppTheme.Padding.horizontal),
             gptCollectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -AppTheme.Padding.vertical)
@@ -118,14 +131,16 @@ class GenerateViewController: BaseViewController {
 
     // MARK: - Internal Methods
     private func loadActiveRules() {
+        self.generateButton.isEnabled = false
+
         viewModel.getActiveRules { [weak self] result in
             guard let self = self else { return }
 
             switch result {
             case .success(let activeRules):
-                self.isFirstCellEnabled = !activeRules.isEmpty
+                self.generateButton.isEnabled = !activeRules.isEmpty
             case .failure:
-                self.isFirstCellEnabled = false
+                self.generateButton.isEnabled = false
             }
             self.gptCollectionView.reloadData()
         }
@@ -144,61 +159,68 @@ class GenerateViewController: BaseViewController {
         }
     }
 
+    @objc private func generateTapped() {
+        let loadingIndicator = UIActivityIndicatorView(style: .medium)
+        loadingIndicator.center = generateButton.center
+        view.addSubview(loadingIndicator)
+        loadingIndicator.startAnimating()
+        viewModel.generate { [weak self] result in
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+                loadingIndicator.stopAnimating()
+                loadingIndicator.removeFromSuperview()
+                switch result {
+                case .success(let success):
+                    self.generationLabel.text = success
+                case .failure(let failure):
+                    print("Error generating: \(failure)")
+                    LoadingOverlay.shared.hide()
+                }
+            }
+        }
+    }
+
     // MARK: - Actions
     @objc private func helpTapped() {
         router.didSelectHelp(in: self)
     }
 }
+
+// MARK: - Collection View Data Source and Delegate
 extension GenerateViewController: UICollectionViewDataSource, UICollectionViewDelegate {
-    // MARK: - Collection View Data Source and Delegate
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return gptTypes.count
+        return viewModel.gptTypes.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GPTCell", for: indexPath) as? GPTCell else {
             return UICollectionViewCell()
         }
-        let gptType = gptTypes[indexPath.item]
+        let gptType = viewModel.gptTypes[indexPath.item]
+
         cell.configure(with: gptType)
         return cell
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if indexPath.item == 0 {
-            guard isFirstCellEnabled else {
-                print("First cell is disabled.")
-                return
-            }
-            print("First cell is enabled.")
+        LoadingOverlay.shared.show(over: self)
+        gptCollectionView.isUserInteractionEnabled = false
 
-            viewModel.generate { [weak self] result in
-                DispatchQueue.main.async {
-                    switch result {
-                    case .success(let response):
-                        self?.generationLabel.text = response
-                    case .failure(let error):
-                        print("Error generating: \(error)")
-                    }
-                }
-            }
-        } else {
-            guard let prompt = generationLabel.text, !prompt.isEmpty else {
-                print("Prompt is empty.")
-                return
-            }
+        viewModel.generateTextWithOpenAI(for: generationLabel.text, item: indexPath.item) { [weak self] result in
+            guard let self = self else { return }
+            
+            DispatchQueue.main.async {
+                LoadingOverlay.shared.hide()
+                self.gptCollectionView.isUserInteractionEnabled = true
 
-            let selectedUseCase = useCases[indexPath.item - 1]
-            selectedUseCase.execute(for: prompt) { [weak self] result in
-                DispatchQueue.main.async {
-                    switch result {
-                    case .success(let response):
-                        self?.generationLabel.text = response
-                    case .failure(let error):
-                        print("Error: \(error)")
-                    }
+                switch result {
+                case .success(let response):
+                    self.generationLabel.text = response
+                case .failure(let error):
+                    print("Error: \(error)")
                 }
             }
         }
     }
+
 }

@@ -17,7 +17,7 @@ class GenerateJokeUseCase: GenerateTextWithOpenAIUseCaseProtocol {
     func execute(for prompt: String, completion: @escaping (Result<String, Error>) -> Void) {
         let body: [String: Any] = [
             "model": "gpt-4o-mini",
-            "messages": [["role": "user", "content": "Create a joke using pun '\(prompt)' using less than 100 tokens."]],
+            "messages": [["role": "user", "content": "Create a joke using pun '\(prompt)' "]],
             "max_tokens": 100,
             "temperature": 0.9
         ]

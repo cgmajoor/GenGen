@@ -15,7 +15,7 @@ class GenerateMnemonicUseCase: GenerateTextWithOpenAIUseCaseProtocol {
     func execute(for prompt: String, completion: @escaping (Result<String, Error>) -> Void) {
         let body: [String: Any] = [
             "model": "gpt-4o-mini",
-            "messages": [["role": "user", "content": "Create a mnemonic so that I can remember this text: '\(prompt)' in less than 100 tokens."]],
+            "messages": [["role": "user", "content": "Create a mnemonic so that I can remember this text: '\(prompt)' "]],
             "max_tokens": 100,
             "temperature": 0.9
         ]

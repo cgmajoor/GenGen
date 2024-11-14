@@ -16,7 +16,7 @@ class ConfigurationProvider: ConfigurationProviderProtocol {
     var openAIAPIKey: String {
         return Environment.apiKey
     }
-
+    
     var openAIBaseURL: URL {
         return URL(string: "https://api.openai.com/v1/chat/completions")!
     }
