@@ -13,7 +13,17 @@ struct AppTheme {
         static var horizontal: CGFloat = 20.0
         static var vertical: CGFloat = 10.0
     }
-    
+
+    struct Color {
+        static var ggOpenAI = UIColor(named: Texts.ggOpenAI) ?? .systemFill
+        static var ggPink = UIColor(named: Texts.ggPink) ?? .systemFill
+        static var ggMint = UIColor(named: Texts.ggMint) ?? .systemFill
+        static var ggYellow = UIColor(named: Texts.ggYellow) ?? .systemFill
+        static var ggLila = UIColor(named: Texts.ggLila) ?? .systemFill
+        static var ggGreen = UIColor(named: Texts.ggGreen) ?? .systemFill
+        static var ggBlue = UIColor(named: Texts.ggBlue) ?? .systemFill
+    }
+
     struct TabBar {
         struct Color {
             static var selectedItem = UIColor(named: Texts.ggDarkGray) ?? .systemBackground
@@ -27,17 +37,18 @@ struct AppTheme {
             static var favorites = UIImage(named: Texts.favorites) ?? UIImage()
         }
     }
-
+    
     struct Main {
         struct Color {
             static var background = UIColor(named: Texts.ggWhite) ?? .systemBackground
             static var loadingOverlay = UIColor(named: Texts.ggOverlay) ?? .tertiarySystemBackground
+            static var loadingOverlayTextColor = UIColor(named: Texts.ggOverlayTextColor) ?? .tertiarySystemBackground
 
             static var tableViewBackground = UIColor(named: Texts.ggLightGray) ?? .systemBackground
-
+            
             static var labelBackground = UIColor(named: Texts.ggLightGray) ?? .systemBackground
-            static var labelTitle = UIColor(named: Texts.ggBlack) ?? .systemFill
-
+            static var labelTitle = UIColor(named: Texts.ggDarkGray) ?? .systemFill
+            
             static var buttonBackground = UIColor(named: Texts.ggDarkGray) ?? .systemBackground
             static var buttonTitle = UIColor(named: Texts.ggWhite) ?? .systemFill
         }
@@ -54,6 +65,34 @@ struct AppTheme {
             static var pickUp = UIImage(named: Texts.pickUp) ?? UIImage()
             static var addFav = UIImage(named: Texts.addFav) ?? UIImage()
             static var downloadGenGen = UIImage(named: Texts.downloadGenGen) ?? UIImage()
+            static var openAI = UIImage(named: Texts.openAI) ?? UIImage()
+        }
+    }
+
+    struct Generator {
+        struct Color {
+            static var generateButton = UIColor(named: Texts.ggOpenAI) ?? .systemFill
+
+            static var aiBot2CentsBackgroundColor = UIColor(named: Texts.ggOpenAI) ?? .systemBackground
+            static var aiBotRhymeBackgroundColor = UIColor(named: Texts.ggPink) ?? .systemBackground
+            static var aiBotJokeBackgroundColor = UIColor(named: Texts.ggYellow) ?? .systemBackground
+            static var aiBotMnemonicBackgroundColor = UIColor(named: Texts.ggLila) ?? .systemBackground
+            static var aiBotEcoBackgroundColor = UIColor(named: Texts.ggGreen) ?? .systemBackground
+            static var aiBotCalmBackgroundColor = UIColor(named: Texts.ggBlue) ?? .systemBackground
+            static var aiBotCareerAdvisorBackgroundColor = UIColor(named: Texts.ggMint) ?? .systemBackground
+        }
+        struct Size {
+            static var gptCellHeight: CGFloat = 100.0
+            static var gptCellWidth: CGFloat = 120.0
+        }
+        struct Image {
+            static var aiBot2Cents = UIImage(named: Texts.aiBot2Cents) ?? UIImage()
+            static var aiBotRhyme = UIImage(named: Texts.aiBotRhyme) ?? UIImage()
+            static var aiBotJoke = UIImage(named: Texts.aiBotJoke) ?? UIImage()
+            static var aiBotMnemonic = UIImage(named: Texts.aiBotMnemonic) ?? UIImage()
+            static var aiBotEco = UIImage(named: Texts.aiBotEco) ?? UIImage()
+            static var aiBotCalming = UIImage(named: Texts.aiBotCalming) ?? UIImage()
+            static var aiBotCareerAdvisor = UIImage(named: Texts.aiBotCareerAdvisor) ?? UIImage()
         }
     }
 
@@ -64,7 +103,7 @@ struct AppTheme {
             static var ruleBackground = UIColor(named: Texts.ggLightYellow) ?? .systemBackground
         }
     }
-
+    
     struct Onboarding {
         struct Image {
             static var onboarding1 = UIImage(named: Texts.onboarding1) ?? UIImage()
@@ -86,7 +125,7 @@ struct AppTheme {
             UIColor(named: Texts.ggOrange) ?? .systemFill,
         ]
     }
-
+    
     struct Navigation {
         struct Image {
             static var logo = UIImage(named: Texts.logo) ?? UIImage()

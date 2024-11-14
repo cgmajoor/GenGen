@@ -15,6 +15,7 @@ struct Texts {
     static let favoritesTableViewCell = String(describing: FavoritesTableViewCell.self)
     static let ruleCreatorTableViewCell = String(describing: RuleCreatorTableViewCell.self)
     static let onboardingCollectionViewCell = String(describing: OnboardingCollectionViewCell.self)
+    static let gptCell = String(describing: GPTCell.self)
 
     // MARK: - Color Asset Names
     static let ggWhite = "ggWhite"
@@ -31,6 +32,11 @@ struct Texts {
     static let ggOrange = "ggOrange"
     static let ggFixedLightGray = "ggFixedLightGray"
     static let ggOverlay = "ggOverlay"
+    static let ggOverlayTextColor = "ggOverlayTextColor"
+    static let ggOpenAI = "ggOpenAI"
+    static let ggRed = "ggRed"
+    static let ggBlue = "ggBlue"
+    static let ggPaleGreen = "ggPaleGreen"
 
     // MARK: - Image Asset Names
     static let logo = "logo"
@@ -45,6 +51,14 @@ struct Texts {
     static let addFav = "addFav"
     static let close = "close"
     static let downloadGenGen = "downloadgengenonitunes"
+    static let openAI = "openAI"
+    static let aiBot2Cents = "aiBot2Cents"
+    static let aiBotRhyme = "aiBotRhyme"
+    static let aiBotJoke = "aiBotJoke"
+    static let aiBotMnemonic = "aiBotMnemonic"
+    static let aiBotEco = "aiBotEco"
+    static let aiBotCalming = "aiBotCalming"
+    static let aiBotCareerAdvisor = "aiBotCareerAdvisor"
 
     // MARK: - Onboarding Image Asset Names
     static let onboarding1 = "onboarding1"
@@ -94,6 +108,15 @@ struct Texts {
         Sent from GenGen Custom Text Generator
         https://itunes.apple.com/us/app/gengen-custom-text-generator/id431167784?mt=8
         """
+
+    // MARK: - GPT Types
+    static let aiBot2CentsTitle = "AI 2 cents"
+    static let aiBotRhymeTitle = "Rhyme"
+    static let aiBotJokeTitle = "Joke"
+    static let aiBotMnemonicTitle = "Mnemonic"
+    static let aiBotEcoTitle = "Eco"
+    static let aiBotCalmTitle = "Calm"
+    static let aiBotCareerAdvisorTitle = "Career"
 
     // MARK: - Data
     struct PrepopulationData {

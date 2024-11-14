@@ -11,9 +11,11 @@ import CoreData
 // MARK: - Protocol
 protocol Generating {
     var generatedStr: String { get }
+    var gptTypes: [GPTType] { get }
     func getActiveRules(_ completion: @escaping (Result<[Rule], Error>) -> Void)
     func generate(_ completion: @escaping (Result<String, Error>) -> Void)
     func addFavorite(_ text: String, completion: @escaping (Result<Void, Error>) -> Void)
+    func generateTextWithOpenAI(for prompt: String?, item: Int, completion: @escaping (Result<String, Error>) -> Void)
 }
 
 // MARK: - Generator
@@ -22,23 +24,30 @@ class GenerateViewModel: Generating {
     // MARK: - Properties
     var generatedStr: String = ""
     var activeRules: [Rule] = []
+    let gptTypes: [GPTType] = [.ai2Cents, .rhyme, .joke, .mnemonic, .eco, .calm, .careerAdvisor]
 
     private let getActiveRulesUseCase: GetActiveRulesUseCaseProtocol
+    private let generateWithRulesUseCase: GenerateWithRulesUseCaseProtocol
     private let getBookIDsInRuleUseCase: GetBookIDsInRuleUseCaseProtocol
     private let getWordsInBookUseCase: GetWordsInBookUseCaseProtocol
     private let addFavoriteUseCase: AddFavoriteIfNotExistsUseCaseProtocol
+    private let generateTextWithOpenAIUseCase: GenerateTextWithOpenAIUseCaseProtocol
 
     // MARK: - Initialization
     init(
         getActiveRulesUseCase: GetActiveRulesUseCaseProtocol = GetActiveRulesUseCase(),
+        generateWithRulesUseCase: GenerateWithRulesUseCaseProtocol = GenerateWithRulesUseCase(),
         getBookIDsInRuleUseCase: GetBookIDsInRuleUseCaseProtocol = GetBookIDsInRuleUseCase(),
         getWordsInBookUseCase: GetWordsInBookUseCaseProtocol = GetWordsInBookUseCase(),
-        addFavoriteUseCase: AddFavoriteIfNotExistsUseCaseProtocol = AddFavoriteIfNotExistsUseCase()
+        addFavoriteUseCase: AddFavoriteIfNotExistsUseCaseProtocol = AddFavoriteIfNotExistsUseCase(),
+        generateTextWithOpenAIUseCase: GenerateTextWithOpenAIUseCaseProtocol = GenerateAI2CentsUseCase()
     ) {
         self.getActiveRulesUseCase = getActiveRulesUseCase
+        self.generateWithRulesUseCase = generateWithRulesUseCase
         self.getBookIDsInRuleUseCase = getBookIDsInRuleUseCase
         self.getWordsInBookUseCase = getWordsInBookUseCase
         self.addFavoriteUseCase = addFavoriteUseCase
+        self.generateTextWithOpenAIUseCase = generateTextWithOpenAIUseCase
     }
 
     // MARK: - Methods
@@ -56,39 +65,33 @@ class GenerateViewModel: Generating {
     }
 
     func generate(_ completion: @escaping (Result<String, Error>) -> Void) {
-        guard let randomRule = activeRules.randomElement() else {
-            completion(.success(""))
-            return
-        }
-
-        getBookIDsInRuleUseCase.execute(rule: randomRule) { [weak self] result in
+        generateWithRulesUseCase.execute(activeRules: activeRules) { [weak self] result in
             guard let self = self else { return }
             switch result {
-            case .success(let bookIDs):
-                var generatedWords: [String] = []
-                let dispatchGroup = DispatchGroup()
-
-                for bookID in bookIDs {
-                    dispatchGroup.enter()
-                    self.getWordsInBookUseCase.execute(bookID: bookID) { wordResult in
-                        switch wordResult {
-                        case .success(let words):
-                            if let randomWord = words.randomElement() {
-                                generatedWords.append(randomWord)
-                            }
-                        case .failure(let error):
-                            print("Failed to get words for bookID \(bookID): \(error)")
-                        }
-                        dispatchGroup.leave()
-                    }
-                }
-
-                dispatchGroup.notify(queue: .main) {
-                    self.generatedStr = generatedWords.joined(separator: " ")
-                    completion(.success(self.generatedStr))
-                }
-
+            case .success(let generatedText):
+                self.generatedStr = generatedText
+                completion(.success(generatedText))
             case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+
+    func generateTextWithOpenAI(for prompt: String?, item: Int, completion: @escaping (Result<String, Error>) -> Void) {
+        let selectedGPTType = self.gptTypes[item]
+
+        var selectedUseCase: GenerateTextWithOpenAIUseCaseProtocol = selectedGPTType.useCase
+        selectedUseCase = TokenLimiterDecorator(wrapping: selectedUseCase, tokenLimit: selectedGPTType.tokenLimit)
+        selectedUseCase = ChildSafetyDecorator(wrapped: selectedUseCase)
+        selectedUseCase = PrefaceRemoverDecorator(wrapped: selectedUseCase)
+
+        selectedUseCase.executeWithFallback(for: prompt) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let generatedText):
+                completion(.success(generatedText))
+            case .failure(let error):
+                print("Error: \(error)")
                 completion(.failure(error))
             }
         }
